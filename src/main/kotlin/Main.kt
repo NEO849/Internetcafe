@@ -1,5 +1,4 @@
-fun main() {
 
-    spielAuswahl()
+fun main(){
 
 }

@@ -12,7 +12,8 @@ fun spielAuswahl(): Unit {
 
     return when (spielAuswahl) {
         1 -> {
-            println("Gute Wahl RPG, noch in arbeit Intro")
+            println("RPG-Spiel wird geladen...")
+            Utils.countdown2(3)
         }
 
         2 -> {
@@ -20,7 +21,7 @@ fun spielAuswahl(): Unit {
         }
 
         3 -> {
-            println("Hier evtl mein Casino")
+            println("Hier Casino")
         }
 
         4 -> {
