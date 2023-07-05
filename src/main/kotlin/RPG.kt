@@ -1,8 +1,9 @@
 
-// 1. erbt von der abstract Utils Basisklasse, ich überschreibe die abstrakten funktionen individuell aufs RPG Spiel abgestimmt,
+// erbt von der abstract Utils Basisklasse, ich überschreibe die abstrakten funktionen individuell aufs RPG Spiel abgestimmt,
 // bevor ich sie in der funktion spielMenu aufrufe
 class RPG :Utils() {
 
+    //
     override fun menuImSpiel () {
         var index = 0
         do {
@@ -20,7 +21,7 @@ class RPG :Utils() {
                 4 -> spielBeenden()
                 else -> {
                     println("Ungültige Eingabe, bitte eine Zahl zwischen 1 und 4 eingeben!")
-                    //countdown(3)
+                    countdown(3)
                     continue
                 }
             }
@@ -40,6 +41,7 @@ class RPG :Utils() {
         countdown(3)}
 
     override fun spielBeenden(){
-        println("Spiel wird in kürze gestartet...")
+        println("Spiel Beenden!")
         countdown(3)}
+
 }

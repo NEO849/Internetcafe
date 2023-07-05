@@ -2,10 +2,10 @@
 
 fun main() {
 
-//    Utils.countdown(10) // aufruf und countdown mit 10 sekunden testen, wenn funktion in klasse "companion object"
-    countdown(3)   // global
+//    Utils.countdown(3) // aufruf und countdown mit 3 sekunden testen, wenn funktion in klasse "companion object"
 
-    startAuswahl()              // test Spielauswahl
+    val startAuswahl = StartAuswahl()
+    startAuswahl.startAuswahl()            // test Spielauswahl
 
 //    val utils = Utils()
 //    utils.spielBeenden()
