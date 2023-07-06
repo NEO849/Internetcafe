@@ -2,9 +2,8 @@
 
 fun main(){
 
-    // 1. Instanziierung von der Klasse StartAuswahl und Aufruf der gleichnamigen Funktion
-    val startAuswahl = StartAuswahl()
-    startAuswahl.startAuswahl()
-
+    // 1. erstelle Instnz von RPG Klasse und rufe fun auf
+    val rpgMenu = RPG()
+    rpgMenu.auswahlSpiele()
 
 }
