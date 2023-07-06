@@ -1,12 +1,12 @@
-// ich definiere die Klasse "abstract" dadurch kann sie nicht direkt instanziiert werden, aber ich kann die funktionen
-// erben lassen und sie in den abgeleiteten Klassen überschreiben und eine eigene Logik implementieren.
-// Der code wird leichter zu Warten und Änderungen an der gemeinsamen Basis auf alle abgeleiteten Spiele übertragen wird, companion Object bleibt bestehen
+// hier 3 Methodenaufrufe, ich denke es ist ein "smarter Move"...
+
+// mit dem Key abstract können methoden nicht direkt Instanziiert werden, sondern zuerst überschrieben werden,
+// der code wird leichter zu Warten und Änderungen an der gemeinsamen Basis werden auf alle abgeleiteten Spiele übertragen,
+// normaler Methodenaufruf ist weiterhin möglich, wenn man abstract entfernt,
+// companion Object bleibt auch bestehen und ermöglicht den Aufruf ohne Instanz, sondern direkt über den Namen
 abstract class Utils {
 
     // muss von einer Unterklasse individuell überschrieben werden, macht den Code lesbarer
-    abstract fun menuImSpiel()
-
-    //
     abstract fun spielSpeichern()
 
     //
@@ -17,6 +17,31 @@ abstract class Utils {
 
     //
     abstract fun spielStarten()
+
+    // kann von den Unterklassen direkt ohne das eine Instanz erstellt wird aufgerufen werden
+    fun menuImSpiel () {
+        var index = 0
+        do {
+            println("Menu")
+            println("1. Spiel Starten")
+            println("2. Spiel Speichern")
+            println("3. Spiel Fortsetzen")
+            println("4. Spiel Beenden")
+            index = readln().toIntOrNull() ?:0
+
+            when (index) {
+                1 -> spielStarten()
+                2 -> spielSpeichern()
+                3 -> spielFortsetzen()
+                4 -> spielBeenden()
+                else -> {
+                    println("Ungültige Eingabe, bitte eine Zahl zwischen 1 und 4 eingeben!")
+                    countdown(3)
+                    continue
+                }
+            }
+        } while (index != 4)
+    }
 
     // damit kann ich NUR die eine funktion direkt ohne Instanziierung mit punkt Notation aufrufen
     companion object {

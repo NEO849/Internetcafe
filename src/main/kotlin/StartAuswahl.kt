@@ -15,7 +15,7 @@ class StartAuswahl {
 
         return when (startAuswahl) {
             1 -> {
-                // instanziierung von der Klasse RPG und Aufruf mit punkt-Notation nach print-Statement und countdown
+                // Instanziierung von der Klasse RPG und Aufruf vom "menuImSpiel" mit punkt-Notation nach print-Statement und countdown
                 val rpgMenu = RPG()
                 println("RPG-Spiel wird in kürze geladen...")
                 Utils.countdown(3)
