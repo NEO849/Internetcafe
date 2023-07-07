@@ -3,7 +3,7 @@
 open class Charakter(val name: String, var lP: Int) {
 
     // am Anfang ist Charakter natürlich am Leben, deshalb false, so kann ich im Spiel überprüfen, ob Charakter noch am Leben ist und entsprechend handeln
-    var istBesiegt = false
+    private var istBesiegt = false
 
     // methode zum Erleiden von Schaden
     open fun schadenErleiden(schaden: Int) {

@@ -1,16 +1,17 @@
 
-// manche test machen im Nachhinein keinen Sinn, da ich die Klassen und Abhängigkeiten öfter geändert habe.
+// manche Test´s machen im Nachhinein keinen Sinn, da ich die Klassen und Abhängigkeiten öfter geändert habe...
 fun main() {
 
-    // 1. Start
-    val rpgMenu = RPG()
-    rpgMenu.auswahlSpiele()
+    // ich Instanziiere die Klasse Internetcafe und rufe die Funktion "eingang" auf, let´s go...
+    val internetcafe = Internetcafe()
+    internetcafe.eingang()
 
-    //    Utils.countdown(3) // aufruf und countdown mit 3 sekunden testen, wenn funktion in klasse "companion object"
-
+//    // 1.er Start
+//    val rpgMenu = RPG()
+//    rpgMenu.auswahlSpiele()
 //    val utils = Utils()
 //    utils.auswahlSpiele()
-
+//    Utils.countdown(3) // aufruf und countdown mit 3 sekunden testen, wenn funktion in klasse "companion object"
 //    val menu = BasisMenuAuswahl()
 //    menu.spielSpeichern()
 //    menu.spielBeenden()

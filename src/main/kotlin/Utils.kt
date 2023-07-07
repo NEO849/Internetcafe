@@ -9,18 +9,12 @@ abstract class Utils {
 
     // muss von einer Unterklasse individuell überschrieben werden, macht den Code lesbarer
     abstract fun spielSpeichern()
-
-    //
     abstract fun spielFortsetzen()
-
-    //
     abstract fun spielBeenden()
-
-    //
     abstract fun spielStarten()
 
     //
-    protected fun menuImSpiel () {
+    fun menuImSpiel () {
         var index = 0
         do {
             println("Menu")
@@ -44,57 +38,6 @@ abstract class Utils {
         } while (index != 4)
     }
 
-    fun auswahlSpiele() {
-        println("\nWähle ein Spiel. (Zahl eingeben und Bestätigen)")
-        println("1. RPG")
-        println("2. Hangman")
-        println("3. Casino")
-        println("4. Restaurant")
-        println("5. Exit")
-
-        // versuche die Eingabe in eine Ganzzahl umzuwandeln, wenn dies klappt, wird die Zahl der variable tierart zugewiesen, ansonsten wird sie null und durch 0 ersetzt
-        val auswahlSpiele = readln().toIntOrNull() ?: 0
-
-        when (auswahlSpiele) {
-            1 -> {
-                // Instanziierung von der Klasse RPG und Aufruf vom "menuImSpiel" mit punkt-Notation nach print-Statement und countdown
-                val rpgMenu = RPG()
-                println("RPG-Spiel wird in kürze geladen...\n")
-                rpgMenu.menuImSpiel()
-            }
-
-            2 -> {
-                println("Coming Soon... \"Hangman\"\n")
-                //countdown(3)
-                auswahlSpiele()
-            }
-
-            3 -> {
-                println("Coming Soon... \"Casino\"\n")
-                //countdown(3)
-                auswahlSpiele()
-            }
-
-            4 -> {
-                println("Coming Soon... \"Restaurant\"\n")
-                //countdown(3)
-                auswahlSpiele()
-            }
-
-            5 -> {
-                println("Auf Wiedersehen\n")
-                //countdown(3)
-                auswahlSpiele()                      // evtl. wenn ich Zeit hab, zurück zum Eingang vom "Internet-Cafe"
-            }
-
-            else -> {
-                println("Ungültige Eingabe! Bitte wähle eine Zahl zwischen 1 und 4.\n")
-                //countdown(3)
-                auswahlSpiele()
-            }
-        }
-    }
-
     // damit kann ich NUR die eine funktion direkt ohne Instanziierung mit punkt Notation aufrufen
     companion object {
         fun countdown(sekunden: Int) {
@@ -104,15 +47,29 @@ abstract class Utils {
                 Thread.sleep(500)
                 print("\r$x")               // wieder Cursor und aktuelle zahl anzeigen
                 Thread.sleep(1000)
-                x = x - 1
+                x -= 1                     // das gleiche wie "x = x -1"
             }
-            print("\r ")                   // somit ersezte ich die letzte 1 auch mit einem leerzeichen
+            print("\r ")                   // somit ersetze ich die letzte 1 auch mit einem leerzeichen
             println()                      // neue Zeile nach Countdown
+        }
+
+        fun countdownPrint(sekunden: Int) :Int { // hier mit Rückgabewert, dadurch individuellere Print Statement Ausgaben
+            var x = sekunden
+            while (x > 0) {
+                print("\r  ")                // mit "\r" setze ich den Cursor zur Anfangsposition der Zeile zurück, ohne Zeilenumbruch. mit ("  ") ersetze ich die zahl mit leerzeichen
+                Thread.sleep(500)
+                print("\r$x")               // wieder Cursor und aktuelle zahl anzeigen
+                Thread.sleep(1000)
+                x -= 1
+            }
+            print("\r ")                   // somit ersetze ich die letzte 1 auch mit einem leerzeichen
+            println()                      // neue Zeile nach Countdown
+            return sekunden
         }
 
         fun clear(zeilen:Int){
             repeat(zeilen) {
-            print("\r" + " ".repeat(80))  // 80 Leerzeichen für eine typische Konsolenbreite
+            print("\r" + " ".repeat(80))  // 80 Leerzeichen für gewünschte Konsolen breite
                 Thread.sleep(500)
             }
         println()  // Neue Zeile am Ende, um den Cursor in die nächste Zeile zu setzen
