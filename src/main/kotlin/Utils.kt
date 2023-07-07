@@ -60,7 +60,6 @@ abstract class Utils {
                 // Instanziierung von der Klasse RPG und Aufruf vom "menuImSpiel" mit punkt-Notation nach print-Statement und countdown
                 val rpgMenu = RPG()
                 println("RPG-Spiel wird in kürze geladen...")
-                //countdown(3)
                 rpgMenu.menuImSpiel()
             }
 
@@ -109,6 +108,14 @@ abstract class Utils {
             }
             print("\r ")                   // somit ersezte ich die letzte 1 auch mit einem leerzeichen
             println()                      // neue Zeile nach Countdown
+        }
+
+        fun clear(zeilen:Int){
+            repeat(zeilen) {
+            print("\r" + " ".repeat(80))  // 80 Leerzeichen für eine typische Konsolenbreite
+                Thread.sleep(500)
+            }
+        println()  // Neue Zeile am Ende, um den Cursor in die nächste Zeile zu setzen
         }
     }
 }

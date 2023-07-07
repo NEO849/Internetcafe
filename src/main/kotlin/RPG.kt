@@ -9,18 +9,27 @@ class RPG : Utils() {
     }
 
     override fun spielSpeichern() {
-        println("Spiel wird gespeichert. Coming soon...")
+        println("Spiel wird gespeichert. Coming Soon...")
         auswahlSpiele()
+        // Logik
     }
 
     override fun spielFortsetzen() {
-        println("Spiel wird in kürze fortgesetzt...")
+        println("Spiel wird in kürze fortgesetzt. Coming Soon...")
+        countdown(3)
         auswahlSpiele()
+        // Logik
     }
 
     override fun spielBeenden() {
-        println("Spiel Beenden!")
-        countdown(3)
-        auswahlSpiele()
+        println("Beenden ohne zu Speichern? [Ja/Nein]")
+        val index = readln()
+        if (index == "Nein"){
+            spielSpeichern()
+        } else {
+            println("Spiel wird Beendet...")
+            countdown(3)
+            auswahlSpiele()
+        }
     }
 }
