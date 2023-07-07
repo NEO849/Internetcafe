@@ -45,7 +45,7 @@ abstract class Utils {
     }
 
     fun auswahlSpiele() {
-        println("Wähle ein Spiel. (Zahl eingeben und Bestätigen)")
+        println("\nWähle ein Spiel. (Zahl eingeben und Bestätigen)")
         println("1. RPG")
         println("2. Hangman")
         println("3. Casino")
@@ -59,36 +59,36 @@ abstract class Utils {
             1 -> {
                 // Instanziierung von der Klasse RPG und Aufruf vom "menuImSpiel" mit punkt-Notation nach print-Statement und countdown
                 val rpgMenu = RPG()
-                println("RPG-Spiel wird in kürze geladen...")
+                println("RPG-Spiel wird in kürze geladen...\n")
                 rpgMenu.menuImSpiel()
             }
 
             2 -> {
-                println("Coming Soon... \"Hangman\"")
+                println("Coming Soon... \"Hangman\"\n")
                 //countdown(3)
                 auswahlSpiele()
             }
 
             3 -> {
-                println("Coming Soon... \"Casino\"")
+                println("Coming Soon... \"Casino\"\n")
                 //countdown(3)
                 auswahlSpiele()
             }
 
             4 -> {
-                println("Coming Soon... \"Restaurant\"")
+                println("Coming Soon... \"Restaurant\"\n")
                 //countdown(3)
                 auswahlSpiele()
             }
 
             5 -> {
-                println("Auf Wiedersehen")
+                println("Auf Wiedersehen\n")
                 //countdown(3)
                 auswahlSpiele()                      // evtl. wenn ich Zeit hab, zurück zum Eingang vom "Internet-Cafe"
             }
 
             else -> {
-                println("Ungültige Eingabe! Bitte wähle eine Zahl zwischen 1 und 4.")
+                println("Ungültige Eingabe! Bitte wähle eine Zahl zwischen 1 und 4.\n")
                 //countdown(3)
                 auswahlSpiele()
             }

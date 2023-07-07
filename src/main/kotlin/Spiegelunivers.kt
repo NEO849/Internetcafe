@@ -1,8 +1,8 @@
 
-
+// manche test machen im Nachhinein keinen Sinn, da ich die Klassen und Abhängigkeiten öfter geändert habe.
 fun main() {
 
-    // 1. erstelle Instnz von RPG Klasse und rufe fun auf
+    // 1. Start
     val rpgMenu = RPG()
     rpgMenu.auswahlSpiele()
 
