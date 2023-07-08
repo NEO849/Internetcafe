@@ -42,7 +42,7 @@ class AuswahlSpiele {
             }
 
             5 -> {
-                println("Auf Wiedersehen\n")
+                println("Coming Soon... Auf Wiedersehen\n")
                 //Utils.countdown(3)
                 auswahlSpiele()                      // evtl. wenn ich Zeit hab, zurück zum Eingang vom "Internet-Cafe"
             }

@@ -6,7 +6,7 @@ class Anmeldung {
 
     fun anmelden() {
         println("Bereits Kunde? [Ja/Nein]")
-        when (readln()?.lowercase()) {
+        when (readln().lowercase()) {
             "ja" -> einloggen()
             "nein" -> profilErstellen()
             else -> {
@@ -18,12 +18,16 @@ class Anmeldung {
 
     private fun einloggen() {
         println("\nBitte Einloggen:")
+        println("In Progress, coming Soon...")
+        Utils.countdown(3)
         // logik
         auswahlSpiele.auswahlSpiele()
     }
 
     private fun profilErstellen() {
         println("\nBitte Profil erstellen:")
+        println("In Progress, coming Soon...")
+        Utils.countdown(3)
         // logik
         auswahlSpiele.auswahlSpiele()
     }

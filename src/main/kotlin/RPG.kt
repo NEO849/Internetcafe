@@ -2,7 +2,7 @@
 // erbt von der abstract "Utils" Basisklasse, ich überschreibe die abstrakten funktionen individuell aufs RPG Spiel abgestimmt
 open class RPG : Utils() {
 
-    val auswahlSpiele = AuswahlSpiele()
+    private val auswahlSpiele = AuswahlSpiele()
 
     override fun spielStarten() {
         println("\nSpiel wird in kürze gestartet. In Progress...")
@@ -27,12 +27,16 @@ open class RPG : Utils() {
     // ich wollte das mal anders lösen und ohne ".toLowerCase", alle gültigen Eingaben sind in einer Liste gespeichert. Vorsicht ohne "break" Endlosschleife
     override fun spielBeenden() {
         val gueltigeEingaben = listOf("Ja", "JA", "ja", "jA", "Nein", "NEIN", "nein", "NeIn", "NeiN", "neiN", "niEN")
-        while (true){                                                // das erzeugt eine Endlosschleife, solange der User keine gültige Eingabe macht, läuft sie immer weiter bis zum "break" Befehl
+        while (true) {                                                // das erzeugt eine Endlosschleife, solange der User keine gültige Eingabe macht, läuft sie immer weiter bis zum "break" Befehl
             println("\nBeenden ohne zu Speichern? [Ja/Nein]")        // wenn richtige Eingabe durch "break" wird die Schleife verlassen
             val eingabe = readln()
 
             if (eingabe in gueltigeEingaben) {                       // ich überprüfe ob die Eingabe mit den gültigen Eingaben in der Liste übereinstimmen
-                if(eingabe.equals("Ja",ignoreCase = true)) {   // wenn die Eingabe "ja" unabhängig von Groß/Klein, dann wird die Funktion "auswahlSpiele" aufgerufen,
+                if (eingabe.equals(
+                        "Ja",
+                        ignoreCase = true
+                    )
+                ) {   // wenn die Eingabe "ja" unabhängig von Groß/Klein, dann wird die Funktion "auswahlSpiele" aufgerufen,
                     println("\nSpiel wird Beendet.")
                     countdown(3)
                     auswahlSpiele.auswahlSpiele()
@@ -45,9 +49,30 @@ open class RPG : Utils() {
             }                                                                    // so ist das aber gewollt, das die Schleife wieder beginnt bei ungültiger Eingabe
         }
     }
-}
 
-//    hier nicht alle Möglichkeiten, wie User Ja/Nein schreiben könnte abgesichert...
+    // rum experimentiert...
+//    override fun spielBeenden() {
+//        val gueltigeEingaben = listOf("Ja", "Nein")
+//        while (true) {
+//            println("\nBeenden ohne zu Speichern? [Ja/Nein]")        // wenn richtige Eingabe durch "break" wird die Schleife verlassen
+//            val eingabe = readln().lowercase()
+//
+//            if (eingabe in gueltigeEingaben) {                       // ich überprüfe ob die Eingabe mit den gültigen Eingaben in der Liste übereinstimmen
+//                if (eingabe == "ja") {
+//                    println("\nSpiel wird Beendet.")
+//                    countdown(3)
+//                    auswahlSpiele.auswahlSpiele()
+//                } else {
+//                    spielSpeichern()
+//                }
+//                break                                               // Schleife wird beendet, da eine gültige Eingabe erfolgt ist
+//            } else {
+//                println("\nUngültige Eingabe! Bitte `Ja´ oder ´Nein´ eingeben.")
+//            }
+//        }
+//    }
+
+    //    hier nicht alle Möglichkeiten, wie User Ja/Nein schreiben könnte abgesichert...
 //    override fun spielBeenden() {
 //        println("Beenden ohne zu Speichern? [Ja/Nein]")
 //        var eingabe = readln()
@@ -62,3 +87,5 @@ open class RPG : Utils() {
 //            auswahlSpiele()
 //        }
 //    }
+
+}

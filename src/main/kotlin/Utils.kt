@@ -14,7 +14,7 @@ abstract class Utils {
     abstract fun spielStarten()
 
     //
-    fun menuImSpiel () {
+    fun menuImSpiel() {
         var index = 0
         do {
             println("Menu")
@@ -22,7 +22,7 @@ abstract class Utils {
             println("2. Spiel Speichern")
             println("3. Spiel Fortsetzen")
             println("4. Spiel Beenden")
-            index = readln().toIntOrNull() ?:0
+            index = readln().toIntOrNull() ?: 0
 
             when (index) {
                 1 -> spielStarten()
@@ -53,7 +53,7 @@ abstract class Utils {
             println()                      // neue Zeile nach Countdown
         }
 
-        fun countdownPrint(sekunden: Int) :Int { // hier mit Rückgabewert, dadurch individuellere Print Statement Ausgaben
+        fun countdownPrint(sekunden: Int): Int { // hier mit Rückgabewert, dadurch individuellere Print Statement Ausgaben
             var x = sekunden
             while (x > 0) {
                 print("\r  ")                // mit "\r" setze ich den Cursor zur Anfangsposition der Zeile zurück, ohne Zeilenumbruch. mit ("  ") ersetze ich die zahl mit leerzeichen
@@ -67,12 +67,12 @@ abstract class Utils {
             return sekunden
         }
 
-        fun clear(zeilen:Int){
+        fun clear(zeilen: Int) {
             repeat(zeilen) {
-            print("\r" + " ".repeat(80))  // 80 Leerzeichen für gewünschte Konsolen breite
+                print("\r" + " ".repeat(80))  // 80 Leerzeichen für gewünschte Konsolen breite
                 Thread.sleep(500)
             }
-        println()  // Neue Zeile am Ende, um den Cursor in die nächste Zeile zu setzen
+            println()  // Neue Zeile am Ende, um den Cursor in die nächste Zeile zu setzen
         }
     }
 }

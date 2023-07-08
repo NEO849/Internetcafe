@@ -9,4 +9,9 @@ class Internetcafe {
         anmeldung.anmelden()
 
     }
+
+    // evtl, "Ausgang", exit, sequenz...
+    fun ausgang() {
+        println("\nAuf Wiedersehen...")
+    }
 }
