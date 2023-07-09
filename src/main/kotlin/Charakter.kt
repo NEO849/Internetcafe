@@ -6,6 +6,13 @@ open class Charakter(
     private var lP: Int,
     private var istBesiegt: Boolean = false
 ) {
+    private  val heldenListe = mutableListOf<Charakter>()
+    private  var charakterCounter = 0
+
+    init{
+        charakterCounter ++
+        name = "$charakterCounter, $name"
+    }
 
     // ich nutze "getter" um den "Wert" von ausserhalb zu lesen und zurückzugeben, so kann ich den "Wert" einfach für Logiken nutzen, ohne das von aussen darauf zugegriffen werden kann
     fun getName(): String {
@@ -29,24 +36,24 @@ open class Charakter(
         lP = neueLP
     }
 
-    // fun nimmt zwei Parameter entgegen, "namen" die aus einer Liste aus "Strings" besteht und "lP" die Lebenspunkte als Ganzzahl, Rückgabewert ist eine Liste aus Charakteren
-    fun erstelleCharaktere(namen: List<String>, lP: Int): List<Charakter> {
-        val charaktere = mutableListOf<Charakter>()                         // eine leere Liste um die erstellten Charaktere zu Speichern
-        for (name in namen) {                                               // für jedes Element in der Liste wird ein Objekt mit Name und lp erstellt
-            val charakter = Charakter(name, lP)                             // und in "charakter" gespeichert
-            charaktere.add(charakter)                                       // dann mit add zur Liste "Charaktere" hinzugefügt
-        }
-        return charaktere                                                   // nachdem alle Elemente in der Liste "namen" verarbeitet wurden, wird die Liste mit namen und lp der Charakter zurückgegeben
+    protected fun erstelleCharakter (name:String, lP:Int):Charakter{
+        val charakter = Charakter(name, lP)
+        heldenListe.add(charakter)
+        return charakter
     }
 
     // methode zum Erleiden von Schaden
-    open fun schadenErleiden(schaden: Int) {
+    protected fun schadenErleiden(schaden: Int) {
         lP -= schaden
         if (lP <= 0) {
             lP = 0
             istBesiegt = true
             println("$name  ist K.O!!!")
         }
+    }
+
+    fun heldenAusgeben():List<Charakter>{
+        return heldenListe
     }
 
     // sind Platzhalter und werden in den Unterklassen überschrieben

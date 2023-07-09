@@ -1,11 +1,16 @@
 
 // erbt von Klasse Charakter
-class Held (name:String, lP:Int):Charakter(name, lP) {
+class Held(name: String,lP:Int,) :Charakter(name, lP){
 
-    private val heldenListe = listOf("Goku", "Krelin", "Gohan")
+    fun erstelleHelden():List<Charakter> {
+        val heldenNamen = listOf("Son Goku", "Son Gohan", "Piccolo", "Krelin", "Trunks")  // eine gewünschte Liste mit Namen, alle die selbe lP
+        val lP = 10000
+        val heldenListe = mutableListOf<Charakter>()
 
-    fun erstelleHelden():List<Held>{
-        return erstelleCharaktere(heldenListe, getLP())
+        for (name in heldenNamen){
+            val held = erstelleCharakter(name,lP)
+            heldenListe.add(held)
+        }
+        return heldenListe
     }
-
 }

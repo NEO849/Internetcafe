@@ -19,7 +19,7 @@ class Anmeldung {
     private fun einloggen() {
         println("\nBitte Einloggen:")
         println("In Progress, coming Soon...")
-        Utils.countdown(3)
+        //Utils.countdown(3)
         // logik
         auswahlSpiele.auswahlSpiele()
     }
@@ -27,7 +27,7 @@ class Anmeldung {
     private fun profilErstellen() {
         println("\nBitte Profil erstellen:")
         println("In Progress, coming Soon...")
-        Utils.countdown(3)
+        //Utils.countdown(3)
         // logik
         auswahlSpiele.auswahlSpiele()
     }

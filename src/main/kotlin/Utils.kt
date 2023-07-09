@@ -8,20 +8,20 @@
 abstract class Utils {
 
     // muss von einer Unterklasse individuell überschrieben werden, macht den Code lesbarer
+    abstract fun spielStarten()
     abstract fun spielSpeichern()
     abstract fun spielFortsetzen()
     abstract fun spielBeenden()
-    abstract fun spielStarten()
 
     //
     fun menuImSpiel() {
         var index = 0
         do {
             println("Menu")
-            println("1. Spiel Starten")
-            println("2. Spiel Speichern")
-            println("3. Spiel Fortsetzen")
-            println("4. Spiel Beenden")
+            println("[1] Spiel Starten")
+            println("[2] Spiel Speichern")
+            println("[3] Spiel Fortsetzen")
+            println("[4] Spiel Beenden")
             index = readln().toIntOrNull() ?: 0
 
             when (index) {

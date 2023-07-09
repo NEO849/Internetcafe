@@ -1,25 +1,59 @@
 
 // erbt von der abstract "Utils" Basisklasse, ich überschreibe die abstrakten funktionen individuell aufs RPG Spiel abgestimmt
-open class RPG : Utils() {
+open class DBZ : Utils() {
 
     private val auswahlSpiele = AuswahlSpiele()
+    private val held  = Held("",0)    // Instanziierung von anderen Klassen
 
     override fun spielStarten() {
-        println("\nSpiel wird in kürze gestartet. In Progress...")
-        countdown(3)
-        // Spiel-Logik
+        println("\nWelchen Modus möchtest du Spielen?")
+        println("[1] Story Mode")
+        println("[2] Arcade Mode")
+        println("[3] Exit")
+
+        val auswahlModus = readln().toIntOrNull() ?: 0
+        when (auswahlModus) {
+            1 -> {
+                startStoryModus()
+            }
+            2 -> {
+                startArcadeModus()
+            }
+            3 -> {
+                menuImSpiel()
+            }
+            else -> {
+                println("Ungültige Eingabe! Ganzzahl eingeben.")
+                spielStarten()
+            }
+        }
+    }
+
+    private fun startStoryModus(){
+        println("Story Modus wird geladen...")
+        //countdown(3)
+        spielStarten()
+    }
+
+    private fun startArcadeModus(){
+        println("\nArcade Mode wird geladen...")
+        //countdown(3)
+        val heldenListe = held.erstelleHelden()
+        println("\nWähle deinen Kämpfer...")
+
+
     }
 
     override fun spielSpeichern() {
         println("\nSpiel wird gespeichert. Coming Soon...")
-        countdown(3)
+        //countdown(3)
         // Logik
         auswahlSpiele.auswahlSpiele()
     }
 
     override fun spielFortsetzen() {
         println("\nSpiel wird in kürze fortgesetzt. Coming Soon...")
-        countdown(3)
+        //countdown(3)
         // Logik
         auswahlSpiele.auswahlSpiele()
     }
@@ -38,7 +72,7 @@ open class RPG : Utils() {
                     )
                 ) {   // wenn die Eingabe "ja" unabhängig von Groß/Klein, dann wird die Funktion "auswahlSpiele" aufgerufen,
                     println("\nSpiel wird Beendet.")
-                    countdown(3)
+                    //countdown(3)
                     auswahlSpiele.auswahlSpiele()
                 } else {                                            // andernfalls ist die Eingabe also nicht ja, sondern ein anderes gültiges Wort wie "nein", dann wird die Funktion "spieleSpeichern" aufgerufen
                     spielSpeichern()
@@ -49,6 +83,7 @@ open class RPG : Utils() {
             }                                                                    // so ist das aber gewollt, das die Schleife wieder beginnt bei ungültiger Eingabe
         }
     }
+}
 
     // rum experimentiert...
 //    override fun spielBeenden() {
@@ -88,4 +123,3 @@ open class RPG : Utils() {
 //        }
 //    }
 
-}
