@@ -8,7 +8,7 @@ class Gegner (name:String, lP:Int):Charakter(name, lP) {
         val gegnerListe = mutableListOf<Charakter>()
 
         for (name in gegnerNamen){
-            val held = erstelleCharakter(name,lP)
+            val held = erstelleCharakter()
             gegnerListe.add(held)
         }
         return gegnerListe

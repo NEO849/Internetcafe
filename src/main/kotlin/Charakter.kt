@@ -2,27 +2,22 @@
 // ist eine open Basisklasse von der die Klassen Held und gegner erben sollen, jedoch name, lp und Status "istBesiegt" sollen nicht von aussen verändert werden können
 // extra alle "var" und nicht "val" weil bei DBZ durch "Nahtoderfahrung","Magische Bohnen","Super Sayajin Mode" machen dies nötig um den Status unter dem Kampf zu aktualisieren
 open class Charakter(
-    private var name: String,       // default constructor
-    private var lP: Int,
+    protected var name: String,       // default constructor, protected damit in den unterklassen darauf zugegriffen werden kann
+    protected var lP: Int,
     private var istBesiegt: Boolean = false
 ) {
-    private  val heldenListe = mutableListOf<Charakter>()
-    private  var charakterCounter = 0
-
-    init{
-        charakterCounter ++
-        name = "$charakterCounter, $name"
-    }
 
     // ich nutze "getter" um den "Wert" von ausserhalb zu lesen und zurückzugeben, so kann ich den "Wert" einfach für Logiken nutzen, ohne das von aussen darauf zugegriffen werden kann
     fun getName(): String {
         return name
     }
 
+    //
     fun getLP(): Int {
         return lP
     }
 
+    //
     fun getIstBesiegt(): Boolean {
         return istBesiegt
     }
@@ -32,14 +27,19 @@ open class Charakter(
         name = neuerName
     }
 
+    //
     fun setLP(neueLP: Int) {
         lP = neueLP
     }
 
-    protected fun erstelleCharakter (name:String, lP:Int):Charakter{
-        val charakter = Charakter(name, lP)
-        heldenListe.add(charakter)
-        return charakter
+    //
+    fun setIstBesiegt(neuerStatus :Boolean) {
+        istBesiegt = neuerStatus
+    }
+
+    // gemeinsame fun zum Erstellen und zurückgeben von Charakter-Objekten mit Name und LP und "istBesiegt" auf false
+    open fun erstelleCharakter():Charakter{
+        return Charakter(name,lP)
     }
 
     // methode zum Erleiden von Schaden
@@ -52,17 +52,24 @@ open class Charakter(
         }
     }
 
-    fun heldenAusgeben():List<Charakter>{
-        return heldenListe
-    }
-
     // sind Platzhalter und werden in den Unterklassen überschrieben
+    open fun charakterAusgeben() {}
+
+    //
     open fun angreifen() {}
 
     //
     open fun verteidigen() {}
 
     //
-    open fun spezielleFaehigkeiten() {}
+    open fun spezialFaehigkeit() {}
 
+    //
+    open fun transformation1() {}
+
+    //
+    open fun transformation2() {}
+
+    //
+    open fun magischeBohnen(){}
 }

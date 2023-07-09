@@ -13,6 +13,73 @@ open class Test {
 //        }
 //        return charaktere                                                   // gibt die Map mit Namen und lp zurück
 //    }
+
+    // in diesem Szenario, Ende erste Woche, hab ich schon zurückgeschraubt, aber ich denke es geht einfacher für fünf/sechs Charaktere
+//    fun erstelleHelden():List<Charakter> {
+//        val heldenNamen = listOf("Son Goku", "Son Gohan", "Piccolo", "Krelin", "Trunks")  // eine gewünschte Liste mit Namen, alle die selbe lP
+//        val lP = 10000
+//        val heldenListe = mutableListOf<Charakter>()
+//
+//        for (name in heldenNamen){
+//            val held = erstelleCharakter(name,lP)
+//            heldenListe.add(held)
+//        }
+//        return heldenListe
+//    }
+
+    // hier werden miene Helden gespeichert und mit protected ist die Liste von der Klasse DBZ aus zugänglich
+//    private var heldenListe = mutableListOf<Held>()
+//
+//    fun erstelleHelden(){
+//        val goku = Held("Son Goku",10000)
+//        val gohan = Held("Son Gohanu",10000)
+//        val krelin = Held("Krelin",10000)
+//        val piccolo = Held("Piccolo",10000)
+//        val trunks = Held("Trunks",10000)
+//
+//        heldenListe.add(goku)
+//        heldenListe.add(gohan)
+//        heldenListe.add(krelin)
+//        heldenListe.add(piccolo)
+//        heldenListe.add(trunks)
+//    }
+
+    //    override fun erstelleCharakter(): Held {
+//        val held = Held(name,lP)
+//        heldenListe.add(held)
+//        return held
+//    }
+
+    // funktion zum Ausgeben der Helden in der Konsole
+//    override fun charakterAusgeben() {
+//        println("Helden:")
+//        for (held in heldenListe){
+//            println(held.getName())
+//        }
+//    }
+
+//    // zweiter Konstruktor, für schnelle Charaktererstellung, ruft nur name und lp auf, mit this rufe ich Hauptkonstruktor auf und setze "istBesiegt" für alle auf "false"
+//    constructor(name: String,lP: Int) :this(name,lP,false)
+
+
+//    protected fun erstelleCharakter (name:String, lP:Int):Charakter{
+//        val charakter = Charakter(name, lP)
+//        heldenListe.add(charakter)
+//        return charakter
+//    }
+
+//    fun heldenAusgeben():List<Charakter>{
+//        return heldenListe
+//    }
+
+//    private  val heldenListe = mutableListOf<Charakter>()
+//    private  var charakterCounter = 0
+//
+//    init{
+//        charakterCounter ++
+//        name = "$charakterCounter, $name"
+//    }
+
 //
 //    class Held1 (name:String, lP:Int):Charakter(name, lP) {
 //

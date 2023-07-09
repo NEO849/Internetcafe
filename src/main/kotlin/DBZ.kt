@@ -3,7 +3,7 @@
 open class DBZ : Utils() {
 
     private val auswahlSpiele = AuswahlSpiele()
-    private val held  = Held("",0)    // Instanziierung von anderen Klassen
+    private val held  = Held("",0)    // Instanziierung von der Held Klasse
 
     override fun spielStarten() {
         println("\nWelchen Modus möchtest du Spielen?")
@@ -37,8 +37,9 @@ open class DBZ : Utils() {
 
     private fun startArcadeModus(){
         println("\nArcade Mode wird geladen...")
-        //countdown(3)
-        val heldenListe = held.erstelleHelden()
+        countdown(3)
+        held.erstelleHelden()
+        held.charakterAusgeben()
         println("\nWähle deinen Kämpfer...")
 
 
