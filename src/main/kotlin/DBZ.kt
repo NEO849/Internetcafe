@@ -3,8 +3,8 @@
 open class DBZ : Utils() {
 
     private val auswahlSpiele = AuswahlSpiele()
-    private val held  = Held("Test",0)    // Instanziierung von der Held Klasse
-    private val gegner  = Gegner("Test",0)    // Instanziierung von der Held Klasse
+    private val held  = Held("",0)    // Instanziierung von der Held Klasse
+    private val gegner  = Gegner("",0)    // Instanziierung von der Held Klasse
 
     override fun spielStarten() {
         println("\nWelchen Modus möchtest du Spielen?")
@@ -37,11 +37,20 @@ open class DBZ : Utils() {
     }
 
     private fun startArcadeModus(){
-        println("\nArcade Mode wird geladen...\n")
-       // countdown(3)
-        held.erstelleArcadeModus()
-        held.charakterAusgeben()
+        println("\nArcade Mode wird geladen...")
+        // countdown(3)
         println("\nWähle deinen Kämpfer...")
+
+        val heldenListe = held.erstelleArcadeModus()
+        val gegnerListe = gegner.erstelleArcadeModus()
+        val alleCharaktere = heldenListe + gegnerListe
+        println("$alleCharaktere")
+
+//        held.erstelleArcadeModus()
+//        held.charakterAusgeben()
+//        gegner.erstelleArcadeModus()
+//        gegner.charakterAusgeben()
+
     }
 
     override fun spielSpeichern() {
@@ -84,42 +93,3 @@ open class DBZ : Utils() {
         }
     }
 }
-
-    // rum experimentiert...
-//    override fun spielBeenden() {
-//        val gueltigeEingaben = listOf("Ja", "Nein")
-//        while (true) {
-//            println("\nBeenden ohne zu Speichern? [Ja/Nein]")        // wenn richtige Eingabe durch "break" wird die Schleife verlassen
-//            val eingabe = readln().lowercase()
-//
-//            if (eingabe in gueltigeEingaben) {                       // ich überprüfe ob die Eingabe mit den gültigen Eingaben in der Liste übereinstimmen
-//                if (eingabe == "ja") {
-//                    println("\nSpiel wird Beendet.")
-//                    countdown(3)
-//                    auswahlSpiele.auswahlSpiele()
-//                } else {
-//                    spielSpeichern()
-//                }
-//                break                                               // Schleife wird beendet, da eine gültige Eingabe erfolgt ist
-//            } else {
-//                println("\nUngültige Eingabe! Bitte `Ja´ oder ´Nein´ eingeben.")
-//            }
-//        }
-//    }
-
-    //    hier nicht alle Möglichkeiten, wie User Ja/Nein schreiben könnte abgesichert...
-//    override fun spielBeenden() {
-//        println("Beenden ohne zu Speichern? [Ja/Nein]")
-//        var eingabe = readln()
-//        while (!eingabe.equals("Ja", ignoreCase = true) && !eingabe.equals("Nein", ignoreCase = true)) {
-//            println("Achtung! Ungültige Eingabe. Bitte ´Ja´ oder ´Nein´ eingeben.")
-//            eingabe = readln()
-//        }
-//        if (eingabe.equals("nein", ignoreCase = true)) {
-//            spielSpeichern()
-//        } else {
-//            println("Spiel wird Beendet...")
-//            auswahlSpiele()
-//        }
-//    }
-

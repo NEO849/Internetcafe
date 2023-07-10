@@ -2,184 +2,58 @@
 // erbt von Klasse Charakter
 class Gegner (name:String, lP:Int):Charakter(name, lP) {
 
-    // hier werden meine Helden gespeichert und mit "protected" ist die Liste von der Klasse DBZ aus zugänglich
-    val gegnerListeStoryModus: MutableList<Gegner> = mutableListOf()
-    val gegnerListeArcadeModus: MutableList<Gegner> = mutableListOf()
+    private val gegnerArcade = mutableListOf<Gegner>()       // hier speichere ich die erstellten Heldobjekte für den Arcade Modus
+    private val gegnerStory = mutableListOf<Gegner>()       // hier speichere ich die erstellten Heldobjekte für den Story Modus
 
-    private var spezialFaehigkeit :String = ""
-    private var transformation1 :String = ""
-    private var transformation2 :String = ""
-    private var angriffTief :String = ""
-    private var angriffHoch :String = ""
-    private var verteidigungTief :String = ""
-    private var verteidigungHoch :String = ""
+    private var namenListe = listOf("Vegeta", "Freezer", "Cell", "Boo", "Soldat")
+    private val lPWerte = listOf(30000, 50000, 80000, 100000, 3000)
+    private val transformation1Liste = listOf("Super Saiyan", "Super Freezer", "Perfekte Form", "Bad Boo", "")
+    private val transformation2Liste = listOf("Ultra Saiyajin", "Golden Freezer", "Harakiri", "Chuck Norris Fusion", "")
+    private val spezialAngriffListe = listOf("Final Flash", "Death Ball", "Absorbieren", "Genkidama", "Schießen")
 
-    private var gegnerNamen :List<String> = listOf(
-            "Vegeta",
-            "Freezer",
-            "Cell",
-            "Soldat",
-            "Boo"
-    )
+    // Funktion für Arcade Modus, somit schnell, unterschiedliche Helden
+    fun erstelleArcadeModus():List<Gegner>{
+        for (i in namenListe.indices) {
+            val name = namenListe[i]
+            val lP = 10000
+            val transformation1 = transformation1Liste[i]
+            val transformation2 = transformation2Liste[i]
+            val spezialAngriff = spezialAngriffListe[i]
+            val angriffHoch = "Faustschlag"
+            val angriffTief = "Fußtritt"
+            val verteidigungHoch = "Block"
+            val verteidigungTief = "Ausweichen"
+            val heilen = "Heilen"
 
-    override fun erstelleCharakter():Gegner {
-        return Gegner(name, lP)
-    }
-
-    // so erstelle ich für jeden Helden individuelle Eigenschaften
-    fun erstelleGegnerStoryModus(){
-        for (name in gegnerNamen){
-            val gegner = erstelleCharakter()
-            gegner.name = name
-
-            when (name) {
-                "Vegeta" -> {
-                    gegner.lP = 15000
-                    gegner.spezialFaehigkeit = "Final Flash"
-                    gegner.setTransformation1("Super Saiyajin")
-                    gegner.setTransformation2("Ultra Saiyajin")
-                }
-                "Freezer" -> {
-                    gegner.lP = 20000
-                    gegner.spezialFaehigkeit = "Death Ball"
-                    gegner.setTransformation1("Super Freezer")
-                    gegner.setTransformation2("Golden Freezer")
-                }
-                "Cell" -> {
-                    gegner.lP = 25000
-                    gegner.spezialFaehigkeit = "Absorbieren"
-                    gegner.setTransformation1("Perfekte Form")
-                    gegner.setTransformation2("Ultimate Form")
-                }
-                "Soldat" -> {
-                    gegner.lP = 5000
-                    gegner.spezialFaehigkeit("Schießen")
-                }
-                "Boo" -> {
-                    gegner.lP = 30000
-                    gegner.spezialFaehigkeit("Genkidama")
-                    gegner.setTransformation1("Bigfoot")
-                    gegner.setTransformation2("Chuck Norris")
-                }
-            }
-            gegner.angriffTief("Fuß Tritt")
-            gegner.angriffHoch("Faust Schlag")
-            gegner.verteidigungTief("Ausweichen")
-            gegner.verteidigungHoch("Block")
-            gegnerListeStoryModus.add(gegner)
+            val gegner = Gegner(name, lP)
+            gegnerArcade.add(gegner)
         }
+        return gegnerArcade
     }
 
-    // so erstelle ich Helden Objekte dynamisch aus einer Liste, gut wenn man viele, schnell erstellen möchte
-    fun erstelleGegnerArcadeModus() {
-        for (name in gegnerNamen) {
-            val gegner = erstelleCharakter()
-            gegner.name = name
-            gegner.lP = 10000
+    // Funktion für Story Modus, somit schnell, unterschiedliche Helden
+    fun erstelleStoryModus():List<Gegner> {
+        for (i in namenListe.indices) {
+            val name = namenListe[i]
+            val lP = lPWerte[i]
+            val transformation1 = transformation1Liste[i]
+            val transformation2 = transformation2Liste[i]
+            val spezialAngriff = spezialAngriffListe[i]
+            val angriffHoch = "Faustschlag"
+            val angriffTief = "Fußtritt"
+            val verteidigungHoch = "Block"
+            val verteidigungTief = "Ausweichen"
+            val heilen = "Heilen"
 
-            when (name) {
-                "Vegeta" -> {
-                    gegner.spezialFaehigkeit("Final Flash")
-                    gegner.setTransformation1("Super Saiyajin")
-                    gegner.setTransformation2("Ultra Saiyajin")
-                }
-
-                "Freezer" -> {
-                    gegner.spezialFaehigkeit("Death Ball")
-                    gegner.setTransformation1("Super Freezer")
-                    gegner.setTransformation2("Golden Freezer")
-                }
-
-                "Cell" -> {
-                    gegner.spezialFaehigkeit("Absorbieren")
-                    gegner.setTransformation1("Perfekte Form")
-                    gegner.setTransformation2("Ultimate Form")
-                }
-
-                "Soldat" -> {
-                    gegner.spezialFaehigkeit("Schießen")
-                }
-
-                "Boo" -> {
-                    gegner.spezialFaehigkeit("Genkidama")
-                    gegner.setTransformation1("Bigfoot")
-                    gegner.setTransformation2("Chuck Norris")
-                }
-            }
-            gegner.angriffTief("Fuß Tritt")
-            gegner.angriffHoch("Faust Schlag")
-            gegner.verteidigungTief("Ausweichen")
-            gegner.verteidigungHoch("Block")
-            gegnerListeArcadeModus.add(gegner)
+            val gegner = Gegner(name, lP)
+            gegnerStory.add(gegner)
         }
+        return gegnerStory
     }
 
-    // funktion zum Ausgeben der Helden in der Konsole
-    override fun charakterAusgeben() {
-        super.charakterAusgeben()                   // Aufruf der Methode in der Basisklasse
-        println("Gegner:")
-        for (gegner in gegnerListeArcadeModus) {
-            println(gegner.name)
-        }
+    // fun um die Liste als Ergebnis zurückzugeben
+    override fun charakterAusgeben(): List<String> {
+        return gegnerArcade.map { it.name }
     }
 
-    fun setSpezialFaehigkeit(neueSpezialFaehigkeit: String) {
-        spezialFaehigkeit = neueSpezialFaehigkeit
-    }
-
-    fun setTransformation1(neueTransformation: String) {
-        transformation1 = neueTransformation
-    }
-
-    fun setTransformation2(neueTransformation: String) {
-        transformation2 = neueTransformation
-    }
-
-    fun angriffTief(neuerAngriff: String) {
-        angriffTief = neuerAngriff
-    }
-
-    fun angriffHoch(neuerAngriff: String) {
-        angriffHoch = neuerAngriff
-    }
-
-    fun verteidigungTief(neueVerteidigung: String) {
-        verteidigungTief = neueVerteidigung
-    }
-
-    fun verteidigungHoch(neueVerteidigung: String) {
-        verteidigungHoch = neueVerteidigung
-    }
-
-
-
-    //
-    override fun angreifen() {
-        println("$name  greift an")
-    }
-
-    //
-    override fun verteidigen() {
-        println("$name  verteidigt sich")
-    }
-
-    //
-    fun spezialFaehigkeit(faehigkeit: String) {
-        println("$name  setzt die Spezialfähigkeit $faehigkeit  ein")
-    }
-
-    //
-    override fun transformation1() {
-        println("$name  Transformiert sich zu  $transformation1")
-    }
-
-    //
-    override fun transformation2() {
-        println("$name  Transformiert sich zu  $transformation2")
-    }
-
-    //
-    override fun magischeBohnen(){
-        println("$name  verwendet eine magische Bohne um sich zu Heilen")
-    }
 }

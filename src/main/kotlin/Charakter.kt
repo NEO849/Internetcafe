@@ -13,10 +13,13 @@ open class Charakter(
     }
 
     // sind Platzhalter und werden in den Unterklassen überschrieben
-    open fun charakterAusgeben() {}
+    open fun charakterAusgeben(): List<String>{                 // gebe Liste als Ergebnis zurück, so kann ich leichter Logiken implementieren
+        return emptyList()
+    }
 
     //
-    open fun schadenErleiden(){}
+    open fun schadenErleiden(schaden:Int){
+    }
 
     //
     open fun angreifen() {}
@@ -36,3 +39,10 @@ open class Charakter(
     //
     open fun magischeBohnen(){}
 }
+
+//open fun schadenErleiden(schaden:Int):Boolean{
+//    lP -= schaden
+//    if (lP <= 0) {
+//        istBesiegt = true
+//    }
+//}

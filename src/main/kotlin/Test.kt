@@ -27,6 +27,206 @@ open class Test {
 //        return heldenListe
 //    }
 
+    //    private var spezialFaehigkeit :String = ""
+//    private var transformation1 :String = ""
+//    private var transformation2 :String = ""
+//    private var angriffTief :String = ""
+//    private var angriffHoch :String = ""
+//    private var verteidigungTief :String = ""
+//    private var verteidigungHoch :String = ""
+//
+//    override fun erstelleCharakter():Gegner {
+//        return Gegner(name, lP)
+//    }
+//
+//    // so erstelle ich für jeden Helden individuelle Eigenschaften
+//    fun erstelleGegnerStoryModus(){
+//        for (name in gegnerNamen){
+//            val gegner = erstelleCharakter()
+//            gegner.name = name
+//
+//            when (name) {
+//                "Vegeta" -> {
+//                    gegner.lP = 15000
+//                    gegner.spezialFaehigkeit = "Final Flash"
+//                    gegner.setTransformation1("Super Saiyajin")
+//                    gegner.setTransformation2("Ultra Saiyajin")
+//                }
+//                "Freezer" -> {
+//                    gegner.lP = 20000
+//                    gegner.spezialFaehigkeit = "Death Ball"
+//                    gegner.setTransformation1("Super Freezer")
+//                    gegner.setTransformation2("Golden Freezer")
+//                }
+//                "Cell" -> {
+//                    gegner.lP = 25000
+//                    gegner.spezialFaehigkeit = "Absorbieren"
+//                    gegner.setTransformation1("Perfekte Form")
+//                    gegner.setTransformation2("Ultimate Form")
+//                }
+//                "Soldat" -> {
+//                    gegner.lP = 5000
+//                    gegner.spezialFaehigkeit("Schießen")
+//                }
+//                "Boo" -> {
+//                    gegner.lP = 30000
+//                    gegner.spezialFaehigkeit("Genkidama")
+//                    gegner.setTransformation1("Bigfoot")
+//                    gegner.setTransformation2("Chuck Norris")
+//                }
+//            }
+//            gegner.angriffTief("Fuß Tritt")
+//            gegner.angriffHoch("Faust Schlag")
+//            gegner.verteidigungTief("Ausweichen")
+//            gegner.verteidigungHoch("Block")
+//            gegnerListeStoryModus.add(gegner)
+//        }
+//    }
+//
+//    // so erstelle ich Helden Objekte dynamisch aus einer Liste, gut wenn man viele, schnell erstellen möchte
+//    fun erstelleGegnerArcadeModus() {
+//        for (name in gegnerNamen) {
+//            val gegner = erstelleCharakter()
+//            gegner.name = name
+//            gegner.lP = 10000
+//
+//            when (name) {
+//                "Vegeta" -> {
+//                    gegner.spezialFaehigkeit("Final Flash")
+//                    gegner.setTransformation1("Super Saiyajin")
+//                    gegner.setTransformation2("Ultra Saiyajin")
+//                }
+//
+//                "Freezer" -> {
+//                    gegner.spezialFaehigkeit("Death Ball")
+//                    gegner.setTransformation1("Super Freezer")
+//                    gegner.setTransformation2("Golden Freezer")
+//                }
+//
+//                "Cell" -> {
+//                    gegner.spezialFaehigkeit("Absorbieren")
+//                    gegner.setTransformation1("Perfekte Form")
+//                    gegner.setTransformation2("Ultimate Form")
+//                }
+//
+//                "Soldat" -> {
+//                    gegner.spezialFaehigkeit("Schießen")
+//                }
+//
+//                "Boo" -> {
+//                    gegner.spezialFaehigkeit("Genkidama")
+//                    gegner.setTransformation1("Bigfoot")
+//                    gegner.setTransformation2("Chuck Norris")
+//                }
+//            }
+//            gegner.angriffTief("Fuß Tritt")
+//            gegner.angriffHoch("Faust Schlag")
+//            gegner.verteidigungTief("Ausweichen")
+//            gegner.verteidigungHoch("Block")
+//            gegnerListeArcadeModus.add(gegner)
+//        }
+//    }
+//
+//    // funktion zum Ausgeben der Helden in der Konsole
+//    override fun charakterAusgeben() {
+//        super.charakterAusgeben()                   // Aufruf der Methode in der Basisklasse
+//        println("Gegner:")
+//        for (gegner in gegnerListeArcadeModus) {
+//            println(gegner.name)
+//        }
+//    }
+//
+//    fun setSpezialFaehigkeit(neueSpezialFaehigkeit: String) {
+//        spezialFaehigkeit = neueSpezialFaehigkeit
+//    }
+//
+//    fun setTransformation1(neueTransformation: String) {
+//        transformation1 = neueTransformation
+//    }
+//
+//    fun setTransformation2(neueTransformation: String) {
+//        transformation2 = neueTransformation
+//    }
+//
+//    fun angriffTief(neuerAngriff: String) {
+//        angriffTief = neuerAngriff
+//    }
+//
+//    fun angriffHoch(neuerAngriff: String) {
+//        angriffHoch = neuerAngriff
+//    }
+//
+//    fun verteidigungTief(neueVerteidigung: String) {
+//        verteidigungTief = neueVerteidigung
+//    }
+//
+//    fun verteidigungHoch(neueVerteidigung: String) {
+//        verteidigungHoch = neueVerteidigung
+//    }
+//
+//
+//
+//    //
+//    override fun angreifen() {
+//        println("$name  greift an")
+//    }
+//
+//    //
+//    override fun verteidigen() {
+//        println("$name  verteidigt sich")
+//    }
+//
+//    //
+//    fun spezialFaehigkeit(faehigkeit: String) {
+//        println("$name  setzt die Spezialfähigkeit $faehigkeit  ein")
+//    }
+//
+//    //
+//    override fun transformation1() {
+//        println("$name  Transformiert sich zu  $transformation1")
+//    }
+//
+//    //
+//    override fun transformation2() {
+//        println("$name  Transformiert sich zu  $transformation2")
+//    }
+//
+//    //
+//    override fun magischeBohnen(){
+//        println("$name  verwendet eine magische Bohne um sich zu Heilen")
+//    }
+//}
+
+    // hier allgemeine Eigenschaften der Helden, damit ich sie abrufen und definieren kann
+//private var spezialAngriff :String = ""
+//private var transformation1 :String = ""
+//private var transformation2 :String = ""
+//private var angriffTief :String = ""
+//private var angriffHoch :String = ""
+//private var verteidigungTief :String = ""
+//private var verteidigungHoch :String = ""
+
+//// sekundär Konstruktor
+//constructor(
+//name:String,
+//lP:Int,
+//transformation1:String,
+//transformation2:String,
+//angriffTief:String,
+//angriffHoch:String,
+//verteidigungTief:String,
+//verteidigungHoch:String,
+//spezialAngriff :String
+//) :this(name,lP) {
+//    this.transformation1 = transformation1
+//    this.transformation2 = transformation2
+//    this.angriffTief = angriffTief
+//    this.angriffHoch = angriffHoch
+//    this.verteidigungTief = verteidigungTief
+//    this.verteidigungHoch = verteidigungHoch
+//    this.spezialAngriff= spezialAngriff
+//}
+
     // erbt von Klasse Charakter
 //    class Held(name: String, lP: Int) : Charakter(name, lP) {
 //
@@ -386,5 +586,154 @@ open class Test {
 //        }
 //        return heldenListe
 //    }
+
+    // ,transformation1,transformation2,spezialAngriff,angriffHoch,angriffTief,verteidigungHoch,verteidigungTief,heilen
+
+//
+//    // Konstruktor für den Arcade Mode
+//    constructor(
+//            name:String,
+//            lP:Int,
+//            angriffHoch:String,
+//            verteidigungHoch:String
+//    ) :this(name,lP) {
+//        this.angriffHoch = angriffHoch
+//        this.verteidigungHoch = verteidigungHoch
+//    }
+//
+//    // funktion um schnell und einfach einen "Arcade" Modus zu erstellen (bis das gestanden ist, hat es mich 4-5 Tage gekostet!)
+//
+//
+//    fun spezialAngriff(spezialAngriff: String) {
+//        spezialAngriff = spezialAngriff
+//    }
+//
+//    fun setTransformation1(neueTransformation: String) {
+//        transformation1 = neueTransformation
+//    }
+//
+//    fun setTransformation2(neueTransformation: String) {
+//        transformation2 = neueTransformation
+//    }
+//
+//    fun angriffTief(neuerAngriff: String) {
+//        angriffTief = neuerAngriff
+//    }
+//
+//    fun angriffHoch(neuerAngriff: String) {
+//        angriffHoch = neuerAngriff
+//    }
+//
+//    fun verteidigungTief(neueVerteidigungTief: String) {
+//        verteidigungTief = neueVerteidigungTief
+//    }
+//
+//    fun verteidigungHoch(neueVerteidigungHoch: String) {
+//        verteidigungHoch = neueVerteidigungHoch
+//    }
+//
+//    // Funktion zum Ausgeben der Helden in der Konsole
+//    override fun charakterAusgeben() {
+//        println("Helden")
+//        for (held in heldenListe) {
+//            println(held.name)
+//        }
+//    }
+//
+//    //
+//    override fun erstelleCharakter():Held {
+//        return Held(name, lP)
+//    }
+//
+//    //
+//    override fun angreifen() {
+//        println("$name  greift an")
+//    }
+//
+//    //
+//    override fun verteidigen() {
+//        println("$name  verteidigt sich")
+//    }
+//
+//    //
+//    fun spezialAngriff(faehigkeit: String) {
+//        println("$name  setzt die Spezialfähigkeit $faehigkeit  ein")
+//    }
+//
+//    //
+//    override fun transformation1() {
+//        println("$name  Transformiert sich zu  $transformation1")
+//    }
+//
+//    //
+//    override fun transformation2() {
+//        println("$name  Transformiert sich zu  $transformation2")
+//    }
+//
+//    //
+//    override fun magischeBohnen(){
+//        println("$name  verwendet eine magische Bohne um sich zu Heilen")
+//    }
+//
+//}
+
+    // rum experimentiert...
+//    override fun spielBeenden() {
+//        val gueltigeEingaben = listOf("Ja", "Nein")
+//        while (true) {
+//            println("\nBeenden ohne zu Speichern? [Ja/Nein]")        // wenn richtige Eingabe durch "break" wird die Schleife verlassen
+//            val eingabe = readln().lowercase()
+//
+//            if (eingabe in gueltigeEingaben) {                       // ich überprüfe ob die Eingabe mit den gültigen Eingaben in der Liste übereinstimmen
+//                if (eingabe == "ja") {
+//                    println("\nSpiel wird Beendet.")
+//                    countdown(3)
+//                    auswahlSpiele.auswahlSpiele()
+//                } else {
+//                    spielSpeichern()
+//                }
+//                break                                               // Schleife wird beendet, da eine gültige Eingabe erfolgt ist
+//            } else {
+//                println("\nUngültige Eingabe! Bitte `Ja´ oder ´Nein´ eingeben.")
+//            }
+//        }
+//    }
+
+    // Funktion um Listen aus String durch nummeriert auszugeben
+//    fun indexNummeriert(liste:List<String>): List<String> {
+//        return liste.mapIndexed { index, name -> "${index + 1}.$name" }
+//    }
+
+    //    hier nicht alle Möglichkeiten, wie User Ja/Nein schreiben könnte abgesichert...
+//    override fun spielBeenden() {
+//        println("Beenden ohne zu Speichern? [Ja/Nein]")
+//        var eingabe = readln()
+//        while (!eingabe.equals("Ja", ignoreCase = true) && !eingabe.equals("Nein", ignoreCase = true)) {
+//            println("Achtung! Ungültige Eingabe. Bitte ´Ja´ oder ´Nein´ eingeben.")
+//            eingabe = readln()
+//        }
+//        if (eingabe.equals("nein", ignoreCase = true)) {
+//            spielSpeichern()
+//        } else {
+//            println("Spiel wird Beendet...")
+//            auswahlSpiele()
+//        }
+//    }
+
+    //    // Funktion zum Ausgeben der Helden in der Konsole
+//    override fun charakterAusgeben() {
+//        for (held in heldenArcade) {
+//            println(held.name)
+//        }
+//    }
+
+    // Funktion zum Ausgeben der Helden in der Konsole
+//    override fun charakterAusgeben() {
+//        for (gegner in gegnerArcade) {
+//            println(gegner.name)
+//        }
+//    }
+//  private val charakterListe = mutableListOf("Son Goku", "Son Gohan", "Trunks", "Piccolo", "Krelin","Vegeta", "Freezer", "Cell", "Boo", "Soldat")
+
 
 }
