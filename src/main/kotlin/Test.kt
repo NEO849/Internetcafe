@@ -96,6 +96,15 @@ open class Test {
 //
 //    }
 //
+
+    // so erstelle ich Helden Objekte dynamisch aus einer Liste, gut wenn man viele, schnell erstellen möchte
+//    fun erstelleHeldenArcadeModus(namen: List<String>, lP: Int){
+//        val held = erstelleCharakter()
+//        held.name = namen.firstOrNull() ?:""
+//        held.lP = lP
+//        heldenListeArcadeModus.add(held)
+//    }
+
 //    private fun startArcadeModus(){
 //        println("\nArcade Modus wird geladen...")
 //        //countdown(3)
