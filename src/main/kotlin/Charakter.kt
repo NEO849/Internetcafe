@@ -4,15 +4,10 @@
 open class Charakter(
     protected var name: String,       // default constructor, protected damit in den unterklassen darauf zugegriffen werden kann
     protected var lP: Int,
-    private var istBesiegt: Boolean = false
+    private var istBesiegt: Boolean = false,
 ) {
 
     // ich nutze "getter" um den "Wert" von ausserhalb zu lesen und zurückzugeben, so kann ich den "Wert" einfach für Logiken nutzen, ohne das von aussen darauf zugegriffen werden kann
-    fun getName(): String {
-        return name
-    }
-
-    //
     fun getLP(): Int {
         return lP
     }
@@ -27,7 +22,6 @@ open class Charakter(
         name = neuerName
     }
 
-    //
     fun setLP(neueLP: Int) {
         lP = neueLP
     }

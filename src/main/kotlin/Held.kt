@@ -3,9 +3,11 @@
 class Held(name: String, lP: Int) : Charakter(name, lP) {
 
     // hier werden miene Helden gespeichert und mit "protected" ist die Liste von der Klasse DBZ aus zugänglich
-    private var heldenListeStoryModus = mutableListOf<Held>()
+    val heldenListeStoryModus: MutableList<Held> = mutableListOf()
 
-    private var heldenListeArcadeModus = mutableListOf<Held>()
+    val heldenListeArcadeModus: MutableList<Held> = mutableListOf()
+
+    private var spezialFaehigkeit :String = ""
 
     private var transformation1 :String = ""
 
@@ -18,6 +20,10 @@ class Held(name: String, lP: Int) : Charakter(name, lP) {
         "Piccolo",
         "Krelin"
     )
+
+    fun setSpezialFaehigkeit(neueSpezialFaehigkeit: String) {
+        spezialFaehigkeit = neueSpezialFaehigkeit
+    }
 
     fun setTransformation1(neueTransformation: String) {
         transformation1 = neueTransformation
@@ -32,7 +38,7 @@ class Held(name: String, lP: Int) : Charakter(name, lP) {
     }
 
     // so erstelle ich für jeden Helden individuelle Eigenschaften
-    fun erstelleHeldenStoryModus(){
+    fun erstelleHeldenStoryModus(heldenListe: List<String>){
         for (name in heldenListe){
             val held = erstelleCharakter()
             held.setName(name)
@@ -76,7 +82,7 @@ class Held(name: String, lP: Int) : Charakter(name, lP) {
     // so erstelle ich Helden Objekte dynamisch aus einer Liste, gut wenn man viele, schnell erstellen möchte
     fun erstelleHeldenArcadeModus(namen: List<String>, lP: Int){
         val held = erstelleCharakter()
-        held.setName(name)
+        held.setName(namen.firstOrNull() ?:"")
         held.setLP(lP)
         heldenListeArcadeModus.add(held)
     }
@@ -84,8 +90,8 @@ class Held(name: String, lP: Int) : Charakter(name, lP) {
     // funktion zum Ausgeben der Helden in der Konsole
     override fun charakterAusgeben() {
         println("Helden:")
-        for (held in heldenListeArcadeModus) {
-            println(held.getName())
+        for (held in heldenListeStoryModus) {
+            println(held.name)
         }
     }
 
@@ -100,8 +106,8 @@ class Held(name: String, lP: Int) : Charakter(name, lP) {
     }
 
     //
-    override fun spezialFaehigkeit() {
-        println("$name  setzt Spezialfähigkeit ein")
+    fun spezialFaehigkeit(faehigkeit: String) {
+        println("$name  setzt die Spezialfähigkeit $faehigkeit  ein")
     }
 
     //

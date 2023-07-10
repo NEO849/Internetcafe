@@ -38,7 +38,6 @@ open class DBZ : Utils() {
     private fun startArcadeModus(){
         println("\nArcade Mode wird geladen...")
         countdown(3)
-        held.erstelleHelden()
         held.charakterAusgeben()
         println("\nWähle deinen Kämpfer...")
 

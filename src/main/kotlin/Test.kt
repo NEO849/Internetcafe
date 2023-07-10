@@ -72,6 +72,10 @@ open class Test {
 //        return heldenListe
 //    }
 
+//    fun getName(): String{
+//        return name
+//    }
+
 //    private  val heldenListe = mutableListOf<Charakter>()
 //    private  var charakterCounter = 0
 //
