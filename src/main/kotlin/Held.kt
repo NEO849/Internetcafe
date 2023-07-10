@@ -2,7 +2,7 @@
 // erbt von Klasse Charakter
 class Held(name: String, lP: Int) : Charakter(name, lP) {
 
-    // hier werden miene Helden gespeichert und mit "protected" ist die Liste von der Klasse DBZ aus zugänglich
+    // hier werden meine Helden gespeichert und mit "protected" ist die Liste von der Klasse DBZ aus zugänglich
     val heldenListeStoryModus: MutableList<Held> = mutableListOf()
 
     val heldenListeArcadeModus: MutableList<Held> = mutableListOf()
@@ -41,35 +41,35 @@ class Held(name: String, lP: Int) : Charakter(name, lP) {
     fun erstelleHeldenStoryModus(heldenListe: List<String>){
         for (name in heldenListe){
             val held = erstelleCharakter()
-            held.setName(name)
+            held.name = name
 
             when (name) {
                 "Son Goku" -> {
-                    held.setLP(10000)
+                    held.lP = 10000
                     held.spezialFaehigkeit("Kamehameha")
                     held.setTransformation1("Super Saiyajin")
                     held.setTransformation2("Ultra Saiyajin")
                 }
                 "Son Gohan" -> {
-                    held.setLP(7000)
+                    held.lP = 7000
                     held.spezialFaehigkeit("Masenko")
                     held.setTransformation1("Super Saiyajin")
                     held.setTransformation2("Ultimate Gohan")
                 }
                 "Trunks" -> {
-                    held.setLP(7000)
+                    held.lP = 7000
                     held.spezialFaehigkeit("Burning Attack")
                     held.setTransformation1("Super Saiyajin")
                     held.setTransformation2("Super Saiyajin2")
                 }
                 "Piccolo" -> {
-                    held.setLP(5000)
+                    held.lP = 5000
                     held.spezialFaehigkeit("Special Beam")
                     held.setTransformation1("Namekianer Fusion")
                     held.setTransformation2("Elder Namekianer")
                 }
                 "Krelin" -> {
-                    held.setLP(2000)
+                    held.lP = 2000
                     held.spezialFaehigkeit("Destructo Disk")
                     held.setTransformation1("Bigfoot")
                     held.setTransformation2("Chuck Norris")
@@ -82,8 +82,8 @@ class Held(name: String, lP: Int) : Charakter(name, lP) {
     // so erstelle ich Helden Objekte dynamisch aus einer Liste, gut wenn man viele, schnell erstellen möchte
     fun erstelleHeldenArcadeModus(namen: List<String>, lP: Int){
         val held = erstelleCharakter()
-        held.setName(namen.firstOrNull() ?:"")
-        held.setLP(lP)
+        held.name = namen.firstOrNull() ?:""
+        held.lP = lP
         heldenListeArcadeModus.add(held)
     }
 

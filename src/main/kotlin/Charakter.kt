@@ -7,30 +7,6 @@ open class Charakter(
     private var istBesiegt: Boolean = false,
 ) {
 
-    // ich nutze "getter" um den "Wert" von ausserhalb zu lesen und zurückzugeben, so kann ich den "Wert" einfach für Logiken nutzen, ohne das von aussen darauf zugegriffen werden kann
-    fun getLP(): Int {
-        return lP
-    }
-
-    //
-    fun getIstBesiegt(): Boolean {
-        return istBesiegt
-    }
-
-    // dadurch stelle ich sicher, dass die schreibgeschützten var nur unter meinen kontrollierten Bedingungen verändert werden
-    fun setName(neuerName: String) {
-        name = neuerName
-    }
-
-    fun setLP(neueLP: Int) {
-        lP = neueLP
-    }
-
-    //
-    fun setIstBesiegt(neuerStatus :Boolean) {
-        istBesiegt = neuerStatus
-    }
-
     // gemeinsame fun zum Erstellen und zurückgeben von Charakter-Objekten mit Name und LP und "istBesiegt" auf false
     open fun erstelleCharakter():Charakter{
         return Charakter(name,lP)
