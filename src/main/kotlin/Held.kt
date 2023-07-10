@@ -22,34 +22,6 @@ class Held(name: String, lP: Int) : Charakter(name, lP) {
         "Krelin"
     )
 
-    fun setSpezialFaehigkeit(neueSpezialFaehigkeit: String) {
-        spezialFaehigkeit = neueSpezialFaehigkeit
-    }
-
-    fun setTransformation1(neueTransformation: String) {
-        transformation1 = neueTransformation
-    }
-
-    fun setTransformation2(neueTransformation: String) {
-        transformation2 = neueTransformation
-    }
-
-    fun angriffTief(neuerAngriff: String) {
-        angriffTief = neuerAngriff
-    }
-
-    fun angriffHoch(neuerAngriff: String) {
-        angriffHoch = neuerAngriff
-    }
-
-    fun verteidigungTief(neueVerteidigung: String) {
-        verteidigungTief = neueVerteidigung
-    }
-
-    fun verteidigungHoch(neueVerteidigung: String) {
-        verteidigungHoch = neueVerteidigung
-    }
-
     override fun erstelleCharakter():Held {
         return Held(name, lP)
     }
@@ -146,10 +118,40 @@ class Held(name: String, lP: Int) : Charakter(name, lP) {
     // funktion zum Ausgeben der Helden in der Konsole
     override fun charakterAusgeben() {
         println("Helden:")
-        for (held in heldenListeStoryModus) {
+        for (held in heldenListeArcadeModus) {
             println(held.name)
         }
     }
+
+    fun setSpezialFaehigkeit(neueSpezialFaehigkeit: String) {
+        spezialFaehigkeit = neueSpezialFaehigkeit
+    }
+
+    fun setTransformation1(neueTransformation: String) {
+        transformation1 = neueTransformation
+    }
+
+    fun setTransformation2(neueTransformation: String) {
+        transformation2 = neueTransformation
+    }
+
+    fun angriffTief(neuerAngriff: String) {
+        angriffTief = neuerAngriff
+    }
+
+    fun angriffHoch(neuerAngriff: String) {
+        angriffHoch = neuerAngriff
+    }
+
+    fun verteidigungTief(neueVerteidigung: String) {
+        verteidigungTief = neueVerteidigung
+    }
+
+    fun verteidigungHoch(neueVerteidigung: String) {
+        verteidigungHoch = neueVerteidigung
+    }
+
+
 
     //
     override fun angreifen() {

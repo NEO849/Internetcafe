@@ -22,34 +22,6 @@ class Gegner (name:String, lP:Int):Charakter(name, lP) {
             "Boo"
     )
 
-    fun setSpezialFaehigkeit(neueSpezialFaehigkeit: String) {
-        spezialFaehigkeit = neueSpezialFaehigkeit
-    }
-
-    fun setTransformation1(neueTransformation: String) {
-        transformation1 = neueTransformation
-    }
-
-    fun setTransformation2(neueTransformation: String) {
-        transformation2 = neueTransformation
-    }
-
-    fun angriffTief(neuerAngriff: String) {
-        angriffTief = neuerAngriff
-    }
-
-    fun angriffHoch(neuerAngriff: String) {
-        angriffHoch = neuerAngriff
-    }
-
-    fun verteidigungTief(neueVerteidigung: String) {
-        verteidigungTief = neueVerteidigung
-    }
-
-    fun verteidigungHoch(neueVerteidigung: String) {
-        verteidigungHoch = neueVerteidigung
-    }
-
     override fun erstelleCharakter():Gegner {
         return Gegner(name, lP)
     }
@@ -144,11 +116,42 @@ class Gegner (name:String, lP:Int):Charakter(name, lP) {
 
     // funktion zum Ausgeben der Helden in der Konsole
     override fun charakterAusgeben() {
+        super.charakterAusgeben()                   // Aufruf der Methode in der Basisklasse
         println("Gegner:")
-        for (gegner in gegnerListeStoryModus) {
+        for (gegner in gegnerListeArcadeModus) {
             println(gegner.name)
         }
     }
+
+    fun setSpezialFaehigkeit(neueSpezialFaehigkeit: String) {
+        spezialFaehigkeit = neueSpezialFaehigkeit
+    }
+
+    fun setTransformation1(neueTransformation: String) {
+        transformation1 = neueTransformation
+    }
+
+    fun setTransformation2(neueTransformation: String) {
+        transformation2 = neueTransformation
+    }
+
+    fun angriffTief(neuerAngriff: String) {
+        angriffTief = neuerAngriff
+    }
+
+    fun angriffHoch(neuerAngriff: String) {
+        angriffHoch = neuerAngriff
+    }
+
+    fun verteidigungTief(neueVerteidigung: String) {
+        verteidigungTief = neueVerteidigung
+    }
+
+    fun verteidigungHoch(neueVerteidigung: String) {
+        verteidigungHoch = neueVerteidigung
+    }
+
+
 
     //
     override fun angreifen() {
