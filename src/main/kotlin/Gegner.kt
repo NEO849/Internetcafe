@@ -35,19 +35,19 @@ class Gegner (name:String, lP:Int):Charakter(name, lP) {
             when (name) {
                 "Vegeta" -> {
                     gegner.lP = 15000
-                    gegner.spezialFaehigkeit("Final Flash")
+                    gegner.spezialFaehigkeit = "Final Flash"
                     gegner.setTransformation1("Super Saiyajin")
                     gegner.setTransformation2("Ultra Saiyajin")
                 }
                 "Freezer" -> {
                     gegner.lP = 20000
-                    gegner.spezialFaehigkeit("Death Ball")
+                    gegner.spezialFaehigkeit = "Death Ball"
                     gegner.setTransformation1("Super Freezer")
                     gegner.setTransformation2("Golden Freezer")
                 }
                 "Cell" -> {
                     gegner.lP = 25000
-                    gegner.spezialFaehigkeit("Absorbieren")
+                    gegner.spezialFaehigkeit = "Absorbieren"
                     gegner.setTransformation1("Perfekte Form")
                     gegner.setTransformation2("Ultimate Form")
                 }

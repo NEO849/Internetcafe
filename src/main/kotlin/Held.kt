@@ -6,6 +6,9 @@ class Held(name: String, lP: Int) : Charakter(name, lP) {
     val heldenListeStoryModus: MutableList<Held> = mutableListOf()
     val heldenListeArcadeModus: MutableList<Held> = mutableListOf()
 
+    // hier allgemeine Schaden der spezial Fähigkeiten
+    private var spezialSchaden :Int = 0
+
     private var spezialFaehigkeit :String = ""
     private var transformation1 :String = ""
     private var transformation2 :String = ""
@@ -22,10 +25,6 @@ class Held(name: String, lP: Int) : Charakter(name, lP) {
         "Krelin"
     )
 
-    override fun erstelleCharakter():Held {
-        return Held(name, lP)
-    }
-
     // so erstelle ich für jeden Helden individuelle Eigenschaften
     fun erstelleHeldenStoryModus(){
         for (name in heldenNamen){
@@ -35,31 +34,26 @@ class Held(name: String, lP: Int) : Charakter(name, lP) {
             when (name) {
                 "Son Goku" -> {
                     held.lP = 10000
-                    held.spezialFaehigkeit("Kamehameha")
                     held.setTransformation1("Super Saiyajin")
                     held.setTransformation2("Ultra Saiyajin")
                 }
                 "Son Gohan" -> {
                     held.lP = 7000
-                    held.spezialFaehigkeit("Masenko")
                     held.setTransformation1("Super Saiyajin")
                     held.setTransformation2("Ultimate Gohan")
                 }
                 "Trunks" -> {
                     held.lP = 7000
-                    held.spezialFaehigkeit("Burning Attack")
                     held.setTransformation1("Super Saiyajin")
                     held.setTransformation2("Super Saiyajin2")
                 }
                 "Piccolo" -> {
                     held.lP = 5000
-                    held.spezialFaehigkeit("Special Beam")
                     held.setTransformation1("Namekianer Fusion")
                     held.setTransformation2("Elder Namekianer")
                 }
                 "Krelin" -> {
                     held.lP = 2000
-                    held.spezialFaehigkeit("Destructo Disk")
                     held.setTransformation1("Bigfoot")
                     held.setTransformation2("Chuck Norris")
 
@@ -82,27 +76,22 @@ class Held(name: String, lP: Int) : Charakter(name, lP) {
 
             when (name) {
                 "Son Goku" -> {
-                    held.spezialFaehigkeit("Kamehameha")
                     held.setTransformation1("Super Saiyajin")
                     held.setTransformation2("Ultra Saiyajin")
                 }
                 "Son Gohan" -> {
-                    held.spezialFaehigkeit("Masenko")
                     held.setTransformation1("Super Saiyajin")
                     held.setTransformation2("Ultimate Gohan")
                 }
                 "Trunks" -> {
-                    held.spezialFaehigkeit("Burning Attack")
                     held.setTransformation1("Super Saiyajin")
                     held.setTransformation2("Super Saiyajin2")
                 }
                 "Piccolo" -> {
-                    held.spezialFaehigkeit("Special Beam")
                     held.setTransformation1("Namekianer Fusion")
                     held.setTransformation2("Elder Namekianer")
                 }
                 "Krelin" -> {
-                    held.spezialFaehigkeit("Destructo Disk")
                     held.setTransformation1("Bigfoot")
                     held.setTransformation2("Chuck Norris")
                 }
@@ -151,7 +140,10 @@ class Held(name: String, lP: Int) : Charakter(name, lP) {
         verteidigungHoch = neueVerteidigung
     }
 
-
+    //
+    override fun erstelleCharakter():Held {
+        return Held(name, lP)
+    }
 
     //
     override fun angreifen() {
@@ -183,4 +175,16 @@ class Held(name: String, lP: Int) : Charakter(name, lP) {
         println("$name  verwendet eine magische Bohne um sich zu Heilen")
     }
 }
+//held.spezialFaehigkeit("Kamehameha")
+//held.spezialFaehigkeit("Masenko")
+//held.spezialFaehigkeit("Burning Attack")
+//held.spezialFaehigkeit("Special Beam")
+//held.spezialFaehigkeit("Destructo Disk")
+//
+//
+//held.spezialFaehigkeit("Kamehameha")
+//held.spezialFaehigkeit("Masenko")
+//held.spezialFaehigkeit("Burning Attack")
+//held.spezialFaehigkeit("Special Beam")
+//held.spezialFaehigkeit("Destructo Disk")
 

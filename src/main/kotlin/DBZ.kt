@@ -4,6 +4,7 @@ open class DBZ : Utils() {
 
     private val auswahlSpiele = AuswahlSpiele()
     private val held  = Held("Test",0)    // Instanziierung von der Held Klasse
+    private val gegner  = Gegner("Test",0)    // Instanziierung von der Held Klasse
 
     override fun spielStarten() {
         println("\nWelchen Modus möchtest du Spielen?")
@@ -40,6 +41,8 @@ open class DBZ : Utils() {
        // countdown(3)
         held.erstelleHeldenArcadeModus()
         held.charakterAusgeben()
+        gegner.erstelleGegnerStoryModus()
+        gegner.charakterAusgeben()
         println("\nWähle deinen Kämpfer...")
     }
 

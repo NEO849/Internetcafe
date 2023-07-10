@@ -27,6 +27,16 @@ open class Test {
 //        return heldenListe
 //    }
 
+    // methode zum Erleiden von Schaden
+//    protected fun schadenErleiden(schaden: Int) {
+//        lP -= schaden
+//        if (lP <= 0) {
+//            lP = 0
+//            istBesiegt = true
+//            println("$name  ist K.O!!!")
+//        }
+//    }
+
     // hier werden miene Helden gespeichert und mit protected ist die Liste von der Klasse DBZ aus zugänglich
 //    private var heldenListe = mutableListOf<Held>()
 //
@@ -58,7 +68,7 @@ open class Test {
 //        }
 //    }
 
-//    // zweiter Konstruktor, für schnelle Charaktererstellung, ruft nur name und lp auf, mit this rufe ich Hauptkonstruktor auf und setze "istBesiegt" für alle auf "false"
+//    // zweter Konstruktior, für schnelle Charaktererstellung, ruft nur name und lp auf, mit this rufe ich Hauptkonstruktor auf und setze "istBesiegt" für alle auf "false"
 //    constructor(name: String,lP: Int) :this(name,lP,false)
 
 
