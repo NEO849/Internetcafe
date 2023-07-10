@@ -7,17 +7,16 @@ open class Charakter(
     private var istBesiegt: Boolean = false,
 ) {
 
-
     // gemeinsame fun zum Erstellen und zurückgeben von Charakter-Objekten mit Name und LP und "istBesiegt" auf false
     open fun erstelleCharakter():Charakter{
         return Charakter(name,lP)
     }
 
     // sind Platzhalter und werden in den Unterklassen überschrieben
-    open fun schadenErleiden(){}
+    open fun charakterAusgeben() {}
 
     //
-    open fun charakterAusgeben() {}
+    open fun schadenErleiden(){}
 
     //
     open fun angreifen() {}
@@ -26,7 +25,7 @@ open class Charakter(
     open fun verteidigen() {}
 
     //
-    open fun spezialFaehigkeit() {}
+    open fun spezialAngriff() {}
 
     //
     open fun transformation1() {}

@@ -13,7 +13,8 @@ abstract class Utils {
     abstract fun spielFortsetzen()
     abstract fun spielBeenden()
 
-    //
+    // die Klammern {} was normal hinter "while" stehen stehen jetzt davor (mit do), das bedeutet das das Menu auf
+    // jeden Fall angezeigt wird und dann wird erst überprüft was der User eingegeben hat
     fun menuImSpiel() {
         var index = 0
         do {
