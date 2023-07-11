@@ -13,7 +13,7 @@ open class Charakter(
     }
 
     // sind Platzhalter und werden in den Unterklassen überschrieben
-    open fun charakterAusgeben(): List<String>{                 // gebe Liste als Ergebnis zurück, so kann ich leichter Logiken implementieren
+    open fun charakterAusgeben(): List<String>{
         return emptyList()
     }
 
