@@ -1,11 +1,37 @@
 
 // ist eine open Basisklasse von der die Klassen Held und gegner erben sollen, jedoch name, lp und Status "istBesiegt" sollen nicht von aussen verändert werden können
 // extra alle "var" und nicht "val" weil bei DBZ durch "Nahtoderfahrung","Magische Bohnen","Super Sayajin Mode" machen dies nötig um den Status unter dem Kampf zu aktualisieren
+
+// default constructor, protected damit in den unterklassen darauf zugegriffen werden kann
 open class Charakter(
-    protected var name: String,       // default constructor, protected damit in den unterklassen darauf zugegriffen werden kann
+    protected var name: String,
     protected var lP: Int,
     private var istBesiegt: Boolean = false,
 ) {
+
+    // 2er Konstruktor
+    constructor(name: String,lP: Int,angriff:String,verteidigung:String) :this (name, lP,false) {}
+
+    // 3er Konstruktor
+    constructor(name: String,lP: Int,angriff:String,verteidigung:String,spezialFaehigkeit:String) :this (name, lP,false) {}
+
+    // 4er Konstruktor
+    constructor(name: String,lP: Int,angriff:String,verteidigung:String,spezialFaehigkeit:String,transformation: String) :this (name, lP,false) {}
+
+    // 5er Konstruktor
+    constructor(
+        name: String,
+        lP: Int,
+        angriffHoch:String,
+        angriffTief:String,
+        verteidigungHoch:String,
+        verteidigungTief:String,
+        spezialFaehigkeit:String,
+        transformation:String,
+        heilen:String
+    ) :this (name, lP,false) {
+        // hier kann ich die zusätzlichen Parameter verarbeiten
+    }
 
     // gemeinsame fun zum Erstellen und zurückgeben von Charakter-Objekten mit Name und LP und "istBesiegt" auf false
     open fun erstelleCharakter():Charakter{
@@ -18,56 +44,34 @@ open class Charakter(
     }
 
     //
-    open fun schadenErleiden(schaden:Int):Pair<Int,Boolean>{
-        val neueLP = lP - schaden
-        val istBesiegt = neueLP <= 0
-        if (istBesiegt) {
-            println("$name  ist K:O gegangen!")
-        }
-        return Pair(neueLP, istBesiegt)
+    open fun angreifen() {
+        println("$name  greift an!")
     }
 
     //
-    open fun angreifen(ziel:Charakter, schaden: Int):Pair<Int,Boolean> {
-        val (neueLP, istBesiegt) = ziel.schadenErleiden(schaden)
-        ziel.lP = neueLP
-        if (istBesiegt) {
-            println("${ziel.name}  ist K:O gegangen!")
-        }
-        return Pair(neueLP, istBesiegt)
+    open fun verteidigen():String {
+        return "$name  verteidigt sich!"
     }
 
     //
-    open fun verteidigen(schaden: Int):Int {
-        return schaden                          // wird in unterklassen definiert
+    open fun spezialFaehigkeit() {
+        println("$name  setzt die Spezialfähigkeit ein!")
     }
 
     //
-    open fun spezialAngriff(ziel: Charakter, schaden: Int):Pair<Int,Boolean>  {
-        val (neueLP, istBesiegt) = ziel.schadenErleiden(schaden * 2)    // verursacht doppelten schaden
-        ziel.lP = neueLP
-        if (istBesiegt) {
-            println("${ziel.name}  ist K:O gegangen!")
-        }
-        return Pair(neueLP, istBesiegt)
+    open fun transformation() {
+        println("$name  Transformiert sich!")
     }
 
     //
-    open fun transformation1(lPErhoehung: Int):Int {
-        lP += lPErhoehung
-        return lP
+    open fun heilen(){
+        println("$name  verwendet eine magische Bohne um sich zu Heilen!")
     }
 
     //
-    open fun transformation2(lPErhoehung: Int):Int {
-        lP += lPErhoehung
-        return lP
+    open fun schadenErleiden(){
+        println("$name  erleidet Schaden!")
     }
 
-    //
-    open fun magischeBohnen(lPErhoehung: Int):Int{
-        lP += lPErhoehung
-        return lP
-    }
 }
 
