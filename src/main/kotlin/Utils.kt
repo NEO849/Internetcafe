@@ -54,6 +54,11 @@ abstract class Utils {
             println()                      // neue Zeile nach Countdown
         }
 
+        // fun um übergebene Listen/Elemente zu nummerieren
+        fun nummeriereObjekte(liste:List<String>): List<String> {
+            return liste.mapIndexed { index,name -> "${index + 1}. $name"}
+        }
+
         fun countdownPrint(sekunden: Int): Int { // hier mit Rückgabewert, dadurch individuellere Print Statement Ausgaben
             var x = sekunden
             while (x > 0) {

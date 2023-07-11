@@ -735,5 +735,14 @@ open class Test {
 //    }
 //  private val charakterListe = mutableListOf("Son Goku", "Son Gohan", "Trunks", "Piccolo", "Krelin","Vegeta", "Freezer", "Cell", "Boo", "Soldat")
 
+    // fun um eine Liste als Ergebnis zurückzugeben
+//    override fun charakterAusgeben(): List<String> {
+//        return nummeriereObjekte(namenListe)
+//    }
+
+    // fun um die Liste als Ergebnis zurückzugeben
+//    override fun charakterAusgeben(): List<String> {
+//        return gegnerArcade.map { it.name }
+//    }
 
 }

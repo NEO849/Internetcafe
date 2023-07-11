@@ -5,11 +5,11 @@ class Gegner (name:String, lP:Int):Charakter(name, lP) {
     private val gegnerArcade = mutableListOf<Gegner>()       // hier speichere ich die erstellten Heldobjekte für den Arcade Modus
     private val gegnerStory = mutableListOf<Gegner>()       // hier speichere ich die erstellten Heldobjekte für den Story Modus
 
-    private var namenListe = listOf("Vegeta", "Freezer", "Cell", "Boo", "Soldat")
-    private val lPWerte = listOf(30000, 50000, 80000, 100000, 3000)
-    private val transformation1Liste = listOf("Super Saiyan", "Super Freezer", "Perfekte Form", "Bad Boo", "")
-    private val transformation2Liste = listOf("Ultra Saiyajin", "Golden Freezer", "Harakiri", "Chuck Norris Fusion", "")
-    private val spezialAngriffListe = listOf("Final Flash", "Death Ball", "Absorbieren", "Genkidama", "Schießen")
+    var namenListe = listOf("Vegeta", "Freezer", "Cell", "Boo", "Soldat")
+    val lPWerte = listOf(30000, 50000, 80000, 100000, 3000)
+    val transformation1Liste = listOf("Super Saiyan", "Super Freezer", "Perfekte Form", "Bad Boo", "")
+    val transformation2Liste = listOf("Ultra Saiyajin", "Golden Freezer", "Harakiri", "Chuck Norris Fusion", "")
+    val spezialAngriffListe = listOf("Final Flash", "Death Ball", "Absorbieren", "Genkidama", "Schießen")
 
     // Funktion für Arcade Modus, somit schnell, unterschiedliche Helden
     fun erstelleArcadeModus():List<Gegner>{
@@ -49,11 +49,6 @@ class Gegner (name:String, lP:Int):Charakter(name, lP) {
             gegnerStory.add(gegner)
         }
         return gegnerStory
-    }
-
-    // fun um die Liste als Ergebnis zurückzugeben
-    override fun charakterAusgeben(): List<String> {
-        return gegnerArcade.map { it.name }
     }
 
 }

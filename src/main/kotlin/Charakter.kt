@@ -13,36 +13,61 @@ open class Charakter(
     }
 
     // sind Platzhalter und werden in den Unterklassen überschrieben
-    open fun charakterAusgeben(): List<String>{
-        return emptyList()
+    open fun charakterAusgeben(): String{
+        return name
     }
 
     //
-    open fun schadenErleiden(schaden:Int){
+    open fun schadenErleiden(schaden:Int):Pair<Int,Boolean>{
+        val neueLP = lP - schaden
+        val istBesiegt = neueLP <= 0
+        if (istBesiegt) {
+            println("$name  ist K:O gegangen!")
+        }
+        return Pair(neueLP, istBesiegt)
     }
 
     //
-    open fun angreifen() {}
+    open fun angreifen(ziel:Charakter, schaden: Int):Pair<Int,Boolean> {
+        val (neueLP, istBesiegt) = ziel.schadenErleiden(schaden)
+        ziel.lP = neueLP
+        if (istBesiegt) {
+            println("${ziel.name}  ist K:O gegangen!")
+        }
+        return Pair(neueLP, istBesiegt)
+    }
 
     //
-    open fun verteidigen() {}
+    open fun verteidigen(schaden: Int):Int {
+        return schaden                          // wird in unterklassen definiert
+    }
 
     //
-    open fun spezialAngriff() {}
+    open fun spezialAngriff(ziel: Charakter, schaden: Int):Pair<Int,Boolean>  {
+        val (neueLP, istBesiegt) = ziel.schadenErleiden(schaden * 2)    // verursacht doppelten schaden
+        ziel.lP = neueLP
+        if (istBesiegt) {
+            println("${ziel.name}  ist K:O gegangen!")
+        }
+        return Pair(neueLP, istBesiegt)
+    }
 
     //
-    open fun transformation1() {}
+    open fun transformation1(lPErhoehung: Int):Int {
+        lP += lPErhoehung
+        return lP
+    }
 
     //
-    open fun transformation2() {}
+    open fun transformation2(lPErhoehung: Int):Int {
+        lP += lPErhoehung
+        return lP
+    }
 
     //
-    open fun magischeBohnen(){}
+    open fun magischeBohnen(lPErhoehung: Int):Int{
+        lP += lPErhoehung
+        return lP
+    }
 }
 
-//open fun schadenErleiden(schaden:Int):Boolean{
-//    lP -= schaden
-//    if (lP <= 0) {
-//        istBesiegt = true
-//    }
-//}
