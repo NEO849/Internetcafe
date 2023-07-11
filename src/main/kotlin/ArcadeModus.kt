@@ -1,6 +1,8 @@
 
 
-class ArcadeModus(name: String, lP: Int) : Charakter(name, lP) {
+class ArcadeModus(name: String, lP: Int,istBesiegt: Boolean = false) : Charakter(name, lP) {
+
+    val arcadeAuswahl = mutableListOf<Charakter>()
 
     val namenListe = listOf("Son Goku", "Son Gohan", "Trunks", "Piccolo", "Krelin","Vegeta", "Freezer", "Cell", "Boo", "Soldat")
     val transformation1Liste = listOf("Super Saiyan", "Mystic Gohan", "Super Saiyan", "Super Fusion", "Power Up")
@@ -9,61 +11,46 @@ class ArcadeModus(name: String, lP: Int) : Charakter(name, lP) {
     val lPWerte:Int = 10000
 
     //
-    override fun angreifen(ziel:Charakter, schaden: Int):Pair<Int,Boolean> {
-        super.angreifen()
-        val (neueLP, istBesiegt) = ziel.schadenErleiden(schaden)
-        ziel.lP = neueLP
+    fun angreifen(ziel: Charakter,schaden:Int):Pair<Int,Boolean>{
+        ziel.lP -= schaden
+        val istBesiegt = ziel.lP <= 0
         if (istBesiegt) {
-            println("${ziel.name}  ist K:O gegangen!")
+            println("$name  ist K.O gegangen!")
         }
-        return Pair(neueLP, istBesiegt)
+        return Pair(ziel.lP, istBesiegt)
     }
 
     //
-    override fun verteidigen(schaden: Int):Int {
+    fun verteidigen(schaden: Int):Int {
         lP = lP
         return lP
     }
 
     //
-    override fun spezialFaehigkeit(ziel: Charakter, schaden: Int):Pair<Int,Boolean>  {
-        super.spezialFaehigkeit()
-        val (neueLP, istBesiegt) = ziel.schadenErleiden(schaden * 2)    // verursacht doppelten schaden
-        ziel.lP = neueLP
+    fun spezialFaehigkeit(ziel: Charakter,schaden:Int):Pair<Int,Boolean>{
+        ziel.lP -= schaden * 2
+        val istBesiegt = ziel.lP <= 0
         if (istBesiegt) {
-            println("${ziel.name}  ist K:O gegangen!")
+            println("$name  ist K.O gegangen!")
         }
-        return Pair(neueLP, istBesiegt)
+        return Pair(ziel.lP, istBesiegt)
     }
 
     //
-    override fun transformation(lPErhoehung: Int):Int {
-        super.transformation()
+    fun transformation(lPErhoehung: Int):Int {
         lP += lPErhoehung
         return lP
     }
 
     //
-    override fun heilen(heilung: Int):Int{
-        super.heilen()
+    fun heilen(heilung: Int):Int{
         lP += heilung
         return lP
     }
 
-    //
-    override fun schadenErleiden(schaden:Int):Pair<Int,Boolean>{
-        super.schadenErleiden()
-        val neueLP = lP - schaden
-        val istBesiegt = neueLP <= 0
-        if (istBesiegt) {
-            println("$name  ist K:O gegangen!")
-        }
-        return Pair(neueLP, istBesiegt)
-    }
-
 
     // Funktion für Arcade Modus, somit schnell, unterschiedliche Helden
-    fun erstelleArcadeModus():List<Held>{
+    fun erstelleArcadeModus():List<Charakter>{
         for (i in namenListe.indices) {
             val name = namenListe[i]
             val lP = 10000
@@ -76,10 +63,10 @@ class ArcadeModus(name: String, lP: Int) : Charakter(name, lP) {
             val verteidigungTief = "Ausweichen"
             val heilen = "Heilen"
 
-            val held = Held(name, lP)
-            heldenArcade.add(held)
+            val charakter = Charakter(name, lP)
+            arcadeAuswahl.add(charakter)
         }
-        return heldenArcade
+        return arcadeAuswahl
     }
 
 }
