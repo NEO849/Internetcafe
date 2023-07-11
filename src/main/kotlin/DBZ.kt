@@ -31,13 +31,21 @@ open class DBZ : Utils() {
     private fun startStoryModus(){
         println("Story Modus wird geladen...")
         //countdown(3)
-        spielStarten()
+
+//        val storyModus = StoryModus("Spieler")
+//        storyModus.starteStoryModus()
+
+        spielStarten()                              // wenn Story Modus beendet ist, zurück zum DBZ Spiel-Menu
     }
 
     private fun startArcadeModus(){
         println("\nArcade Mode wird geladen...")
         // countdown(3)
-        println("\nWähle deinen Kämpfer...")
+
+        val arcadeModus = ArcadeModus("Spieler",0)
+        arcadeModus.startArcadeModus()
+
+        spielStarten()                           // wenn Arcade Modus beendet ist, zurück zum DBZ Spiel-Menu
 
     }
 
@@ -45,14 +53,14 @@ open class DBZ : Utils() {
         println("\nSpiel wird gespeichert. Coming Soon...")
         //countdown(3)
         // Logik
-        auswahlSpiele.auswahlSpiele()
+        spielFortsetzen()                           // wenn Spiel gespeichert ist, wird funktion "spielFortsetzen" aufgerufen
     }
 
     override fun spielFortsetzen() {
         println("\nSpiel wird in kürze fortgesetzt. Coming Soon...")
         //countdown(3)
         // Logik
-        auswahlSpiele.auswahlSpiele()
+        spielStarten()                           // noch nicht fertig
     }
 
     // ich wollte das mal anders lösen und ohne ".toLowerCase", alle gültigen Eingaben sind in einer Liste gespeichert. Vorsicht ohne "break" Endlosschleife

@@ -4,7 +4,7 @@
 
 // default constructor, protected damit in den unterklassen darauf zugegriffen werden kann
 open class Charakter(
-    protected var name: String,
+    var name: String,
     var lP: Int,
     private var istBesiegt: Boolean = false,
 ) {

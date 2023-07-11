@@ -1026,4 +1026,24 @@ open class Test {
 //        }
 //        return Pair(neueLP, istBesiegt)
 //    }
+
+    // Funktion für Arcade Modus, somit schnell, unterschiedliche Helden
+//    fun starteArcadeModus():List<Charakter>{
+//        for (i in namenListe.indices) {
+//            val name = namenListe[i]
+//            val lP = 10000
+//            val transformation1 = transformation1Liste[i]
+//            val transformation2 = transformation2Liste[i]
+//            val spezialFaehigkeit = spezialFaehigkeitListe[i]
+//            val angriffHoch = "Faustschlag"
+//            val angriffTief = "Fußtritt"
+//            val verteidigungHoch = "Block"
+//            val verteidigungTief = "Ausweichen"
+//            val heilen = "Heilen"
+//
+//            val charakter = Charakter(name, lP)
+//            arcadeAuswahl.add(charakter)
+//        }
+//        return arcadeAuswahl
+//    }
 }
