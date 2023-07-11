@@ -42,7 +42,7 @@ open class DBZ : Utils() {
         println("\nArcade Mode wird geladen...")
         // countdown(3)
 
-        val arcadeModus = ArcadeModus("Spieler",0)
+        val arcadeModus = DbzArcadeModus("Spieler",0)
         arcadeModus.startArcadeModus()
 
         spielStarten()                           // wenn Arcade Modus beendet ist, zurück zum DBZ Spiel-Menu

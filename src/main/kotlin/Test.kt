@@ -1101,5 +1101,14 @@ open class Test {
 //
 //}
 
+    //
+//    fun angreifen(ziel: Charakter, schaden: Int): Pair<Int, Boolean> {
+//        ziel.lP -= schaden
+//        val istBesiegt = ziel.lP <= 0
+//        if (istBesiegt) {
+//            println("\n$name  ist K.O gegangen!")
+//        }
+//        return Pair(ziel.lP, istBesiegt)
+//    }
 
 }
