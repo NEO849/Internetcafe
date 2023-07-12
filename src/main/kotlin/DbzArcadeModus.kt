@@ -57,44 +57,63 @@ class DbzArcadeModus(name: String, lP: Int, istBesiegt: Boolean = false) : Chara
             val gewaehlterHeld = arcadeCharakter[auswahl - 1]
             println("\nDu hast Kämpfer:  ${gewaehlterHeld.name}")
 
-            // Gegner per Zufall Auswählen, zwischen Position 0 und und der letzten der gesamten Liste wird zufälliger Index in var zufallIndex gespeicheichert
-            val zufallIndex = (0 until arcadeCharakter.size).random()
+            //  Endlosschleife, solange
+            var weiterSpielen = true
+            while (weiterSpielen) {
 
-            // mit Hilfe von dem zufälligen Index, weise ich den dazugehörigen Charakter aus der arcadeCharakter liste der var zufallGegner zu
-            val zufallGegner = arcadeCharakter[zufallIndex]
-            println("Dein Gegner ist:  ${zufallGegner.name}")
+                // Gegner per Zufall Auswählen, zwischen Position 0 und und der letzten der gesamten Liste wird zufälliger Index in var zufallIndex gespeicheichert
+                // mit Hilfe von dem zufälligen Index, weise ich den dazugehörigen Charakter aus der arcadeCharakter liste der var zufallGegner zu
+                val zufallIndex = (0 until arcadeCharakter.size).random()
+                val zufallGegner = arcadeCharakter[zufallIndex]
+                println("Dein Gegner ist:  ${zufallGegner.name}")
 
-            // Kampfszenario: eine while Schleife die so lange läuft bis ein Charakter KO ist
-            var runde = 1
-            while (gewonneneRundenSpieler < 2 && gewonneneRundenComputer < 2) {
-                println("\n---  Round $runde ---")
-                spielerZug(gewaehlterHeld, zufallGegner)
-                if (gewaehlterHeld.lP <= 0 || zufallGegner.lP <= 0) {
-                    break
+                var runde = 1
+
+                // Kampfszenario: eine while Schleife die so lange läuft bis ein Charakter KO ist
+                while(gewaehlterHeld.lP >= 0 && zufallGegner.lP >= 0) {
+                    println("\n---  Hit  $runde  ---")
+
+                    spielerZug(gewaehlterHeld, zufallGegner)
+                    if (zufallGegner.lP <= 0) {
+                        break
+                    }
+                    computerZug(zufallGegner, gewaehlterHeld)
+                    if (gewaehlterHeld.lP <= 0) {
+                        break
+                    }
+                    runde ++
                 }
-                computerZug(zufallGegner, gewaehlterHeld)
-                if (gewaehlterHeld.lP <= 0 || zufallGegner.lP <= 0) {
-                    break
+
+                // Kampfende
+                println("\nKampf Beendet!")
+
+                if (zufallGegner.lP <= 0) {
+                    println("Runde 1 You Win!!!")
+                    gewonneneRundenSpieler ++
+                    if (gewonneneRundenSpieler >= 2) {
+                        gewonneneMatchesSpieler ++
+                        println("Runde 2 You Win, Match-Point!")
+                    }
+                }else {
+                    println("Runde 1 Computer Wins!!")
+                    gewonneneRundenComputer ++
+                    if (gewonneneRundenComputer >= 2) {
+                        gewonneneMatchesComputer ++
+                        println("Runde 2 Computer Win, Match-Point!")
+                    }
                 }
-                runde ++
-            }
 
-            // Kampfende
-            println("\nKampf Beendet!")
-            if (gewonneneRundenSpieler > gewonneneRundenComputer) {
-                gewonneneMatchesSpieler ++
-                println("You Win!")
-            } else if (gewonneneRundenSpieler < gewonneneRundenComputer) {
-                gewonneneMatchesComputer ++
-                println("You Looose!")
-            } else {
-                println("Unentschieden!")
-            }
+                println("\nSpielstatistik")
+                println("Gewonnene Runden  (Spieler):    $gewonneneRundenSpieler")
+                println("Gewonnene Matches (Spieler):    $gewonneneMatchesSpieler")
+                println("Gewonnene Runden  (Computer):    $gewonneneRundenComputer")
+                println("Gewonnene Matches (Computer):    $gewonneneMatchesComputer")
 
-            println("\nSpielstatistik")
-            println("Gewonnene Matches (Spieler):    $gewonneneMatchesSpieler")
-            println("Gewonnene Matches (Computer):   $gewonneneMatchesComputer")
-        } else {
+                println("\nDBZ- Arcademodus erneut Spielen:  [Ja/Nein]")
+                val anwort = readln().lowercase()
+                weiterSpielen = anwort == "ja"
+            }
+        }else {
             println("\nUngültige Eingabe!")
         }
     }
@@ -129,7 +148,7 @@ class DbzArcadeModus(name: String, lP: Int, istBesiegt: Boolean = false) : Chara
                 computer.schadenErleiden(schaden)
                 computer.lP -= schaden
                 println("Der hohe Angriff hat  $schaden  Schaden verursacht!")
-                println("Durch den hohen Angriff hat ${computer.name}  noch  ${computer.lP} LP übrig!")
+                println("${computer.name}  hat noch  ${computer.lP} LP übrig!")
             }
 
             2 -> {
@@ -139,7 +158,7 @@ class DbzArcadeModus(name: String, lP: Int, istBesiegt: Boolean = false) : Chara
                 computer.schadenErleiden(schaden)
                 computer.lP -= schaden
                 println("Der tiefe Angriff hat  $schaden  Schaden verursacht!")
-                println("Durch den tiefen Angriff hat ${computer.name}  noch  ${spieler.lP} LP übrig!")
+                println("${computer.name}  hat noch  ${computer.lP} LP übrig!")
             }
 
             3 -> {
@@ -230,7 +249,7 @@ class DbzArcadeModus(name: String, lP: Int, istBesiegt: Boolean = false) : Chara
                 val heilenWert = Random.nextInt(100, 1000)
                 println(computer.heilen(heilenWert))
                 computer.lP += heilenWert
-                println("Die Heilung hat die lP um  $heilenWert  lP verbessert!!")
+                println("Die Heilung hat die lP um  $heilenWert  lP verbessert!")
                 println("${computer.name}  hat jetzt wieder  ${computer.lP}  lP!")
             }
 

@@ -11,7 +11,7 @@ class DbzStoryModus(name: String, lP: Int, istBesiegt: Boolean = false) : Charak
     val endGegner3 : Charakter
 
     init {
-        spieler = Charakter("Son Goku",20000,"Schlag","Block")
+        spieler = Charakter("Son Goku",60000,"Schlag","Block")
         soldat1 = Charakter("Soldat1",15000,"Schlag","Block")
         soldat2 = Charakter("Soldat2",20000,"Schlag","Block")
         soldat3 = Charakter("Soldat3",25000,"Schlag","Block")
@@ -24,8 +24,9 @@ class DbzStoryModus(name: String, lP: Int, istBesiegt: Boolean = false) : Charak
     fun startStoryModus() {
 
         // Intro 1
-        println("\nDBZ - Der Goldene Drache")
-        println("Die Welt wird wieder mal bedroht und nur der Kämpfer  ${spieler.name}  kann uns Retten")
+        println("\n-------------------------    DBZ - Der Goldene Drache    -------------------------")
+        println("   Die Welt wird bedroht und nur der Kämpfer  ${spieler.name}  kann uns Retten")
+        println("----------------------------------------------------------------------------------")
 
         // Kampf 1 gegen Soldat 1
         println("\nKampf 1:  Son Goku vs.  ${soldat1.name}")
