@@ -1,4 +1,3 @@
-
 // erbt von der abstract "Utils" Basisklasse, ich überschreibe die abstrakten funktionen individuell aufs RPG Spiel abgestimmt
 open class DBZ : Utils() {
 
@@ -15,12 +14,15 @@ open class DBZ : Utils() {
             1 -> {
                 startStoryModus()
             }
+
             2 -> {
                 startArcadeModus()
             }
+
             3 -> {
                 menuImSpiel()
             }
+
             else -> {
                 println("Ungültige Eingabe! Ganzzahl eingeben.")
                 spielStarten()
@@ -28,7 +30,7 @@ open class DBZ : Utils() {
         }
     }
 
-    private fun startStoryModus(){
+    private fun startStoryModus() {
         println("Story Modus wird geladen...")
         //countdown(3)
 
@@ -38,11 +40,11 @@ open class DBZ : Utils() {
         spielStarten()                              // wenn Story Modus beendet ist, zurück zum DBZ Spiel-Menu
     }
 
-    private fun startArcadeModus(){
+    private fun startArcadeModus() {
         println("\nArcade Mode wird geladen...")
         // countdown(3)
 
-        val arcadeModus = DbzArcadeModus("Spieler",0)
+        val arcadeModus = DbzArcadeModus("Spieler", 0)
         arcadeModus.startArcadeModus()
 
         spielStarten()                           // wenn Arcade Modus beendet ist, zurück zum DBZ Spiel-Menu

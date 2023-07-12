@@ -1,27 +1,15 @@
+class DbzStoryModus(name: String, lP: Int) : Charakter(name, lP) {
 
+    val charakter1 : Charakter
+    val charakter2 : Charakter
+    val charakter3 : Charakter
+    val charakter4 : Charakter
 
-open class DbzStoryModus(name: String, lP: Int) : Charakter(name, lP)  {
-
-            // Funktion für Story Modus, somit schnell, unterschiedliche Helden
-//        fun erstelleStoryModus():List<Held> {
-//            for (i in namenListe.indices) {
-//                val name = namenListe[i]
-//                val lP = lPWerte[i]
-//                val transformation1 = transformation1Liste[i]
-//                val transformation2 = transformation2Liste[i]
-//                val spezialFaehigkeit = spezialFaehigkeitListe[i]
-//                val angriffHoch = "Faustschlag"
-//                val angriffTief = "Fußtritt"
-//                val verteidigungHoch = "Block"
-//                val verteidigungTief = "Ausweichen"
-//                val heilen = "Heilen"
-//
-//                val held = Held(name, lP)
-//                heldenStory.add(held)
-//            }
-//            return heldenStory
-//        }
-//    }
-
+    init {
+        charakter1 = Charakter("Goku",10000, "Schlag","Block")
+        charakter2 = Charakter("Soldat",20000, "Schlag","Block")
+        charakter3 = Charakter("Vegate",40000, "Schlag","Block")
+        charakter4 = Charakter("Broly",60000, "Schlag","Block")
+    }
 
 }

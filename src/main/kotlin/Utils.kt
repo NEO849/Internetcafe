@@ -55,8 +55,8 @@ abstract class Utils {
         }
 
         // fun um übergebene Listen/Elemente zu nummerieren
-        fun nummeriereObjekte(liste:List<String>): List<String> {
-            return liste.mapIndexed { index,name -> "${index + 1}. $name"}
+        fun nummeriereObjekte(liste: List<String>): List<String> {
+            return liste.mapIndexed { index, name -> "${index + 1}. $name" }
         }
 
         fun countdownPrint(sekunden: Int): Int { // hier mit Rückgabewert, dadurch individuellere Print Statement Ausgaben

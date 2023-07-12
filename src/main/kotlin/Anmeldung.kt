@@ -1,5 +1,4 @@
-
-
+//
 class Anmeldung {
 
     private val auswahlSpiele = AuswahlSpiele()
