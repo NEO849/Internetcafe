@@ -16,7 +16,7 @@ abstract class Utils {
     // die Klammern {} was normal hinter "while" stehen stehen jetzt davor (mit do), das bedeutet das das Menu auf
     // jeden Fall angezeigt wird und dann wird erst überprüft was der User eingegeben hat
     fun menuImSpiel() {
-        var index = 0
+        var index :Int
         do {
             println("Menu")
             println("[1] Spiel Starten")

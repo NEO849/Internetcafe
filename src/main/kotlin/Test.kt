@@ -8,12 +8,12 @@ open class Test {
     // fun nimmt zwei Parameter entgegen, "namen" die aus einer Liste aus "Strings" besteht und "lP" die aus einer Liste aus Ganzzahlen besteht, Rückgabewert ist eine Map,
     // wobei der Name(String) als Schlüssel verwendet wird und das "Charakter" Objekt selbst als Wert, so kann ich auf die erstellten Objekte über den namen darauf zugreifen
 //    protected fun erstelleCharaktere(namen: List<String>, lP: List<Int>): Map<String,Charakter> {
-//        val charaktere = mutableMapOf<String,Charakter>()                         // eine leere Map um die erstellten charakter Objekte zu Speichern
+//        val charaktere = mutableMapOf<String,Charakter>()                   // eine leere Map um die erstellten charakter Objekte zu Speichern
 //        for (i in namen.indices) {                                          // für jedes Element in der Liste iterieren durch jeden index und da bei gleich groß sind, wird auf jedes Element zugegriffen
-//            val charakter = Charakter(namen[i], lP[i])                     // erstellt einen Charakter mit dem Namen von der position mit dem lp Wert an der gleichen position in der anderen Liste und speichert ihn in "charakter"
-//            charaktere[namen[i]] = charakter                                      // fügt den erstellten Charakter samt lp der MAp hinzu, wobei der Name als Schlüssel verwendet wird
+//            val charakter = Charakter(namen[i], lP[i])                      // erstellt einen Charakter mit dem Namen von der position mit dem lp Wert an der gleichen position in der anderen Liste und speichert ihn in "charakter"
+//            charaktere[namen[i]] = charakter                               // fügt den erstellten Charakter samt lp der MAp hinzu, wobei der Name als Schlüssel verwendet wird
 //        }
-//        return charaktere                                                   // gibt die Map mit Namen und lp zurück
+//        return charaktere                                                  // gibt die Map mit Namen und lp zurück
 //    }
 
     // in diesem Szenario, Ende erste Woche, hab ich schon zurückgeschraubt, aber ich denke es geht einfacher für fünf/sechs Charaktere
@@ -1481,5 +1481,44 @@ open class Test {
 //    }
 
 
+// hier bestand die Möglichkeit eine falsche Eingabe zu machen, entwerder ich löse es über eine vor while schleife, oder evtl durch continue in DbzArcademodus
+
+//    val zug = readln().toIntOrNull()
+//    when (zug) {
+//        1 -> {
+//            val schaden = Random.nextInt(500, 1000)
+//            val angriffsArt = if (Random.nextBoolean()) angriffHoch else angriffTief
+//            println(spieler.angreifen(schaden, angriffsArt))
+//            computer.schadenErleiden(schaden)
+//            computer.lP -= schaden
+//            println("Gegner hat noch ${computer.lP} LP übrig!")
+//        }
+//
+//        2 -> {
+//            val schaden = Random.nextInt(700, 1500)
+//            val spezialfaehigkeit = spezialFaehigkeitListe.random()
+//            println(spieler.spezialFaehigkeit(schaden, spezialfaehigkeit))
+//            computer.schadenErleiden(schaden)
+//            computer.lP -= schaden
+//            println("Gegner hat noch ${computer.lP} LP übrig!")
+//        }
+//
+//        3 -> {
+//            val schaden = Random.nextInt(700, 1500)
+//            val transformation = if (Random.nextBoolean()) transformation1Liste.random() else transformation2Liste.random()
+//            println(spieler.transformation(schaden, transformation))
+//        }
+//
+//        4 -> {
+//            val heilenWert = Random.nextInt(700, 3000)
+//            println(spieler.heilen(heilenWert))
+//            spieler.lP -= heilenWert
+//        }
+//
+//        else -> {
+//            println("Ungültiger Zug!")
+//        }
+//    }
+//}
 
 }

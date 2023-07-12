@@ -1,7 +1,7 @@
 // Bei diesem Aufbau sehr schnelle Implementierung, neuer Funktionen und neuer Spiele, etc
 class AuswahlSpiele {
 
-    // hier ohne spezifischen Rückgabewert, da die "when" Kontrollstruktur die gewünschten Aktionen durchführt, ich finde so den Code "runder"
+    // IV. hier ohne spezifischen Rückgabewert, da die "when" Kontrollstruktur die gewünschten Aktionen durchführt, ich finde so den Code "runder"
     fun auswahlSpiele() {
         println("\nWähle ein Spiel. (Zahl eingeben und Bestätigen)")
         println("${Farben.green}[1] Dragon Ball Z${Farben.reset}")
@@ -17,37 +17,37 @@ class AuswahlSpiele {
             1 -> {
                 // Instanziierung von der Klasse DBZ und Aufruf vom "menuImSpiel" mit punkt-Notation nach print-Statement und countdown
                 val dBZMenu = DBZ()
-                println("Dragon Ball Z wird geladen...\n")
+                println("\nDragon Ball Z wird geladen...\n")
                 // Utils.countdown(3)
                 dBZMenu.menuImSpiel()
             }
 
             2 -> {
-                println("Coming Soon... \"Hangman\"\n")
+                println("\nComing Soon... \"Hangman\"\n")
                 // Utils.countdown(3)
                 auswahlSpiele()
             }
 
             3 -> {
-                println("Coming Soon... \"Casino\"\n")
+                println("\nComing Soon... \"Casino\"\n")
                 // Utils.countdown(3)
                 auswahlSpiele()
             }
 
             4 -> {
-                println("Coming Soon... \"Restaurant\"\n")
+                println("\nComing Soon... \"Restaurant\"\n")
                 // Utils.countdown(3)
                 auswahlSpiele()
             }
 
             5 -> {
-                println("Coming Soon... Auf Wiedersehen\n")
+                println("\nComing Soon... Auf Wiedersehen\n")
                 // Utils.countdown(3)
                 auswahlSpiele()
             }
 
             else -> {
-                println("Ungültige Eingabe! Bitte wähle eine Zahl zwischen 1 und 5.\n")
+                println("\nUngültige Eingabe! Bitte wähle eine Zahl zwischen 1 und 5.\n")
                 // Utils.countdown(3)
                 auswahlSpiele()
             }

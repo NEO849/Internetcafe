@@ -1,7 +1,7 @@
 // erbt von der abstract "Utils" Basisklasse, ich überschreibe die abstrakten funktionen individuell aufs RPG Spiel abgestimmt
 open class DBZ : Utils() {
 
-    // Instanziierung der auswahlSpiele Funktion, aus der AuswahlSpiele Klasse, wenn Funktion "Beenden" fertig Implementiert ist, nach Beenden zurück ins AuswahlSpiele Menu
+    // V. Instanziierung der auswahlSpiele Funktion, aus der AuswahlSpiele Klasse, wenn Funktion "Beenden" fertig Implementiert ist, nach Beenden zurück ins AuswahlSpiele Menu
     private val auswahlSpiele = AuswahlSpiele()
 
     // ist eine abstrakte Funktion in der Utils Klasse, damit muss sie individuell Überschrieben werden, um sie aufzurufen
@@ -22,37 +22,41 @@ open class DBZ : Utils() {
             }
 
             3 -> {
-                menuImSpiel()
+                menuImSpiel()                                       // befindet sich in der Utils Klasse
             }
 
             else -> {
-                println("Ungültige Eingabe! Ganzzahl eingeben.")
+                println("\nUngültige Eingabe! Ganzzahl eingeben.")
                 spielStarten()
             }
         }
     }
 
     private fun startStoryModus() {
-        println("Story Modus wird geladen...")
-        // countdown(3)
+        println("\nStory Modus wird geladen...")
+        println()
+        countdown(3)
 
         // Instanziierung der startStoryModus Funktion aus der DbzStoryModus Klasse
         val storyModus = DbzStoryModus(name = "", lP = 0,false)
         storyModus.startStoryModus()
 
-        // wenn Story Modus beendet ist, zurück zum DBZ Spiel-Menu, sofern im storyModus nichts anderes definiert ist
+        // wenn Story Modus beendet ist, wird Funktion "spielStarten" aufgerufen und wir gelangen ins DBZ Spiel Menu, sofern im storyModus nichts anderes definiert ist
+        countdown(3)
         spielStarten()
     }
 
     private fun startArcadeModus() {
         println("\nArcade Mode wird geladen...")
-        // countdown(3)
+        println()
+        countdown(3)
 
         // Instanziierung der startArcadeModus Funktion aus der DbzStoryModus Klasse
         val arcadeModus = DbzArcadeModus("Spieler", 0,false)
         arcadeModus.startArcadeModus()
 
         // wenn Arcade Modus beendet ist, zurück zum DBZ Spiel-Menu, sofern im storyModus nichts anderes definiert ist
+        countdown(3)
         spielStarten()
     }
 
@@ -78,13 +82,10 @@ open class DBZ : Utils() {
             val eingabe = readln()
 
             if (eingabe in gueltigeEingaben) {                        // ich überprüfe ob die Eingabe mit den gültigen Eingaben in der Liste übereinstimmen
-                if (eingabe.equals(
-                        "Ja",
-                        ignoreCase = true
-                    )
+                if (eingabe.equals("Ja", ignoreCase = true)
                 ) {                                                   // wenn die Eingabe "ja" unabhängig von Groß/Klein, dann wird die Funktion "auswahlSpiele" aufgerufen,
-                    println("\nSpiel wird Beendet.")
-                    //countdown(3)
+                    println("\nSpiel wird Beendet.\n")
+                    countdown(3)
                     auswahlSpiele.auswahlSpiele()
                 } else {                                             // andernfalls ist die Eingabe also nicht ja, sondern ein anderes gültiges Wort wie "nein", dann wird die Funktion "spieleSpeichern" aufgerufen
                     spielSpeichern()

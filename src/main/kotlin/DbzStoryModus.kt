@@ -24,10 +24,11 @@ class DbzStoryModus(name: String, lP: Int, istBesiegt: Boolean = false) : Charak
     fun startStoryModus() {
 
         // Intro 1
-        println("\nDie Welt wird wieder mal bedroht und nur der Kämpfer  ${spieler.name}  kann uns Retten")
+        println("\nDBZ - Der Goldene Drache")
+        println("Die Welt wird wieder mal bedroht und nur der Kämpfer  ${spieler.name}  kann uns Retten")
 
         // Kampf 1 gegen Soldat 1
-        println("Kampf 1:  Son Goku vs.  ${soldat1.name}")
+        println("\nKampf 1:  Son Goku vs.  ${soldat1.name}")
         kampfSequenz(spieler, soldat1)
 
         // Intro 2
@@ -35,7 +36,7 @@ class DbzStoryModus(name: String, lP: Int, istBesiegt: Boolean = false) : Charak
         println("Ohh Nein! Ein mächtiger Bossgegner erscheint, es ist  ${endGegner1.name}  der Prinz der Saijayin´s!")
 
         // Kampf 2 gegen Vegeta
-        println("Kampf 2:  Son Goku vs.  ${endGegner1.name}")
+        println("\nKampf 2:  Son Goku vs.  ${endGegner1.name}")
         kampfSequenz(spieler, endGegner1)
 
         // Intro 3
@@ -43,7 +44,7 @@ class DbzStoryModus(name: String, lP: Int, istBesiegt: Boolean = false) : Charak
         println("Achtung da sind schon wieder Gegner!!")
 
         // Kampf 3 gegen Soldat 2
-        println("Kampf 3:  Son Goku vs.  ${soldat2.name}")
+        println("\nKampf 3:  Son Goku vs.  ${soldat2.name}")
         kampfSequenz(spieler, soldat2)
 
         // Intro 4
@@ -51,7 +52,7 @@ class DbzStoryModus(name: String, lP: Int, istBesiegt: Boolean = false) : Charak
         println("Achtung ein Endgegner!")
 
         // Kampf 4 gegen Freezer
-        println("Kampf 2:  Son Goku vs.  ${endGegner2.name}")
+        println("\nKampf 4:  Son Goku vs.  ${endGegner2.name}")
         kampfSequenz(spieler, endGegner2)
 
         // Intro 5
@@ -59,7 +60,7 @@ class DbzStoryModus(name: String, lP: Int, istBesiegt: Boolean = false) : Charak
         println("Achtung da sind schon wieder Gegner!!")
 
         // Kampf 5 gegen Soldat 3
-        println("Kampf 4:  Son Goku vs.  ${soldat3.name}")
+        println("\nKampf 5:  Son Goku vs.  ${soldat3.name}")
         kampfSequenz(spieler, soldat3)
 
         // Intro 6
@@ -67,10 +68,11 @@ class DbzStoryModus(name: String, lP: Int, istBesiegt: Boolean = false) : Charak
         println("Achtung der End Kampf erwartet dich!")
 
         // Kampf 6 gegen Cell
-        println("Kampf 5:  Son Goku vs.  ${endGegner3.name}")
+        println("\nKampf 6:  Son Goku vs.  ${endGegner3.name}")
         kampfSequenz(spieler, endGegner3)
 
-        println("Glückwunsch du hast den Story- Modus abgeschlossen!")
+        // wenn Story Modus beendet ist, zurück zum DBZ Spiel-Menu, sofern im storyModus nichts anderes definiert ist
+        println("\nGlückwunsch du hast den Story- Modus abgeschlossen!")
     }
 
     private fun kampfSequenz(spieler:Charakter, gegner:Charakter) {
@@ -78,8 +80,8 @@ class DbzStoryModus(name: String, lP: Int, istBesiegt: Boolean = false) : Charak
         var gegnerLP = gegner.lP
 
         while (spielerLP > 0 && gegnerLP > 0) {
-            println("\nSpieler:  ${spieler.name}    $spielerLP lP")
-            println("Gegner:   ${gegner.name}    $gegnerLP lP")
+            println("Spieler:  ${spieler.name}    $spielerLP lP")
+            println("Gegner:   ${gegner.name}     $gegnerLP lP")
 
             println("\nWähle eine Aktion")
             println("[1] Schlag")
@@ -95,7 +97,7 @@ class DbzStoryModus(name: String, lP: Int, istBesiegt: Boolean = false) : Charak
                 spielerLP -= gegnerSchaden
 
                 println("\nSpieler fügt dem Gegner  $spielerSchaden  Schaden zu!")
-                println("\nGegner fügt dem Spieler  $gegnerSchaden  Schaden zu!")
+                println("Gegner fügt dem Spieler  $gegnerSchaden  Schaden zu!")
                 println()
             } else {
                 println("Ungültige Auswahl!")

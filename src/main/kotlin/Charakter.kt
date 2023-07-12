@@ -72,7 +72,7 @@ open class Charakter(
     }
 
     //
-    open fun verteidigen(schaden: Int, verteidigung: String): String {
+    open fun verteidigen(schaden: Int , verteidigung: String): String {
         return "$name  verteidigt sich mit  $verteidigung!!"
     }
 
@@ -87,7 +87,7 @@ open class Charakter(
     }
 
     //
-    open fun heilen(schaden: Int): String {
+    open fun heilen(heilenWert: Int): String {
         return "$name  verwendet eine magische Bohne um sich zu Heilen!"
     }
 
