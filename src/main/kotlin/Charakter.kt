@@ -9,21 +9,35 @@ open class Charakter(
 ) {
 
     // 2er Konstruktor
-    constructor(name: String, lP: Int, angriff: String, verteidigung: String) : this(name, lP, false) {}
+    constructor(name: String, lP: Int, angriffHoch: String, verteidigungHoch: String) : this(name, lP, false) {}
 
-    // 3er Konstruktor
-    constructor(name: String, lP: Int, angriff: String, verteidigung: String, spezialFaehigkeit: String) : this(
-        name,
-        lP,
-        false
-    ) {
+    // 4er Konstruktor
+    constructor(
+        name: String,
+        lP: Int,
+        angriffHoch: String,
+        angriffTief: String,
+        transformation: String
+    ) : this(name, lP, false) {
     }
 
     // 4er Konstruktor
     constructor(
         name: String,
         lP: Int,
-        angriff: String,
+        angriffHoch: String,
+        angriffTief: String,
+        spezialFaehigkeit: String,
+        transformation: String
+    ) : this(name, lP, false) {
+    }
+
+    // 4er Konstruktor
+    constructor(
+        name: String,
+        lP: Int,
+        angriffHoch: String,
+        angriffTief: String,
         verteidigung: String,
         spezialFaehigkeit: String,
         transformation: String
