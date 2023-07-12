@@ -119,10 +119,9 @@ class DbzArcadeModus(name: String, lP: Int, istBesiegt: Boolean = false) : Chara
     fun spielerZug(spieler: Charakter, computer: Charakter) {
         println("Dein Zug")
         println("[1]  Angriff")
-        println("[2]  Verteidigung")
-        println("[3]  Spezialfähigkeit")
-        println("[4]  Transformation")
-        println("[5]  Heilen")
+        println("[2]  Spezialfähigkeit")
+        println("[3]  Transformation")
+        println("[4]  Heilen")
 
         val zug = readln().toIntOrNull()
         when (zug) {
@@ -136,26 +135,20 @@ class DbzArcadeModus(name: String, lP: Int, istBesiegt: Boolean = false) : Chara
 
             2 -> {
                 val schaden = Random.nextInt(100, 1000)
-                val verteidigungsArt = if (Random.nextBoolean()) verteidigungHoch else verteidigungTief
-                println(spieler.verteidigen(schaden, verteidigungsArt))
-            }
-
-            3 -> {
-                val schaden = Random.nextInt(100, 1000)
                 val spezialfaehigkeit = spezialFaehigkeitListe.random()
                 println(spieler.spezialFaehigkeit(schaden, spezialfaehigkeit))
                 computer.schadenErleiden(schaden)
                 println("Gegner hat noch ${computer.lP} LP übrig!")
             }
 
-            4 -> {
+            3 -> {
                 val schaden = Random.nextInt(100, 1000)
                 val transformation =
                     if (Random.nextBoolean()) transformation1Liste.random() else transformation2Liste.random()
                 println(spieler.transformation(schaden, transformation))
             }
 
-            5 -> {
+            4 -> {
                 val schaden = Random.nextInt(100, 1000)
                 println(spieler.heilen(schaden))
             }
@@ -182,28 +175,24 @@ class DbzArcadeModus(name: String, lP: Int, istBesiegt: Boolean = false) : Chara
 
             2 -> {
                 val schaden = Random.nextInt(100, 1000)
-                val verteidigungsArt = if (Random.nextBoolean()) verteidigungHoch else verteidigungTief
-                println(computer.verteidigen(schaden, verteidigungsArt))
-            }
-
-            3 -> {
-                val schaden = Random.nextInt(100, 1000)
                 val spezialfaehigkeit = spezialFaehigkeitListe.random()
                 println(computer.spezialFaehigkeit(schaden, spezialfaehigkeit))
                 spieler.schadenErleiden(schaden)
                 println("Spieler hat noch ${spieler.lP} LP übrig!")
             }
 
-            4 -> {
+            3 -> {
                 val schaden = Random.nextInt(100, 1000)
-                val transformation =
-                    if (Random.nextBoolean()) transformation1Liste.random() else transformation2Liste.random()
+                val transformation = if (Random.nextBoolean()) transformation1Liste.random() else transformation2Liste.random()
                 println(computer.transformation(schaden, transformation))
             }
 
-            5 -> {
+            4 -> {
                 val schaden = Random.nextInt(100, 1000)
                 println(computer.heilen(schaden))
+            }
+            else -> {
+                println("Ungültiger Zug!")
             }
         }
     }
