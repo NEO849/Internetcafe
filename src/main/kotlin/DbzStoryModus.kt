@@ -21,7 +21,7 @@ class DbzStoryModus(name: String, lP: Int, istBesiegt: Boolean = false) : Charak
     }
 
     // startet Arcade Modus, Kämpfer Auswahl und Spiellogik
-    fun startArcadeModus() {
+    fun startStoryModus() {
 
         // Intro 1
         println("\nDie Welt wird wieder mal bedroht und nur der Kämpfer  ${spieler.name}  kann uns Retten")
@@ -71,7 +71,7 @@ class DbzStoryModus(name: String, lP: Int, istBesiegt: Boolean = false) : Charak
         kampfSequenz(spieler, endGegner3)
     }
 
-    private fun kampfSequenz(spieler:Charakter, gegner:Charakter) {
+    fun kampfSequenz(spieler:Charakter, gegner:Charakter) {
         var spielerLP = spieler.lP
         var gegnerLP = gegner.lP
 

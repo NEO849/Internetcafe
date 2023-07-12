@@ -34,20 +34,24 @@ open class DBZ : Utils() {
         println("Story Modus wird geladen...")
         //countdown(3)
 
-//        val storyModus = StoryModus("Spieler")
-//        storyModus.starteStoryModus()
+        // Instanziierung der DbzStoryModus Klasse
+        val storyModus = DbzStoryModus(name = "", lP = 0,false)
+        storyModus.startStoryModus()
 
-        spielStarten()                              // wenn Story Modus beendet ist, zurück zum DBZ Spiel-Menu
+        // wenn Story Modus beendet ist, zurück zum DBZ Spiel-Menu
+        spielStarten()
     }
 
     private fun startArcadeModus() {
         println("\nArcade Mode wird geladen...")
         // countdown(3)
 
-        val arcadeModus = DbzArcadeModus("Spieler", 0)
+        // Instanziierung der DbzArcadeModus Klasse
+        val arcadeModus = DbzArcadeModus("Spieler", 0,false)
         arcadeModus.startArcadeModus()
 
-        spielStarten()                           // wenn Arcade Modus beendet ist, zurück zum DBZ Spiel-Menu
+        // wenn Arcade Modus beendet ist, zurück zum DBZ Spiel-Menu
+        spielStarten()
 
     }
 

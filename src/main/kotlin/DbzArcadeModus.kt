@@ -53,7 +53,7 @@ class DbzArcadeModus(name: String, lP: Int, istBesiegt: Boolean = false) : Chara
 
 
     // Funktion für Arcade Modus, somit schnell, unterschiedliche Charaktere aus listen zu erstellen
-    private fun erstelleArcadeCharakter(): List<Charakter> {
+    fun erstelleArcadeCharakter(): List<Charakter> {
         for (i in namenListe.indices) {
             val name = namenListe[i]
             val lP = 10000
@@ -116,7 +116,7 @@ class DbzArcadeModus(name: String, lP: Int, istBesiegt: Boolean = false) : Chara
     }
 
     // Spieler Züge
-    fun spielerZug(spieler: Charakter, computer: Charakter) {
+    private fun spielerZug(spieler: Charakter, computer: Charakter) {
         println("Dein Zug")
         println("[1]  Angriff")
         println("[2]  Spezialfähigkeit")
