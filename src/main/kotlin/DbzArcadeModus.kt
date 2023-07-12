@@ -45,11 +45,11 @@ class DbzArcadeModus(name: String, lP: Int, istBesiegt: Boolean = false) : Chara
         "Dönner Attack"
     )
 
-    val angriffHoch = "Faustschlag"
-    val angriffTief = "Fußtritt"
-    val verteidigungHoch = "Block"
-    val verteidigungTief = "Ausweichen"
-    val heilen = "Heilen"
+    private val angriffHoch = "Faustschlag"
+    private val angriffTief = "Fußtritt"
+    private val verteidigungHoch = "Block"
+    private val verteidigungTief = "Ausweichen"
+    private val heilen = "Heilen"
 
 
     // Funktion für Arcade Modus, somit schnell, unterschiedliche Charaktere aus listen zu erstellen
@@ -126,34 +126,33 @@ class DbzArcadeModus(name: String, lP: Int, istBesiegt: Boolean = false) : Chara
         val zug = readln().toIntOrNull()
         when (zug) {
             1 -> {
-                val schaden = Random.nextInt(100, 1000)
+                val schaden = Random.nextInt(500, 1000)
                 val angriffsArt = if (Random.nextBoolean()) angriffHoch else angriffTief
                 println(spieler.angreifen(schaden, angriffsArt))
-//                computer.schadenErleiden(schaden)
+                computer.schadenErleiden(schaden)
                 computer.lP -= schaden
                 println("Gegner hat noch ${computer.lP} LP übrig!")
             }
 
             2 -> {
-                val schaden = Random.nextInt(100, 1000)
+                val schaden = Random.nextInt(700, 1500)
                 val spezialfaehigkeit = spezialFaehigkeitListe.random()
                 println(spieler.spezialFaehigkeit(schaden, spezialfaehigkeit))
-//                computer.schadenErleiden(schaden)
+                computer.schadenErleiden(schaden)
                 computer.lP -= schaden
                 println("Gegner hat noch ${computer.lP} LP übrig!")
             }
 
             3 -> {
-                val schaden = Random.nextInt(100, 1000)
-                val transformation =
-                    if (Random.nextBoolean()) transformation1Liste.random() else transformation2Liste.random()
+                val schaden = Random.nextInt(700, 1500)
+                val transformation = if (Random.nextBoolean()) transformation1Liste.random() else transformation2Liste.random()
                 println(spieler.transformation(schaden, transformation))
             }
 
             4 -> {
-                val schaden = Random.nextInt(100, 1000)
-                println(spieler.heilen(schaden))
-                spieler.lP -= schaden
+                val heilenWert = Random.nextInt(700, 3000)
+                println(spieler.heilen(heilenWert))
+                spieler.lP -= heilenWert
             }
 
             else -> {
@@ -172,7 +171,7 @@ class DbzArcadeModus(name: String, lP: Int, istBesiegt: Boolean = false) : Chara
                 val schaden = Random.nextInt(100, 1000)
                 val angriffsArt = if (Random.nextBoolean()) angriffHoch else angriffTief
                 println(computer.angreifen(schaden, angriffsArt))
-//                spieler.schadenErleiden(schaden)
+                spieler.schadenErleiden(schaden)
                 spieler.lP -= schaden
                 println("Spieler hat noch ${spieler.lP} LP übrig!")
             }
@@ -181,7 +180,7 @@ class DbzArcadeModus(name: String, lP: Int, istBesiegt: Boolean = false) : Chara
                 val schaden = Random.nextInt(100, 1000)
                 val spezialfaehigkeit = spezialFaehigkeitListe.random()
                 println(computer.spezialFaehigkeit(schaden, spezialfaehigkeit))
-//                spieler.schadenErleiden(schaden)
+                spieler.schadenErleiden(schaden)
                 spieler.lP -= schaden
                 println("Spieler hat noch ${spieler.lP} LP übrig!")
             }
@@ -193,9 +192,9 @@ class DbzArcadeModus(name: String, lP: Int, istBesiegt: Boolean = false) : Chara
             }
 
             4 -> {
-                val schaden = Random.nextInt(100, 1000)
-                println(computer.heilen(schaden))
-                computer.lP -= schaden
+                val heilenWert = Random.nextInt(100, 1000)
+                println(computer.heilen(heilenWert))
+                computer.lP -= heilenWert
             }
             else -> {
                 println("Ungültiger Zug!")
