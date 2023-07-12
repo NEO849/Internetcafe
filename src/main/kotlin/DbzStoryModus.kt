@@ -87,8 +87,6 @@ class DbzStoryModus(name: String, lP: Int, istBesiegt: Boolean = false) : Charak
 
             val auswahl = readln().toIntOrNull() ?: 0
 
-//            if (auswahl != null && (auswahl == 1 || auswahl == 2)) {
-
                 if (auswahl == 1 || auswahl == 2) {
                 val spielerSchaden = if (auswahl == 1) Random.nextInt(2000, 5000) else Random.nextInt(1500, 3500)
                 val gegnerSchaden = Random.nextInt(800, 7000)
