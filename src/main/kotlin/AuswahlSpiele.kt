@@ -1,4 +1,4 @@
-//
+// Bei diesem Aufbau sehr schnelle Implementierung, neuer Funktionen und neuer Spiele, etc
 class AuswahlSpiele {
 
     // hier ohne spezifischen Rückgabewert, da die "when" Kontrollstruktur die gewünschten Aktionen durchführt, ich finde so den Code "runder"
@@ -18,37 +18,37 @@ class AuswahlSpiele {
                 // Instanziierung von der Klasse DBZ und Aufruf vom "menuImSpiel" mit punkt-Notation nach print-Statement und countdown
                 val dBZMenu = DBZ()
                 println("Dragon Ball Z wird geladen...\n")
-                //Utils.countdown(3)
+                // Utils.countdown(3)
                 dBZMenu.menuImSpiel()
             }
 
             2 -> {
                 println("Coming Soon... \"Hangman\"\n")
-                //Utils.countdown(3)
+                // Utils.countdown(3)
                 auswahlSpiele()
             }
 
             3 -> {
                 println("Coming Soon... \"Casino\"\n")
-                //Utils.countdown(3)
+                // Utils.countdown(3)
                 auswahlSpiele()
             }
 
             4 -> {
                 println("Coming Soon... \"Restaurant\"\n")
-                //Utils.countdown(3)
+                // Utils.countdown(3)
                 auswahlSpiele()
             }
 
             5 -> {
                 println("Coming Soon... Auf Wiedersehen\n")
-                //Utils.countdown(3)
-                auswahlSpiele()                      // evtl. wenn ich Zeit hab, zurück zum Eingang vom "Internet-Cafe"
+                // Utils.countdown(3)
+                auswahlSpiele()
             }
 
             else -> {
                 println("Ungültige Eingabe! Bitte wähle eine Zahl zwischen 1 und 5.\n")
-                //Utils.countdown(3)
+                // Utils.countdown(3)
                 auswahlSpiele()
             }
         }

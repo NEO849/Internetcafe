@@ -1,7 +1,8 @@
-// ist eine open Basisklasse von der die Klassen Held und gegner erben sollen, jedoch name, lp und Status "istBesiegt" sollen nicht von aussen verändert werden können
-// extra alle "var" und nicht "val" weil bei DBZ durch "Nahtoderfahrung","Magische Bohnen","Super Sayajin Mode" machen dies nötig um den Status unter dem Kampf zu aktualisieren
+import kotlin.random.Random
 
-// default constructor, protected damit in den unterklassen darauf zugegriffen werden kann
+// Das ist eine open Basis Klasse, in der ich einen Defaultkonstruktor definiert habe und noch mehrere Konstruktoren damit kann ich in den Klassen DbzStoryModus und DbzArcadeModus
+// einfach, Charaktere mit unterschiedlichen Eigenschaften und Parameter erstellen
+
 open class Charakter(
     var name: String,
     var lP: Int,
@@ -9,9 +10,11 @@ open class Charakter(
 ) {
 
     // 2er Konstruktor
-    constructor(name: String, lP: Int, angriffHoch: String, verteidigungHoch: String) : this(name, lP, false) {}
+    constructor(name: String, lP: Int, angriffHoch: String, verteidigungHoch: String) : this(name, lP, false) {
+        // bei Bedarf könnte ich hier zusätzliche Parameter verarbeiten
+    }
 
-    // 4er Konstruktor
+    // 3er Konstruktor
     constructor(
         name: String,
         lP: Int,
@@ -27,18 +30,6 @@ open class Charakter(
         lP: Int,
         angriffHoch: String,
         angriffTief: String,
-        spezialFaehigkeit: String,
-        transformation: String
-    ) : this(name, lP, false) {
-    }
-
-    // 4er Konstruktor
-    constructor(
-        name: String,
-        lP: Int,
-        angriffHoch: String,
-        angriffTief: String,
-        verteidigung: String,
         spezialFaehigkeit: String,
         transformation: String
     ) : this(name, lP, false) {
@@ -50,18 +41,29 @@ open class Charakter(
         lP: Int,
         angriffHoch: String,
         angriffTief: String,
+        verteidigung: String,
+        spezialFaehigkeit: String,
+        transformation: String
+    ) : this(name, lP, false) {
+    }
+
+    // 6er Konstruktor
+    constructor(
+        name: String,
+        lP: Int,
+        angriffHoch: String,
+        angriffTief: String,
         verteidigungHoch: String,
         verteidigungTief: String,
         spezialFaehigkeit: String,
         transformation: String,
         heilen: String
     ) : this(name, lP, false) {
-        // hier kann ich die zusätzlichen Parameter verarbeiten
     }
 
     // gemeinsame fun zum Erstellen und zurückgeben von Charakter-Objekten mit Name und LP und "istBesiegt" auf false
     open fun erstelleCharakter(): Charakter {
-        return Charakter(name, lP)
+        return Charakter(name, lP,false)
     }
 
     //

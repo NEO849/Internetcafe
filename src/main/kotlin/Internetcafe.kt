@@ -1,7 +1,8 @@
 //
 class Internetcafe {
 
-    // dadurch kann nicht direkt von anderen Klassen oder Objekten darauf zugegriffen werden
+    // Ich Instanziiere die Funktion "anmelden" aus der erbenden Klasse "anmeldung"
+    // "private" dadurch kann nicht direkt von anderen Klassen oder Objekten darauf zugegriffen werden
     private val anmeldung = Anmeldung()
     fun eingang() {
         println("\nWillkommen im Internetcafe.")

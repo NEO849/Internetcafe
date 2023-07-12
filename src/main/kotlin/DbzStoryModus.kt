@@ -69,15 +69,17 @@ class DbzStoryModus(name: String, lP: Int, istBesiegt: Boolean = false) : Charak
         // Kampf 6 gegen Cell
         println("Kampf 5:  Son Goku vs.  ${endGegner3.name}")
         kampfSequenz(spieler, endGegner3)
+
+        println("Glückwunsch du hast den Story- Modus abgeschlossen!")
     }
 
-    fun kampfSequenz(spieler:Charakter, gegner:Charakter) {
+    private fun kampfSequenz(spieler:Charakter, gegner:Charakter) {
         var spielerLP = spieler.lP
         var gegnerLP = gegner.lP
 
         while (spielerLP > 0 && gegnerLP > 0) {
-            println("\nSpieler:  ${spieler.name}    ${spieler.lP} lP")
-            println("Gegner:   ${gegner.name}    ${gegner.lP} lP")
+            println("\nSpieler:  ${spieler.name}    $spielerLP lP")
+            println("Gegner:   ${gegner.name}    $gegnerLP lP")
 
             println("\nWähle eine Aktion")
             println("[1] Schlag")
@@ -85,7 +87,9 @@ class DbzStoryModus(name: String, lP: Int, istBesiegt: Boolean = false) : Charak
 
             val auswahl = readln().toIntOrNull() ?: 0
 
-            if (auswahl != null && (auswahl == 1 || auswahl == 2)) {
+//            if (auswahl != null && (auswahl == 1 || auswahl == 2)) {
+
+                if (auswahl == 1 || auswahl == 2) {
                 val spielerSchaden = if (auswahl == 1) Random.nextInt(2000, 5000) else Random.nextInt(1500, 3500)
                 val gegnerSchaden = Random.nextInt(800, 7000)
 

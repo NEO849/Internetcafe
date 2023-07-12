@@ -1,6 +1,7 @@
 //
 class Anmeldung {
 
+    // Instanziierung der auswahlSpiele Funktion, aus der AuswahlSpiele Klasse
     private val auswahlSpiele = AuswahlSpiele()
 
     fun anmelden() {
