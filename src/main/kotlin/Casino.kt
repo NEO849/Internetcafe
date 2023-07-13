@@ -4,19 +4,22 @@ class Casino : Utils() {
     // V. Instanziierung der auswahlSpiele Funktion, aus der AuswahlSpiele Klasse, wenn Funktion "Beenden" fertig Implementiert ist, nach Beenden zurück ins AuswahlSpiele Menu
     private val auswahlSpiele = AuswahlSpiele()
 
+    // VI. Instanziierung der starthochtief fun aus der Casino Hoch/Tief Klasse
+    private val casinoHochTief = CasinoHochTief()
+
     // ist eine abstrakte Funktion in der Utils Klasse, damit muss sie individuell Überschrieben werden, um sie aufzurufen
     override fun spielStarten() {
         println("\nWelches Spiel möchtest du Spielen?")
         println("${Farben.green}[1] Hoch / Tief${Farben.reset}")
-        println("${Farben.yellow}[2] Roulette")
-        println("${Farben.yellow}[3] Poker")
-        println("${Farben.yellow}[4] Black Jack")
+        println("${Farben.cyan}[2] Roulette")
+        println("${Farben.cyan}[3] Poker")
+        println("${Farben.cyan}[4] Black Jack")
         println("${Farben.green}[5] Exit${Farben.reset}")
 
         val auswahlModus = readln().toIntOrNull() ?: 0
         when (auswahlModus) {
             1 -> {
-                startHochTief()
+                casinoHochTief.startHochTief()
             }
 
             2 -> {
@@ -48,19 +51,18 @@ class Casino : Utils() {
         }
     }
 
-    private fun startHochTief() {
-        println("\nGlücksspiel Hoch/Tief wird in kürze geladen...")
-        println()
-        countdown(3)
-
-        // Instanziierung der startHochTief Funktion aus der CasinoHochTief Klasse
-        val hochTief = CasinoHochTief()
-        hochTief.startHochTief()
-
-        // wenn Story Modus beendet ist, wird Funktion "spielStarten" aufgerufen und wir gelangen ins DBZ Spiel Menu, sofern im storyModus nichts anderes definiert ist
-        countdown(3)
-        spielStarten()
-    }
+//    private fun startHochTief() {
+//        println("\nGlücksspiel Hoch/Tief wird in kürze geladen...")
+//        println()
+//
+//        // Instanziierung der startHochTief Funktion aus der CasinoHochTief Klasse
+//        val hochTief = CasinoHochTief()
+//        hochTief.startHochTief()
+//
+//        // wenn Story Modus beendet ist, wird Funktion "spielStarten" aufgerufen und wir gelangen ins DBZ Spiel Menu, sofern im storyModus nichts anderes definiert ist
+//        countdown(3)
+//        spielStarten()
+//    }
 
 
 
