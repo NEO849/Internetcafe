@@ -104,8 +104,8 @@ class CasinoHochTief {
         println("\nSpielstatistik")
         println("Gewonnene Spiele:   ${Farben.green}$gewonneneSpiele${Farben.reset}")
         println("Verlorene Spiele:   ${Farben.red}$verloreneSpiele${Farben.reset}")
-        println("Unentschieden:      ${Farben.yellow}$unentschiedenSpiele{Farben.reset}")
-        println("Punkte Insgesamt:   ${Farben.green}$punkte{Farben.reset}")
+        println("Unentschieden:      ${Farben.yellow}$unentschiedenSpiele${Farben.reset}")
+        println("Punkte Insgesamt:   ${Farben.green}$punkte${Farben.reset}")
 
         // hier könnte ich noch alles mögliche Implementieren, verweis auf Spielsucht Webseite, etc... (Logiken, Funktionen)
         println("\nDanke fürs Spielen.")
@@ -115,7 +115,7 @@ class CasinoHochTief {
 
     // Funktionen zum Ausführen der Spiellogik
     private fun logikHochTief() {
-        println("\n${Farben.whiteBackground}${Farben.black}Runde  $gespielteSpiele${Farben.reset}")
+        println("\n${Farben.black}${Farben.whiteBackground}Runde  $gespielteSpiele${Farben.reset}")
         gespielteSpiele++
 
         // Karte ziehen

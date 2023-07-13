@@ -51,21 +51,6 @@ class Casino : Utils() {
         }
     }
 
-//    private fun startHochTief() {
-//        println("\nGlücksspiel Hoch/Tief wird in kürze geladen...")
-//        println()
-//
-//        // Instanziierung der startHochTief Funktion aus der CasinoHochTief Klasse
-//        val hochTief = CasinoHochTief()
-//        hochTief.startHochTief()
-//
-//        // wenn Story Modus beendet ist, wird Funktion "spielStarten" aufgerufen und wir gelangen ins DBZ Spiel Menu, sofern im storyModus nichts anderes definiert ist
-//        countdown(3)
-//        spielStarten()
-//    }
-
-
-
     override fun spielSpeichern() {
         println("\nSpiel wird gespeichert. Coming Soon...")
         // countdown(3)
