@@ -106,7 +106,13 @@ class CasinoHochTief {
         println("Gewonnene Spiele:   ${Farben.green}$gewonneneSpiele${Farben.reset}")
         println("Verlorene Spiele:   ${Farben.red}$verloreneSpiele${Farben.reset}")
         println("Unentschieden:      ${Farben.yellow}$unentschiedenSpiele${Farben.reset}")
-        println("Punkte Insgesamt:   ${Farben.green}$punkteVerrechnet${Farben.reset}")
+
+        // hier noch, wenn Punkte negativ sind, dann rote ausgabe, andernfalls grüne
+        if (punkte <= 0){
+            println("Punkte Insgesamt:   ${Farben.red}$punkte${Farben.reset}")
+        } else {
+            println("Punkte Insgesamt:   ${Farben.green}$punkte${Farben.reset}")
+        }
 
         // hier könnte ich noch alles mögliche Implementieren, verweis auf Spielsucht Webseite, etc... (Logiken, Funktionen)
         println("\nDanke fürs Spielen.")
@@ -132,8 +138,7 @@ class CasinoHochTief {
         println("Computer zieht:  $computerKarte  (Wert:  $computerWert)")
 
         // ich definiere wie Spielergebnis überprüft/berechnet wird
-        
-         when {
+        when {
             spielerWert > computerWert -> {
                 gewonneneSpiele++
                 punkte++
@@ -148,7 +153,7 @@ class CasinoHochTief {
 
             else -> {
                 unentschiedenSpiele++
-                punkte + (gewinnFaktorUnentschieden * 3)
+                punkte + (1 * gewinnFaktorUnentschieden)
                 println("Unglaublich, Unentschieden, du gewinnst den 3-fachen Einsatz....")
             }
         }
