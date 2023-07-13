@@ -15,7 +15,7 @@ class AuswahlSpiele {
 
         when (auswahlSpiele) {
             1 -> {
-                // Instanziierung von der Klasse DBZ und Aufruf vom "menuImSpiel" mit punkt-Notation nach print-Statement und countdown
+                // Instanziierung die Klasse DBZ und Aufruf vom "menuImSpiel", die Aus der Utils Klasse überschrieben worden sind, mit punkt-Notation nach print-Statement und countdown
                 val dBZMenu = DBZ()
                 println("\nDragon Ball Z wird geladen...\n")
                 // Utils.countdown(3)
@@ -29,9 +29,11 @@ class AuswahlSpiele {
             }
 
             3 -> {
-                println("\nComing Soon... \"Casino\"\n")
+                // Instanziierung die Klasse Casino und Aufruf vom "menuImSpiel", die Aus der Utils Klasse überschrieben worden sind, mit punkt-Notation nach print-Statement und countdown
+                val casinoMenu = Casino()
+                println("Casino wird in kürze geladen...\n")
                 // Utils.countdown(3)
-                auswahlSpiele()
+                casinoMenu.menuImSpiel()
             }
 
             4 -> {
