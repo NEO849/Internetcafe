@@ -19,10 +19,10 @@ abstract class Utils {
         var index :Int
         do {
             println("Menu")
-            println("${Farben.cyan}[1] Spiel Starten${Farben.reset}")
-            println("${Farben.yellow}[2] Spiel Speichern${Farben.reset}")
-            println("${Farben.yellow}[3] Spiel Fortsetzen${Farben.reset}")
-            println("${Farben.cyan}[4] Spiel Beenden${Farben.reset}")
+            println("$cyan[1] Spiel Starten$reset")
+            println("$yellow[2] Spiel Speichern$reset")
+            println("$yellow[3] Spiel Fortsetzen$reset")
+            println("$cyan[4] Spiel Beenden$reset")
             index = readln().toIntOrNull() ?: 0
 
             when (index) {
@@ -41,6 +41,80 @@ abstract class Utils {
 
     // damit kann ich NUR die eine funktion direkt ohne Instanziierung mit punkt Notation aufrufen
     companion object {
+
+        // Reset
+        val reset = "\u001b[0m" // Text Reset
+
+        // Regular Colors
+        val black = "\u001b[0;30m" // BLACK
+        val red = "\u001b[0;31m" // RED
+        val green = "\u001b[0;32m" // GREEN
+        val yellow = "\u001b[0;33m" // YELLOW
+        val blue = "\u001b[0;34m" // BLUE
+        val purple = "\u001b[0;35m" // PURPLE
+        val cyan = "\u001b[0;36m" // CYAN
+        val white = "\u001b[0;37m" // WHITE
+
+        // Bold
+        val blackBold = "\u001b[1;30m" // BLACK
+        val reedBold = "\u001b[1;31m" // RED
+        val greenBold = "\u001b[1;32m" // GREEN
+        val yellowBold = "\u001b[1;33m" // YELLOW
+        val blueBold = "\u001b[1;34m" // BLUE
+        val purpleBold = "\u001b[1;35m" // PURPLE
+        val cyanBold = "\u001b[1;36m" // CYAN
+        val whiteBold = "\u001b[1;37m" // WHITE
+
+        // Underline
+        val blackUnderlined = "\u001b[4;30m" // BLACK
+        val redUnderlined = "\u001b[4;31m" // RED
+        val greenUnderlined = "\u001b[4;32m" // GREEN
+        val yellowUnderlined = "\u001b[4;33m" // YELLOW
+        val blueUnderlined = "\u001b[4;34m" // BLUE
+        val purpleUnderlined = "\u001b[4;35m" // PURPLE
+        val cyanUnderlined = "\u001b[4;36m" // CYAN
+        val whiteUnderlined = "\u001b[4;37m" // WHITE
+
+        // Background
+        val blackBackground = "\u001b[40m" // BLACK
+        val redBackground = "\u001b[41m" // RED
+        val greenBackground = "\u001b[42m" // GREEN
+        val yellowBackground = "\u001b[43m" // YELLOW
+        val blueBackground = "\u001b[44m" // BLUE
+        val purpleBackground = "\u001b[45m" // PURPLE
+        val cyanBackground = "\u001b[46m" // CYAN
+        val whiteBackground = "\u001b[47m" // WHITE
+
+        // High Intensity
+        val blackBright = "\u001b[0;90m" // BLACK
+        val redBright = "\u001b[0;91m" // RED
+        val greenBrighT = "\u001b[0;92m" // GREEN
+        val yellowBright = "\u001b[0;93m" // YELLOW
+        val blueBright = "\u001b[0;94m" // BLUE
+        val purpleBright = "\u001b[0;95m" // PURPLE
+        val cyanBright = "\u001b[0;96m" // CYAN
+        val whiteBright = "\u001b[0;97m" // WHITE
+
+        // Bold High Intensity
+        val blackBoldBright = "\u001b[1;90m" // BLACK
+        val redBoldBright = "\u001b[1;91m" // RED
+        val greenBoldBright = "\u001b[1;92m" // GREEN
+        val yellowBoldBright = "\u001b[1;93m" // YELLOW
+        val blueBoldBright = "\u001b[1;94m" // BLUE
+        val purpleBoldBright = "\u001b[1;95m" // PURPLE
+        val cyanBoldBright = "\u001b[1;96m" // CYAN
+        val whiteBoldBright = "\u001b[1;97m" // WHITE
+
+        // High Intensity backgrounds
+        val blackBackgroundBright = "\u001b[0;100m" // BLACK
+        val redBackgroundBright = "\u001b[0;101m" // RED
+        val greenBackgroundBright = "\u001b[0;102m" // GREEN
+        val yellowBackgroundBright = "\u001b[0;103m" // YELLOW
+        val blueBackgroundBright = "\u001b[0;104m" // BLUE
+        val purpleBackgroundBright = "\u001b[0;105m" // PURPLE
+        val cyanBackgroundBright = "\u001b[0;106m" // CYAN
+        val whiteBackgroundBright = "\u001b[0;107m" // WHITE
+
         fun countdown(sekunden: Int) {
             var x = sekunden
             while (x > 0) {

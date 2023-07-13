@@ -5,7 +5,7 @@ class Anmeldung {
     private val auswahlSpiele = AuswahlSpiele()
 
     fun anmelden() {
-        println("\nBereits Kunde? [${Farben.cyan}Ja${Farben.reset}/${Farben.yellow}Nein]${Farben.reset}")
+        println("\nBereits Kunde? [${Utils.cyan}Ja${Utils.reset}/${Utils.yellow}Nein]${Utils.reset}")
         when (readln().lowercase()) {
             "ja" -> einloggen()
             "nein" -> profilErstellen()

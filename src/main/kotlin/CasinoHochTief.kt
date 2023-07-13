@@ -4,65 +4,65 @@ class CasinoHochTief {
 
     // definiere mein Karten Deck
     val allePik = mutableMapOf<String, Int>(
-        "${Farben.green}♠️ A${Farben.reset}" to 11,
-        "${Farben.green}♠\uFE0F 2${Farben.reset}" to 2,
-        "${Farben.green}♠\uFE0F 3${Farben.reset}" to 3,
-        "${Farben.green}♠\uFE0F 4${Farben.reset}" to 4,
-        "${Farben.green}♠\uFE0F 5${Farben.reset}" to 5,
-        "${Farben.green}♠\uFE0F 6${Farben.reset}" to 6,
-        "${Farben.green}♠\uFE0F 7${Farben.reset}" to 7,
-        "${Farben.green}♠\uFE0F 8${Farben.reset}" to 8,
-        "${Farben.green}♠\uFE0F 9${Farben.reset}" to 9,
-        "${Farben.green}♠\uFE0F 10${Farben.reset}" to 10,
-        "${Farben.green}♠\uFE0F B${Farben.reset}" to 10,
-        "${Farben.green}♠\uFE0F D${Farben.reset}" to 10,
-        "${Farben.green}♠\uFE0F K${Farben.reset}" to 10
+        "${Utils.green}♠️ A${Utils.reset}" to 11,
+        "${Utils.green}♠\uFE0F 2${Utils.reset}" to 2,
+        "${Utils.green}♠\uFE0F 3${Utils.reset}" to 3,
+        "${Utils.green}♠\uFE0F 4${Utils.reset}" to 4,
+        "${Utils.green}♠\uFE0F 5${Utils.reset}" to 5,
+        "${Utils.green}♠\uFE0F 6${Utils.reset}" to 6,
+        "${Utils.green}♠\uFE0F 7${Utils.reset}" to 7,
+        "${Utils.green}♠\uFE0F 8${Utils.reset}" to 8,
+        "${Utils.green}♠\uFE0F 9${Utils.reset}" to 9,
+        "${Utils.green}♠\uFE0F 10${Utils.reset}" to 10,
+        "${Utils.green}♠\uFE0F B${Utils.reset}" to 10,
+        "${Utils.green}♠\uFE0F D${Utils.reset}" to 10,
+        "${Utils.green}♠\uFE0F K${Utils.reset}" to 10
     )
     val alleHerz = mutableMapOf<String, Int>(
-        "${Farben.red}️♥️ A${Farben.reset}" to 11,
-        "${Farben.red}️\uFE0F♥\uFE0F 2${Farben.reset}" to 2,
-        "${Farben.red}\uFE0F♥\uFE0F 3${Farben.reset}" to 3,
-        "${Farben.red}\uFE0F♥\uFE0F 4${Farben.reset}" to 4,
-        "${Farben.red}\uFE0F♥\uFE0F 5${Farben.reset}" to 5,
-        "${Farben.red}\uFE0F♥\uFE0F 6${Farben.reset}" to 6,
-        "${Farben.red}\uFE0F♥\uFE0F 7${Farben.reset}" to 7,
-        "${Farben.red}\uFE0F♥\uFE0F 8${Farben.reset}" to 8,
-        "${Farben.red}\uFE0F♥\uFE0F 9${Farben.reset}" to 9,
-        "${Farben.red}\uFE0F♥\uFE0F 10${Farben.reset}" to 10,
-        "${Farben.red}\uFE0F♥\uFE0F B${Farben.reset}" to 10,
-        "${Farben.red}\uFE0F♥\uFE0F D${Farben.reset}" to 10,
-        "${Farben.red}\uFE0F♥\uFE0F K${Farben.reset}" to 10
+        "${Utils.red}️♥️ A${Utils.reset}" to 11,
+        "${Utils.red}️\uFE0F♥\uFE0F 2${Utils.reset}" to 2,
+        "${Utils.red}\uFE0F♥\uFE0F 3${Utils.reset}" to 3,
+        "${Utils.red}\uFE0F♥\uFE0F 4${Utils.reset}" to 4,
+        "${Utils.red}\uFE0F♥\uFE0F 5${Utils.reset}" to 5,
+        "${Utils.red}\uFE0F♥\uFE0F 6${Utils.reset}" to 6,
+        "${Utils.red}\uFE0F♥\uFE0F 7${Utils.reset}" to 7,
+        "${Utils.red}\uFE0F♥\uFE0F 8${Utils.reset}" to 8,
+        "${Utils.red}\uFE0F♥\uFE0F 9${Utils.reset}" to 9,
+        "${Utils.red}\uFE0F♥\uFE0F 10${Utils.reset}" to 10,
+        "${Utils.red}\uFE0F♥\uFE0F B${Utils.reset}" to 10,
+        "${Utils.red}\uFE0F♥\uFE0F D${Utils.reset}" to 10,
+        "${Utils.red}\uFE0F♥\uFE0F K${Utils.reset}" to 10
     )
     val alleKaro = mutableMapOf<String, Int>(
-        "${Farben.yellow}♦️A${Farben.reset}" to 11,
-        "${Farben.yellow}♦\uFE0F 2${Farben.reset}" to 2,
-        "${Farben.yellow}♦\uFE0F 3${Farben.reset}" to 3,
-        "${Farben.yellow}♦\uFE0F 4${Farben.reset}" to 4,
-        "${Farben.yellow}♦\uFE0F 5${Farben.reset}" to 5,
-        "${Farben.yellow}♦\uFE0F 6${Farben.reset}" to 6,
-        "${Farben.yellow}♦\uFE0F 7${Farben.reset}" to 7,
-        "${Farben.yellow}♦\uFE0F 8${Farben.reset}" to 8,
-        "${Farben.yellow}♦\uFE0F 9${Farben.reset}" to 9,
-        "${Farben.yellow}♦\uFE0F 10${Farben.reset}" to 10,
-        "${Farben.yellow}♦\uFE0F B${Farben.reset}" to 10,
-        "${Farben.yellow}♦\uFE0F D${Farben.reset}" to 10,
-        "${Farben.yellow}♦\uFE0F K${Farben.reset}" to 10
+        "${Utils.yellow}♦️A${Utils.reset}" to 11,
+        "${Utils.yellow}♦\uFE0F 2${Utils.reset}" to 2,
+        "${Utils.yellow}♦\uFE0F 3${Utils.reset}" to 3,
+        "${Utils.yellow}♦\uFE0F 4${Utils.reset}" to 4,
+        "${Utils.yellow}♦\uFE0F 5${Utils.reset}" to 5,
+        "${Utils.yellow}♦\uFE0F 6${Utils.reset}" to 6,
+        "${Utils.yellow}♦\uFE0F 7${Utils.reset}" to 7,
+        "${Utils.yellow}♦\uFE0F 8${Utils.reset}" to 8,
+        "${Utils.yellow}♦\uFE0F 9${Utils.reset}" to 9,
+        "${Utils.yellow}♦\uFE0F 10${Utils.reset}" to 10,
+        "${Utils.yellow}♦\uFE0F B${Utils.reset}" to 10,
+        "${Utils.yellow}♦\uFE0F D${Utils.reset}" to 10,
+        "${Utils.yellow}♦\uFE0F K${Utils.reset}" to 10
 
     )
     val alleKreuz = mutableMapOf<String, Int>(
-        "${Farben.blue}♣️ A${Farben.reset}" to 11,
-        "${Farben.blue}♣\uFE0F 2${Farben.reset}" to 2,
-        "${Farben.blue}♣\uFE0F 3${Farben.reset}" to 3,
-        "${Farben.blue}♣\uFE0F 4${Farben.reset}" to 4,
-        "${Farben.blue}♣\uFE0F 5${Farben.reset}" to 5,
-        "${Farben.blue}♣\uFE0F 6${Farben.reset}" to 6,
-        "${Farben.blue}♣\uFE0F 7${Farben.reset}" to 7,
-        "${Farben.blue}♣\uFE0F 8${Farben.reset}" to 8,
-        "${Farben.blue}♣\uFE0F 9${Farben.reset}" to 9,
-        "${Farben.blue}♣\uFE0F 10${Farben.reset}" to 10,
-        "${Farben.blue}♣\uFE0F B${Farben.reset}" to 10,
-        "${Farben.blue}♣\uFE0F D${Farben.reset}" to 10,
-        "${Farben.blue}♣\uFE0F K${Farben.reset}" to 10
+        "${Utils.blue}♣️ A${Utils.reset}" to 11,
+        "${Utils.blue}♣\uFE0F 2${Utils.reset}" to 2,
+        "${Utils.blue}♣\uFE0F 3${Utils.reset}" to 3,
+        "${Utils.blue}♣\uFE0F 4${Utils.reset}" to 4,
+        "${Utils.blue}♣\uFE0F 5${Utils.reset}" to 5,
+        "${Utils.blue}♣\uFE0F 6${Utils.reset}" to 6,
+        "${Utils.blue}♣\uFE0F 7${Utils.reset}" to 7,
+        "${Utils.blue}♣\uFE0F 8${Utils.reset}" to 8,
+        "${Utils.blue}♣\uFE0F 9${Utils.reset}" to 9,
+        "${Utils.blue}♣\uFE0F 10${Utils.reset}" to 10,
+        "${Utils.blue}♣\uFE0F B${Utils.reset}" to 10,
+        "${Utils.blue}♣\uFE0F D${Utils.reset}" to 10,
+        "${Utils.blue}♣\uFE0F K${Utils.reset}" to 10
     )
 
     // hier wird mein erstelltes Komplettes Deck gespeichert
@@ -80,7 +80,6 @@ class CasinoHochTief {
     private var verloreneSpiele: Int = 0
     private var unentschiedenSpiele: Int = 0
     private var punkte: Int = 0
-    private var punkteVerrechnet: Int = 0
     private var gewinnFaktorUnentschieden: Int = 3
 
     // Funktion startet Hoch/Tief
@@ -103,15 +102,15 @@ class CasinoHochTief {
 
         // Statistik ausgeben
         println("\nSpielstatistik")
-        println("Gewonnene Spiele:   ${Farben.green}$gewonneneSpiele${Farben.reset}")
-        println("Verlorene Spiele:   ${Farben.red}$verloreneSpiele${Farben.reset}")
-        println("Unentschieden:      ${Farben.yellow}$unentschiedenSpiele${Farben.reset}")
+        println("Gewonnene Spiele:   ${Utils.green}$gewonneneSpiele${Utils.reset}")
+        println("Verlorene Spiele:   ${Utils.red}$verloreneSpiele${Utils.reset}")
+        println("Unentschieden:      ${Utils.yellow}$unentschiedenSpiele${Utils.reset}")
 
         // hier noch, wenn Punkte negativ sind, dann rote ausgabe, andernfalls grüne
         if (punkte <= 0){
-            println("Punkte Insgesamt:   ${Farben.red}$punkte${Farben.reset}")
+            println("Punkte Insgesamt:   ${Utils.red}$punkte${Utils.reset}")
         } else {
-            println("Punkte Insgesamt:   ${Farben.green}$punkte${Farben.reset}")
+            println("Punkte Insgesamt:   ${Utils.green}$punkte${Utils.reset}")
         }
 
         // hier könnte ich noch alles mögliche Implementieren, verweis auf Spielsucht Webseite, etc... (Logiken, Funktionen)
@@ -122,7 +121,7 @@ class CasinoHochTief {
 
     // Funktionen zum Ausführen der Spiellogik
     private fun logikHochTief() {
-        println("\n${Farben.black}${Farben.whiteBackground}Runde  $rundenZaehler${Farben.reset}")
+        println("\n${Utils.black}${Utils.whiteBackground}Runde  $rundenZaehler${Utils.reset}")
         rundenZaehler++
 
         // Karte ziehen
@@ -181,7 +180,7 @@ class CasinoHochTief {
     // Funktion zum entscheiden über Fortsetzen des Spiels
     fun weiterSpielen(): Boolean {
         while (true) {
-            println("\nWeiter spielen? (${Farben.green}ja${Farben.reset}/${Farben.purple}nein${Farben.reset})")
+            println("\nWeiter spielen? (${Utils.green}ja${Utils.reset}/${Utils.purple}nein${Utils.reset})")
             val antwort = readLine()?.lowercase()
             if (antwort == "ja") {
                 return true
