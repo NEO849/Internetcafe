@@ -91,34 +91,17 @@ class CasinoHochTief {
         println("\nHoch/Tief beginnt in kürze...")
 //        Utils.countdown(3)
 
-        // Endlosschleife bis Spieler entscheidet aufzuhören
+        // Endlosschleife bis Spieler entscheidet aufzuhören, solange Spieler nicht Nein wählt
         while (true) {
             logikHochTief()  // startet Hoch Tief
 
             if (!weiterSpielen()) {
                 // ich instanziiere die fun spiestarten in Casino Klasse
+              //  break
                 val casino = Casino()
                 casino.spielStarten()
             }
         }
-
-        // Statistik ausgeben
-        println("\nSpielstatistik")
-        println("Gewonnene Spiele:   ${Utils.green}$gewonneneSpiele${Utils.reset}")
-        println("Verlorene Spiele:   ${Utils.red}$verloreneSpiele${Utils.reset}")
-        println("Unentschieden:      ${Utils.yellow}$unentschiedenSpiele${Utils.reset}")
-
-        // hier noch, wenn Punkte negativ sind, dann rote ausgabe, andernfalls grüne
-        if (punkte <= 0){
-            println("Punkte Insgesamt:   ${Utils.red}$punkte${Utils.reset}")
-        } else {
-            println("Punkte Insgesamt:   ${Utils.green}$punkte${Utils.reset}")
-        }
-
-        // hier könnte ich noch alles mögliche Implementieren, verweis auf Spielsucht Webseite, etc... (Logiken, Funktionen)
-        println("\nDanke fürs Spielen.")
-        println("Bei Problemen mit dem Spielen, wenden sie sich bitte an:")
-        println("Bundeszentrale für gesundheitliche Aufklärung\n" + "Maarweg 149-161\n" + "50825 Köln")
     }
 
     // Funktionen zum Ausführen der Spiellogik
@@ -158,6 +141,24 @@ class CasinoHochTief {
                 println("Unglaublich, Unentschieden, du gewinnst den 3-fachen Einsatz....")
             }
         }
+
+        // Statistik ausgeben
+        println("\nSpielstatistik")
+        println("Gewonnene Spiele:   ${Utils.green}$gewonneneSpiele${Utils.reset}")
+        println("Verlorene Spiele:   ${Utils.red}$verloreneSpiele${Utils.reset}")
+        println("Unentschieden:      ${Utils.yellow}$unentschiedenSpiele${Utils.reset}")
+
+        // hier noch, wenn Punkte negativ sind, dann rote ausgabe, andernfalls grüne
+        if (punkte <= 0){
+            println("Punkte Insgesamt:   ${Utils.red}$punkte${Utils.reset}")
+        } else {
+            println("Punkte Insgesamt:   ${Utils.green}$punkte${Utils.reset}")
+        }
+
+        // hier könnte ich noch alles mögliche Implementieren, verweis auf Spielsucht Webseite, etc... (Logiken, Funktionen)
+        println("\nDanke fürs Spielen.")
+        println("Bei Problemen mit dem Spielen, wenden sie sich bitte an:")
+        println("Bundeszentrale für gesundheitliche Aufklärung\n" + "Maarweg 149-161\n" + "50825 Köln")
     }
 
     // Funktion zum Ziehen eine Random Karte aus dem Kompletten kartendeck

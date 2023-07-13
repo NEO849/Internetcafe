@@ -1,5 +1,5 @@
 // erbt von der abstract "Utils" Basisklasse, ich überschreibe die abstrakten funktionen individuell aufs RPG Spiel abgestimmt
-open class DBZ : Utils() {
+class DBZ : Utils() {
 
     // V. Instanziierung der auswahlSpiele Funktion, aus der AuswahlSpiele Klasse, wenn Funktion "Beenden" fertig Implementiert ist, nach Beenden zurück ins AuswahlSpiele Menu
     private val auswahlSpiele = AuswahlSpiele()
@@ -32,41 +32,47 @@ open class DBZ : Utils() {
         }
     }
 
-    private fun startStoryModus() {
-        println("\nStory Modus wird geladen...")
-//        countdown(3)
+    // die Klammern {} was normal hinter "while" steht, steht jetzt davor (mit do), das bedeutet, dass das Menu auf
+    // jeden Fall angezeigt wird und dann wird erst überprüft, was der User eingegeben hat
+    override fun menuImSpiel() {
 
-        // Instanziierung der startStoryModus Funktion aus der DbzStoryModus Klasse
-        val storyModus = DbzStoryModus(name = "", lP = 0,false)
-        storyModus.startStoryModus()
+        var index :Int
+        do {
+            println("Menu")
+            println("$cyan[1] Spiel Starten$reset")
+            println("$yellow[2] Spiel Speichern$reset")
+            println("$yellow[3] Spiel Fortsetzen$reset")
+            println("$cyan[4] Spiel Beenden$reset")
+            index = readln().toIntOrNull() ?: 0
 
-        // wenn Story Modus beendet ist, wird Funktion "spielStarten" aufgerufen und wir gelangen ins DBZ Spiel Menu, sofern im storyModus nichts anderes definiert ist
-        countdown(3)
-        spielStarten()
-    }
 
-    private fun startArcadeModus() {
-        println("\nArcade Mode wird geladen...")
-//        countdown(3)
-
-        // Instanziierung der startArcadeModus Funktion aus der DbzStoryModus Klasse
-        val arcadeModus = DbzArcadeModus("Spieler", 0,false)
-        arcadeModus.startArcadeModus()
-
-        // wenn Arcade Modus beendet ist, zurück zum DBZ Spiel-Menu, sofern im storyModus nichts anderes definiert ist
-        countdown(3)
-        spielStarten()
+            // hier ein Beispiel, bei kleinen Sachen würde ich es so programmieren, bei größeren so wie unten
+            when (index) {
+                1 -> {
+                    val dbzStoryModus = DbzStoryModus("",0,false)
+                    dbzStoryModus.startStoryModus()
+                }
+                2 -> spielSpeichern()
+                3 -> spielFortsetzen()
+                4 -> spielBeenden()
+                else -> {
+                    println("Ungültige Eingabe, bitte eine Zahl zwischen 1 und 4 eingeben!")
+                    //countdown(3)
+                    continue
+                }
+            }
+        } while (index != 4)
     }
 
     override fun spielSpeichern() {
         println("\nSpiel wird gespeichert. Coming Soon...")
         // countdown(3)
         // hier irgendwann Logik, wenn Spiel gespeichert ist, wird funktion "spielFortsetzen" aufgerufen
-        auswahlSpiele
+        spielStarten()
     }
 
     override fun spielFortsetzen() {
-        println("\nSpiel wird in kürze fortgesetzt. Coming Soon...")
+        println("\nIn Progress! Coming Soon...")
         // countdown(3)
         // hier irgendwann Logik, bei dem Aufbau sehr flexibel, steht noch nicht fest, ob nur "Pause", oder und "Fortsetzen"
         spielStarten()
@@ -83,7 +89,7 @@ open class DBZ : Utils() {
                 if (eingabe.equals("Ja", ignoreCase = true)
                 ) {                                                   // wenn die Eingabe "ja" unabhängig von Groß/Klein, dann wird die Funktion "auswahlSpiele" aufgerufen,
                     println("\nSpiel wird Beendet.\n")
-                    countdown(3)
+//                    countdown(3)
                     auswahlSpiele.auswahlSpiele()
                 } else {                                             // andernfalls ist die Eingabe also nicht ja, sondern ein anderes gültiges Wort wie "nein", dann wird die Funktion "spieleSpeichern" aufgerufen
                     spielSpeichern()

@@ -12,32 +12,7 @@ abstract class Utils {
     abstract fun spielSpeichern()
     abstract fun spielFortsetzen()
     abstract fun spielBeenden()
-
-    // die Klammern {} was normal hinter "while" steht, steht jetzt davor (mit do), das bedeutet, dass das Menu auf
-    // jeden Fall angezeigt wird und dann wird erst überprüft, was der User eingegeben hat
-    fun menuImSpiel() {
-        var index :Int
-        do {
-            println("Menu")
-            println("$cyan[1] Spiel Starten$reset")
-            println("$yellow[2] Spiel Speichern$reset")
-            println("$yellow[3] Spiel Fortsetzen$reset")
-            println("$cyan[4] Spiel Beenden$reset")
-            index = readln().toIntOrNull() ?: 0
-
-            when (index) {
-                1 -> spielStarten()
-                2 -> spielSpeichern()
-                3 -> spielFortsetzen()
-                4 -> spielBeenden()
-                else -> {
-                    println("Ungültige Eingabe, bitte eine Zahl zwischen 1 und 4 eingeben!")
-                    //countdown(3)
-                    continue
-                }
-            }
-        } while (index != 4)
-    }
+    abstract fun menuImSpiel()
 
     // damit kann ich NUR die eine funktion direkt ohne Instanziierung mit punkt Notation aufrufen
     companion object {

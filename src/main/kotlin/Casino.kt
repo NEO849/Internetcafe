@@ -4,9 +4,6 @@ class Casino : Utils() {
     // V. Instanziierung der auswahlSpiele Funktion, aus der AuswahlSpiele Klasse, wenn Funktion "Beenden" fertig Implementiert ist, nach Beenden zurück ins AuswahlSpiele Menu
     private val auswahlSpiele = AuswahlSpiele()
 
-    // VI. Instanziierung der starthochtief fun aus der Casino Hoch/Tief Klasse
-    private val casinoHochTief = CasinoHochTief()
-
     // ist eine abstrakte Funktion in der Utils Klasse, damit muss sie individuell Überschrieben werden, um sie aufzurufen
     override fun spielStarten() {
         println("\nWelches Spiel möchtest du Spielen?")
@@ -19,7 +16,7 @@ class Casino : Utils() {
         val auswahlModus = readln().toIntOrNull() ?: 0
         when (auswahlModus) {
             1 -> {
-                casinoHochTief.startHochTief()
+                menuImSpiel()
             }
 
             2 -> {
@@ -49,6 +46,35 @@ class Casino : Utils() {
                 spielStarten()
             }
         }
+    }
+
+    // die Klammern {} was normal hinter "while" steht, steht jetzt davor (mit do), das bedeutet, dass das Menu auf
+    // jeden Fall angezeigt wird und dann wird erst überprüft, was der User eingegeben hat
+    override fun menuImSpiel() {
+        var index :Int
+        do {
+            println("Menu")
+            println("$cyan[1] Spiel Starten$reset")
+            println("$yellow[2] Spiel Speichern$reset")
+            println("$yellow[3] Spiel Fortsetzen$reset")
+            println("$cyan[4] Spiel Beenden$reset")
+            index = readln().toIntOrNull() ?: 0
+
+            when (index) {
+                1 -> {
+                    val casioHochTief = CasinoHochTief()
+                    casioHochTief.startHochTief()
+                }
+                2 -> spielSpeichern()
+                3 -> spielFortsetzen()
+                4 -> spielBeenden()
+                else -> {
+                    println("Ungültige Eingabe, bitte eine Zahl zwischen 1 und 4 eingeben!")
+                    //countdown(3)
+                    continue
+                }
+            }
+        } while (index != 4)
     }
 
     override fun spielSpeichern() {
