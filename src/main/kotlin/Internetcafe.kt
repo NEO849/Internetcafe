@@ -7,12 +7,12 @@ class Internetcafe {
     fun eingang() {
         println("\nWillkommen im Internetcafe.")
 
-        // hier kann ich unkompliziert die Funktionen erweitern...
+        // später wird hier das Intro implementiert
 
         anmeldung.anmelden()
     }
 
-    // evtl, "Ausgang", exit, sequenz...
+    // "Ausgang", exit sequenz...
     fun ausgang() {
         println("\nAuf Wiedersehen...")
         println("... hier dann Exit Sequenz, etc...")
