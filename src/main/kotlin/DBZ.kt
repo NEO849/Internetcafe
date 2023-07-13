@@ -14,11 +14,11 @@ class DBZ : Utils() {
         val auswahlModus = readln().toIntOrNull() ?: 0
         when (auswahlModus) {
             1 -> {
-                menuImSpiel()
+                menuImSpiel(1)          // 1 für Story modus
             }
 
             2 -> {
-                menuImSpiel()
+                menuImSpiel(2)          // 2 für Story modus
             }
 
             3 -> {
@@ -34,7 +34,8 @@ class DBZ : Utils() {
 
     // die Klammern {} was normal hinter "while" steht, steht jetzt davor (mit do), das bedeutet, dass das Menu auf
     // jeden Fall angezeigt wird und dann wird erst überprüft, was der User eingegeben hat
-    override fun menuImSpiel() {
+    override fun menuImSpiel() {}
+    fun menuImSpiel(modus: Int) {
 
         var index :Int
         do {
@@ -49,8 +50,13 @@ class DBZ : Utils() {
             // hier ein Beispiel, bei kleinen Sachen würde ich es so programmieren, bei größeren so wie unten
             when (index) {
                 1 -> {
+                    if (modus == 1) {
                     val dbzStoryModus = DbzStoryModus("",0,false)
                     dbzStoryModus.startStoryModus()
+                    } else if (modus == 2) {
+                        val dbzArcadeModus = DbzArcadeModus("",0,false)
+                        dbzArcadeModus.startArcadeModus()
+                    }
                 }
                 2 -> spielSpeichern()
                 3 -> spielFortsetzen()
