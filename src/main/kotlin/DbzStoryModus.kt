@@ -1,26 +1,32 @@
 import kotlin.random.Random
 
+// wegen den 6 vordefinierten Konstruktoren in der vererbenden Charakterklasse, kann man ziemlich einfach und schnell unterschiedliche oder gleiche Charaktere erstellen
+// erbt von Klasse Charqkter, defaultkonstruktor mit name,lp und false, die Vererbung ermöglicht den Zugriff auf die Eigenschaften und Methoden
+// hier habe ich mich für ein simples Story Game entschieden, durch den Aufbau, kann man einfach zum Beispiel einen "easy" und "hard" mode erstellen, oder, oder, oder
 class DbzStoryModus(name: String, lP: Int, istBesiegt: Boolean = false) : Charakter(name, lP, istBesiegt = false) {
 
-    val spieler : Charakter
-    val soldat1 : Charakter
-    val soldat2 : Charakter
-    val soldat3 : Charakter
-    val endGegner1 : Charakter
-    val endGegner2 : Charakter
-    val endGegner3 : Charakter
+    // hier werden die erstellten Charakter gespeichert
+    val spieler: Charakter
+    val soldat1: Charakter
+    val soldat2: Charakter
+    val soldat3: Charakter
+    val endGegner1: Charakter
+    val endGegner2: Charakter
+    val endGegner3: Charakter
 
+    // ich erstelle mit individuellen Parameter die Charaktere, wegen der Präsentation Gegner lP ziemlich gering, um Ende zu demonstrieren
     init {
-        spieler = Charakter("Son Goku",60000,"Schlag","Block")
-        soldat1 = Charakter("Soldat1",15000,"Schlag","Block")
-        soldat2 = Charakter("Soldat2",20000,"Schlag","Block")
-        soldat3 = Charakter("Soldat3",25000,"Schlag","Block")
-        endGegner1 = Charakter("Vegeta",20000, "Schlag","Block")
-        endGegner2 = Charakter("Freezer",40000, "Schlag","Block")
-        endGegner3 = Charakter("Cell",60000, "Schlag","Block")
+        spieler = Charakter("Son Goku", 60000, "Schlag", "Block")
+        soldat1 = Charakter("Soldat1", 10000, "Schlag", "Block")
+        soldat2 = Charakter("Soldat2", 10000, "Schlag", "Block")
+        soldat3 = Charakter("Soldat3", 10000, "Schlag", "Block")
+        endGegner1 = Charakter("Vegeta", 10000, "Schlag", "Block")
+        endGegner2 = Charakter("Freezer", 10000, "Schlag", "Block")
+        endGegner3 = Charakter("Cell", 10000, "Schlag", "Block")
     }
 
-    // startet Arcade Modus, Kämpfer Auswahl und Spiellogik
+    // ich habe versucht den Aufbau von Anfang an so aufzubauen, das man einfach das Spiel, etc, erweitern kann, sprich "Kampfsequenz"
+    // startet Arcade Modus, Kämpfer Auswahl und Spiellogik, wird durch erstellen einer Insrtanz in der DBZ Klasse, aufgerufen (gestartet)
     fun startStoryModus() {
 
         // Intro 1
@@ -76,7 +82,8 @@ class DbzStoryModus(name: String, lP: Int, istBesiegt: Boolean = false) : Charak
         println("\nGlückwunsch du hast den Story- Modus abgeschlossen!")
     }
 
-    private fun kampfSequenz(spieler:Charakter, gegner:Charakter) {
+    // hier könnte man sequenz 2,3,4... und die auch noch weiter erweitern...
+    private fun kampfSequenz(spieler: Charakter, gegner: Charakter) {
         var spielerLP = spieler.lP
         var gegnerLP = gegner.lP
 
@@ -90,7 +97,7 @@ class DbzStoryModus(name: String, lP: Int, istBesiegt: Boolean = false) : Charak
 
             val auswahl = readln().toIntOrNull() ?: 0
 
-                if (auswahl == 1 || auswahl == 2) {
+            if (auswahl == 1 || auswahl == 2) {
                 val spielerSchaden = if (auswahl == 1) Random.nextInt(2000, 5000) else Random.nextInt(1500, 3500)
                 val gegnerSchaden = Random.nextInt(800, 7000)
 

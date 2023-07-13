@@ -37,7 +37,7 @@ class DBZ : Utils() {
     override fun menuImSpiel() {}
     fun menuImSpiel(modus: Int) {
 
-        var index :Int
+        var index: Int
         do {
             println("Menu")
             println("$cyan[1] Spiel Starten$reset")
@@ -51,13 +51,14 @@ class DBZ : Utils() {
             when (index) {
                 1 -> {
                     if (modus == 1) {
-                    val dbzStoryModus = DbzStoryModus("",0,false)
-                    dbzStoryModus.startStoryModus()
+                        val dbzStoryModus = DbzStoryModus("", 0, false)
+                        dbzStoryModus.startStoryModus()
                     } else if (modus == 2) {
-                        val dbzArcadeModus = DbzArcadeModus("",0,false)
+                        val dbzArcadeModus = DbzArcadeModus("", 0, false)
                         dbzArcadeModus.startArcadeModus()
                     }
                 }
+
                 2 -> spielSpeichern()
                 3 -> spielFortsetzen()
                 4 -> spielBeenden()

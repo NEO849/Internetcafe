@@ -51,7 +51,7 @@ class Casino : Utils() {
     // die Klammern {} was normal hinter "while" steht, steht jetzt davor (mit do), das bedeutet, dass das Menu auf
     // jeden Fall angezeigt wird und dann wird erst überprüft, was der User eingegeben hat
     override fun menuImSpiel() {
-        var index :Int
+        var index: Int
         do {
             println("Menu")
             println("$cyan[1] Spiel Starten$reset")
@@ -65,6 +65,7 @@ class Casino : Utils() {
                     val casioHochTief = CasinoHochTief()
                     casioHochTief.startHochTief()
                 }
+
                 2 -> spielSpeichern()
                 3 -> spielFortsetzen()
                 4 -> spielBeenden()

@@ -1,5 +1,5 @@
 import kotlin.random.Random
-
+// erbt von Klasse Charqkter, defaultkonstruktor mit name,lp und false, die Vererbung ermöglicht den Zugriff auf die Eigenschaften und Methoden
 class DbzArcadeModus(name: String, lP: Int, istBesiegt: Boolean = false) : Charakter(name, lP, istBesiegt = false) {
 
     // Hilfsvariablen für Kampfstatistik
@@ -7,8 +7,9 @@ class DbzArcadeModus(name: String, lP: Int, istBesiegt: Boolean = false) : Chara
     private var gewonneneMatchesSpieler: Int = 0
     private var gewonneneRundenComputer: Int = 0
     private var gewonneneMatchesComputer: Int = 0
-    private val arcadeCharakter = mutableListOf<Charakter>()
+    private val arcadeCharakter = mutableListOf<Charakter>()  // hier werden meine erstellten Charaktere samt individuellen Fähigkeiten gespeichert
 
+    // hier habe ich mich für eine Komplexere Methode entschieden, die mir aber das schnelle erstellen sehr vieler unterschiedlicher Charaktere aus fertigen Listen ermöglicht und über den Index, die genaue Zuweisung der Parameter
     // Liste mit Namen der Charaktere, Transformationslisten und Spezialfähikeiten
     val namenListe = listOf("Son Goku", "Son Gohan", "Trunks", "Piccolo", "Krelin", "Vegeta", "Freezer", "Cell", "Boo", "C17")
     val transformation1Liste = listOf("Super Saiyan", "Mystic Gohan", "Super Saiyan", "Super Fusion", "Power Up", "Super Saiyan", "Super Freezer", "Perfekte Form", "Bad Boo", "Metal Head")
@@ -19,26 +20,27 @@ class DbzArcadeModus(name: String, lP: Int, istBesiegt: Boolean = false) : Chara
     private val angriffHoch = "Faustschlag"
     private val angriffTief = "Fußtritt"
 
-    // man kann so mit diesem Aufbau relativ, schnell ein Komplexes Spiel Programmieren
+    // man kann so mit diesem Aufbau relativ, schnell ein Komplexes Spiel Programmieren, noch nicht in Gebrauch
     private val verteidigungHoch = "Block"
     private val verteidigungTief = "Ausweichen"
 
-    // Funktion für Arcade Modus, somit kann ich schnell unterschiedliche Charaktere aus listen erstellen
+    // Funktion für Arcade Modus, somit kann ich schnell unterschiedliche Charaktere aus listen erstellen und diese zurückgeben,
+    // über den Index weise ich den Charakteren ihre individuellen Fähigkeiten zu
     fun erstelleArcadeCharakter(): List<Charakter> {
-        for (i in namenListe.indices) {
-            val name = namenListe[i]
+        for (i in namenListe.indices) {                                     // mithilfe einer Schleife, itteriere ich durch die gesamte Liste
+            val name = namenListe[i]                                        // hilfsvariablen die die individuellen Parameter speichert
             val lP = 10000
             val charakterTransformation1 = transformation1Liste[i]
             val charakterTransformation2 = transformation2Liste[i]
             val charakterSpezialFaehigkeit = spezialFaehigkeitListe[i]
 
-            val charakter = Charakter(name, lP)
-            arcadeCharakter.add(charakter)
+            val charakter = Charakter(name, lP)                             // ich erstelle ein neues Objekt der Klasse Charakter und weise es variable zu
+            arcadeCharakter.add(charakter)                                  // erstellte Charakter wird zur liste hinzugefügt
         }
-        return arcadeCharakter
+        return arcadeCharakter                                              // und gibt die Liste samt erstellter Charakter zurück
     }
 
-    // startet den Arcade Modus, ermöglicht die Kämpfer Auswahl und STEUERT die Spiellogik
+    // startet den Arcade Modus, ermöglicht die Kämpfer Auswahl und STEUERT die Spiellogik, , wird durch erstellen einer Insrtanz in der DBZ Klasse, aufgerufen (gestartet)
     fun startArcadeModus() {
         erstelleArcadeCharakter()
 
@@ -70,7 +72,7 @@ class DbzArcadeModus(name: String, lP: Int, istBesiegt: Boolean = false) : Chara
                 var runde = 1
 
                 // Kampfszenario: eine while Schleife die so lange läuft bis ein Charakter KO ist
-                while(gewaehlterHeld.lP >= 0 && zufallGegner.lP >= 0) {
+                while (gewaehlterHeld.lP >= 0 && zufallGegner.lP >= 0) {
                     println("\n---  Hit  $runde  ---")
 
                     spielerZug(gewaehlterHeld, zufallGegner)
@@ -81,7 +83,7 @@ class DbzArcadeModus(name: String, lP: Int, istBesiegt: Boolean = false) : Chara
                     if (gewaehlterHeld.lP <= 0) {
                         break
                     }
-                    runde ++
+                    runde++
                 }
 
                 // Kampfende
@@ -89,16 +91,16 @@ class DbzArcadeModus(name: String, lP: Int, istBesiegt: Boolean = false) : Chara
 
                 if (zufallGegner.lP <= 0) {
                     println("Runde 1 You Win!!!")
-                    gewonneneRundenSpieler ++
+                    gewonneneRundenSpieler++
                     if (gewonneneRundenSpieler >= 2) {
-                        gewonneneMatchesSpieler ++
+                        gewonneneMatchesSpieler++
                         println("Runde 2 You Win, Match-Point!")
                     }
-                }else {
+                } else {
                     println("Runde 1 Computer Wins!!")
-                    gewonneneRundenComputer ++
+                    gewonneneRundenComputer++
                     if (gewonneneRundenComputer >= 2) {
-                        gewonneneMatchesComputer ++
+                        gewonneneMatchesComputer++
                         println("Runde 2 Computer Win, Match-Point!")
                     }
                 }
@@ -113,7 +115,7 @@ class DbzArcadeModus(name: String, lP: Int, istBesiegt: Boolean = false) : Chara
                 val anwort = readln().lowercase()
                 weiterSpielen = anwort == "ja"
             }
-        }else {
+        } else {
             println("\nUngültige Eingabe!")
         }
     }
@@ -131,7 +133,7 @@ class DbzArcadeModus(name: String, lP: Int, istBesiegt: Boolean = false) : Chara
         var aktion: Int? = null
 
         // liest die Eingabe des Spielers ein und wiederholt diese sobald sie ungültig ist
-        while (aktion == null){
+        while (aktion == null) {
             aktion = readln().toIntOrNull()
             if (aktion !in 1..5) {
                 println("\nUngültige Zug! Bitte wähle WEISE!")
@@ -142,8 +144,12 @@ class DbzArcadeModus(name: String, lP: Int, istBesiegt: Boolean = false) : Chara
         //
         when (aktion) {
             1 -> {
-                val schaden = Random.nextInt(500, 1000)                 // zufälliger Schaden, um Spielfluß spannender, unberechenbarer machen
-                val angriffsArtHoch = angriffHoch                                  // mit Auswahl 1 verwendet Spieler hohen Angriff
+                val schaden = Random.nextInt(
+                    500,
+                    1000
+                )                 // zufälliger Schaden, um Spielfluß spannender, unberechenbarer machen
+                val angriffsArtHoch =
+                    angriffHoch                                  // mit Auswahl 1 verwendet Spieler hohen Angriff
                 println(spieler.angreifen(schaden, angriffsArtHoch))
                 computer.schadenErleiden(schaden)
                 computer.lP -= schaden
@@ -189,7 +195,7 @@ class DbzArcadeModus(name: String, lP: Int, istBesiegt: Boolean = false) : Chara
                 println(spieler.heilen(heilenWert))
                 spieler.lP += heilenWert
                 println("Die magische Bohne hat dich um  $heilenWert  lP geheilt!!")
-                println("${spieler.name}  hat jetzt wieder  {$spieler.lP}  lP!")
+                println("${spieler.name}  hat jetzt wieder  ${spieler.lP}  lP!")
             }
 
             else -> {
@@ -210,14 +216,19 @@ class DbzArcadeModus(name: String, lP: Int, istBesiegt: Boolean = false) : Chara
             1 -> {
                 val schaden = Random.nextInt(100, 1000)
                 val angriffsArt = if (Random.nextBoolean()) angriffHoch else angriffTief
-                println(computer.angreifen(schaden, angriffsArt))                           // Com greift an, mit Schaden und Angriffsart
+                println(
+                    computer.angreifen(
+                        schaden,
+                        angriffsArt
+                    )
+                )                           // Com greift an, mit Schaden und Angriffsart
                 spieler.schadenErleiden(schaden)                                            // Spieler ruft fun schaden erleiden mit dem Schaden von Angriff vorher
                 spieler.lP -= schaden
 
                 if (angriffsArt == angriffHoch) {
                     println("Der hohe Angriff hat  $schaden  Schaden verursacht!")
                     println("${spieler.name}  hat noch  ${spieler.lP} LP übrig!")
-                } else{
+                } else {
                     println("Der tiefe Angriff hat  $schaden  Schaden verursacht!")
                     println("${spieler.name}  hat noch  ${spieler.lP} LP übrig!")
                 }
@@ -238,7 +249,7 @@ class DbzArcadeModus(name: String, lP: Int, istBesiegt: Boolean = false) : Chara
                 val schaden = Random.nextInt(100, 1000)
                 val computerIndex = arcadeCharakter.indexOf(computer)
                 val transformation1 = transformation1Liste[computerIndex]
-                println(computer.transformation(schaden,transformation1))
+                println(computer.transformation(schaden, transformation1))
                 spieler.schadenErleiden(schaden)
                 spieler.lP -= schaden
                 println("Die Transformation hat  $schaden  Schaden verursacht!")

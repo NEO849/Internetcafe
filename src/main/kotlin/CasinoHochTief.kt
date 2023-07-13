@@ -97,7 +97,7 @@ class CasinoHochTief {
 
             if (!weiterSpielen()) {
                 // ich instanziiere die fun spiestarten in Casino Klasse
-              //  break
+                //  break
                 val casino = Casino()
                 casino.spielStarten()
             }
@@ -149,7 +149,7 @@ class CasinoHochTief {
         println("Unentschieden:      ${Utils.yellow}$unentschiedenSpiele${Utils.reset}")
 
         // hier noch, wenn Punkte negativ sind, dann rote ausgabe, andernfalls grüne
-        if (punkte <= 0){
+        if (punkte <= 0) {
             println("Punkte Insgesamt:   ${Utils.red}$punkte${Utils.reset}")
         } else {
             println("Punkte Insgesamt:   ${Utils.green}$punkte${Utils.reset}")
