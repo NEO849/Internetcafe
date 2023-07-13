@@ -13,7 +13,7 @@ class CasinoHochTief {
         "${Farben.green}♠\uFE0F 7${Farben.reset}" to 7,
         "${Farben.green}♠\uFE0F 8${Farben.reset}" to 8,
         "${Farben.green}♠\uFE0F 9${Farben.reset}" to 9,
-        "${Farben.green}♠\uFE0F ${Farben.reset}" to 10,
+        "${Farben.green}♠\uFE0F 10${Farben.reset}" to 10,
         "${Farben.green}♠\uFE0F B${Farben.reset}" to 10,
         "${Farben.green}♠\uFE0F D${Farben.reset}" to 10,
         "${Farben.green}♠\uFE0F K${Farben.reset}" to 10
@@ -29,7 +29,7 @@ class CasinoHochTief {
         "${Farben.red}\uFE0F♥\uFE0F 8${Farben.reset}" to 8,
         "${Farben.red}\uFE0F♥\uFE0F 9${Farben.reset}" to 9,
         "${Farben.red}\uFE0F♥\uFE0F 10${Farben.reset}" to 10,
-        "${Farben.red}\uFE0F♥\uFE0F ${Farben.reset}" to 10,
+        "${Farben.red}\uFE0F♥\uFE0F B${Farben.reset}" to 10,
         "${Farben.red}\uFE0F♥\uFE0F D${Farben.reset}" to 10,
         "${Farben.red}\uFE0F♥\uFE0F K${Farben.reset}" to 10
     )
@@ -75,11 +75,12 @@ class CasinoHochTief {
     }
 
     // hilfsvariablen für Spielstatistik
-    private var gespielteSpiele: Int = 1  // so wird die erste Runde mit 1 ausgegeben nicht mit 0
+    private var rundenZaehler: Int = 1  // so wird die erste Runde mit 1 ausgegeben nicht mit 0
     private var gewonneneSpiele: Int = 0
     private var verloreneSpiele: Int = 0
     private var unentschiedenSpiele: Int = 0
     private var punkte: Int = 0
+    private var punkteVerrechnet: Int = 0
     private var gewinnFaktorUnentschieden: Int = 3
 
     // Funktion startet Hoch/Tief
@@ -89,7 +90,7 @@ class CasinoHochTief {
         initMeinDeck()
 
         println("\nHoch/Tief beginnt in kürze...")
-        Utils.countdown(3)
+//        Utils.countdown(3)
 
         // Endlosschleife bis Spieler entscheidet aufzuhören
         while (true) {
@@ -105,7 +106,7 @@ class CasinoHochTief {
         println("Gewonnene Spiele:   ${Farben.green}$gewonneneSpiele${Farben.reset}")
         println("Verlorene Spiele:   ${Farben.red}$verloreneSpiele${Farben.reset}")
         println("Unentschieden:      ${Farben.yellow}$unentschiedenSpiele${Farben.reset}")
-        println("Punkte Insgesamt:   ${Farben.green}$punkte${Farben.reset}")
+        println("Punkte Insgesamt:   ${Farben.green}$punkteVerrechnet${Farben.reset}")
 
         // hier könnte ich noch alles mögliche Implementieren, verweis auf Spielsucht Webseite, etc... (Logiken, Funktionen)
         println("\nDanke fürs Spielen.")
@@ -115,8 +116,8 @@ class CasinoHochTief {
 
     // Funktionen zum Ausführen der Spiellogik
     private fun logikHochTief() {
-        println("\n${Farben.black}${Farben.whiteBackground}Runde  $gespielteSpiele${Farben.reset}")
-        gespielteSpiele++
+        println("\n${Farben.black}${Farben.whiteBackground}Runde  $rundenZaehler${Farben.reset}")
+        rundenZaehler++
 
         // Karte ziehen
         val spielerKarte = zieheKarte()
@@ -131,7 +132,8 @@ class CasinoHochTief {
         println("Computer zieht:  $computerKarte  (Wert:  $computerWert)")
 
         // ich definiere wie Spielergebnis überprüft/berechnet wird
-        val ergebnis = when {
+        
+         when {
             spielerWert > computerWert -> {
                 gewonneneSpiele++
                 punkte++
@@ -150,8 +152,6 @@ class CasinoHochTief {
                 println("Unglaublich, Unentschieden, du gewinnst den 3-fachen Einsatz....")
             }
         }
-        println(ergebnis)
-        gespielteSpiele++
     }
 
     // Funktion zum Ziehen eine Random Karte aus dem Kompletten kartendeck
