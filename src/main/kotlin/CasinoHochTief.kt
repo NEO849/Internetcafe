@@ -1,8 +1,9 @@
-//
+import kotlin.random.Random
+
 class CasinoHochTief {
 
     // definiere mein Karten Deck
-    val allePik = mutableMapOf<String,Int>(
+    val allePik = mutableMapOf<String, Int>(
         "${Farben.green}A${Farben.reset}" to 11,
         "${Farben.green}2${Farben.reset}" to 2,
         "${Farben.green}3${Farben.reset}" to 3,
@@ -17,7 +18,7 @@ class CasinoHochTief {
         "${Farben.green}D${Farben.reset}" to 10,
         "${Farben.green}K${Farben.reset}" to 10
     )
-    val alleHerz = mutableMapOf<String,Int>(
+    val alleHerz = mutableMapOf<String, Int>(
         "${Farben.red}️A${Farben.reset}" to 11,
         "${Farben.red}️2${Farben.reset}" to 2,
         "${Farben.red}3${Farben.reset}" to 3,
@@ -32,7 +33,7 @@ class CasinoHochTief {
         "${Farben.red}D${Farben.reset}" to 10,
         "${Farben.red}K${Farben.reset}" to 10
     )
-    val alleKaro = mutableMapOf<String,Int>(
+    val alleKaro = mutableMapOf<String, Int>(
         "${Farben.yellow}A${Farben.reset}" to 11,
         "${Farben.yellow}2${Farben.reset}" to 2,
         "${Farben.yellow}3${Farben.reset}" to 3,
@@ -48,7 +49,7 @@ class CasinoHochTief {
         "${Farben.yellow}K${Farben.reset}" to 10
 
     )
-    val alleKreuz = mutableMapOf<String,Int>(
+    val alleKreuz = mutableMapOf<String, Int>(
         "${Farben.blue}A${Farben.reset}" to 11,
         "${Farben.blue}2${Farben.reset}" to 2,
         "${Farben.blue}3${Farben.reset}" to 3,
@@ -64,17 +65,18 @@ class CasinoHochTief {
         "${Farben.blue}K${Farben.reset}" to 10
     )
 
-    // Liste aller KArten im Deck
-    var deckKomplet = allePik.keys.toList() + alleHerz.keys.toList() + alleKaro.keys.toList() + alleKreuz.keys.toList()
+    // hier wird mien Komplettes Deck gespeichert
+    var deckKomplett = mutableListOf<String>()
 
     // hilfsvariablen für Spielstatistik
     private var gewonneneSpiele: Int = 0
     private var verloreneSpiele: Int = 0
-    private var untentschiedenSpiele: Int = 0
+    private var unentschiedenSpiele: Int = 0
+    private var punkte: Int = 0
     private var gewinnFaktorUnentschieden: Int = 3
 
     // Funktion startet Hoch/Tief
-    fun startHochTief (){
+    fun startHochTief() {
         println("\nHoch/Tief beginnt in kürze...")
 
         // Endlosschleife bis Spieler entscheidet aufzuhören
@@ -88,59 +90,79 @@ class CasinoHochTief {
 
         // Statistik ausgeben
         println("\nSpielstatistik")
-        println("Gewonnene Spiele:  $gewonneneSpiele")
-        println("Verlorene Spiele:  $verloreneSpiele")
+        println("Gewonnene Spiele:   $gewonneneSpiele")
+        println("Verlorene Spiele:   $verloreneSpiele")
+        println("Unentschieden:      $verloreneSpiele")
+        println("Punkte Insgesamt:   $verloreneSpiele")
+
+        // hier könnte ich noch alles mögliche Implementieren, verweis auf Spielsucht Webseite, etc... (Logiken, Funktionen)
         println("\nDanke fürs Spielen.")
         println("Bei Problemen mit dem Spielen, wenden sie sich bitte an:")
         println("Bundeszentrale für gesundheitliche Aufklärung\n" + "Maarweg 149-161\n" + "50825 Köln")
+    }
 
-        // Funktionen zum ausführen der Spiellogik
-        fun logikHochTief(){
-            println("\nNeue Runde")
+    // Funktionen zum Ausführen der Spiellogik
+    private fun logikHochTief() {
+        println("\nNeue Runde")
 
-            // Karte ziehen
-            val spielerKarte = zieheKarte()
-            val computerKarte = zieheKarte()
+        // Karte ziehen
+        val spielerKarte = zieheKarte()
+        val computerKarte = zieheKarte()
 
-            // Kartenwerte auslesen
-            val spielerWert = deckKomplet[spielerKarte]
-            val computerWert = deckKomplet[computerKarte]
+        // Kartenwerte auslesen
+        val spielerWert = ermittleKartenWert(spielerKarte)
+        val computerWert = ermittleKartenWert(computerKarte)
 
-            // Karten ausgeben
-            println("\nSpieler:  $spielerKarte  (Wert:  $spielerWert)")
-            println("\nComputer:  $computerKarte  (Wert:  $computerWert)")
+        // Karten ausgeben
+        println("\nSpieler:  $spielerKarte  (Wert:  $spielerWert)")
+        println("\nComputer:  $computerKarte  (Wert:  $computerWert)")
 
-            // ich definiere Zähllogik, durch den Aufbau kann ich einfach und schnell, komplexere Spiele implementieren...
-            when {
-                spielerWert > computerWert -> {
-                    println("\nSpieler hat Gewonnen!")
-                    gewonneneSpiele ++
-                }
-                spielerWert < computerWert -> {
-                    println("\nComputer hat Gewonnen!")
-                    verloreneSpiele ++
-                }
-                else -> {
-                    println("\nUnglaublich Unentschieden!")
-                    println("Achtung in der nächsten Runde geht es dafür um  3  Punkte!")
-                    untentschiedenSpiele ++
-                    verloreneSpiele += gewinnFaktorUnentschieden
-                }
+        // ich definiere wie Spielergebnis überprüft/berechnet wird
+        val ergebnis = when {
+            spielerWert > computerWert -> {
+                gewonneneSpiele++
+                punkte++
+                println("Spieler hat Gewonnen.")
+            }
+
+            spielerWert < computerWert -> {
+                verloreneSpiele++
+                punkte--
+                println("Computer hat Gewonnen.")
+            }
+
+            else -> {
+                unentschiedenSpiele++
+                punkte + (gewinnFaktorUnentschieden * 3)
+                println("Unglaublich, Unentschieden, du gewinnst den 3-fachen Einsatz....")
             }
         }
+        println(ergebnis)
+    }
 
-        // Funktion zum ziehen eine Random Karte aus dem Kompletten kartendeck
-        fun zieheKarte():String {
-            val gezogeneKarte = deckKomplet.random()
-            deckKomplet.remove(gezogeneKarte)
-            return gezogeneKarte
-        }
+    // Funktion zum Ziehen eine Random Karte aus dem Kompletten kartendeck
+    private fun zieheKarte(): String {
+        val gezogeneKarte = deckKomplett.random()
+        deckKomplett.remove(gezogeneKarte)
+        return gezogeneKarte
+    }
 
-        // Funktion zum entscheiden über Fortsetzen des Spiels
-        fun weiterSpielen(): Boolean {
-            println("\nWeiter spielen? (ja/nein)")
-            val antwort = readLine()?.lowercase()
-            return antwort == "ja"
+    // Funktion zum Auslesen der Karten Wert´s
+    private fun ermittleKartenWert(karte: String): Int {
+        val kartendeck = when {
+            karte in allePik -> allePik
+            karte in alleHerz -> alleHerz
+            karte in alleKaro -> alleKaro
+            karte in alleKreuz -> alleKreuz
+            else -> null
         }
+        return kartendeck?.get(karte) ?: 0
+    }
+
+    // Funktion zum entscheiden über Fortsetzen des Spiels
+    fun weiterSpielen(): Boolean {
+        println("\nWeiter spielen? (ja/nein)")
+        val antwort = readLine()?.lowercase()
+        return antwort == "ja"
     }
 }

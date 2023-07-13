@@ -19,7 +19,7 @@ class AuswahlSpiele {
                 val dBZMenu = DBZ()
                 println("\nDragon Ball Z wird geladen...\n")
                 // Utils.countdown(3)
-                dBZMenu.menuImSpiel()
+                dBZMenu.menuImSpiel()                           // über DBZ rufe ich die fun menuImSpiel aus der Utils Klasse auf
             }
 
             2 -> {

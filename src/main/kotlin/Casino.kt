@@ -38,7 +38,7 @@ class Casino : Utils() {
             }
 
             5 -> {
-                menuImSpiel()                                       // befindet sich in der Utils Klasse
+                spielBeenden()
             }
 
             else -> {
@@ -68,7 +68,7 @@ class Casino : Utils() {
         println("\nSpiel wird gespeichert. Coming Soon...")
         // countdown(3)
         // hier irgendwann Logik, wenn Spiel gespeichert ist, wird funktion "spielFortsetzen" aufgerufen
-        spielFortsetzen()
+        spielStarten()
     }
 
     override fun spielFortsetzen() {

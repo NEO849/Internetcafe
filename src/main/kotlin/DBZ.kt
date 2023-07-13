@@ -22,7 +22,7 @@ open class DBZ : Utils() {
             }
 
             3 -> {
-                menuImSpiel()                                       // befindet sich in der Utils Klasse
+                spielBeenden()
             }
 
             else -> {
@@ -64,7 +64,7 @@ open class DBZ : Utils() {
         println("\nSpiel wird gespeichert. Coming Soon...")
         // countdown(3)
         // hier irgendwann Logik, wenn Spiel gespeichert ist, wird funktion "spielFortsetzen" aufgerufen
-        spielFortsetzen()
+        spielStarten()
     }
 
     override fun spielFortsetzen() {
