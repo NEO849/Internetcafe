@@ -78,6 +78,7 @@ class CasinoHochTief {
     // Funktion startet Hoch/Tief
     fun startHochTief() {
         println("\nHoch/Tief beginnt in kürze...")
+        Utils.countdown(3)
 
         // Endlosschleife bis Spieler entscheidet aufzuhören
         while (true) {
@@ -90,10 +91,10 @@ class CasinoHochTief {
 
         // Statistik ausgeben
         println("\nSpielstatistik")
-        println("Gewonnene Spiele:   $gewonneneSpiele")
-        println("Verlorene Spiele:   $verloreneSpiele")
-        println("Unentschieden:      $verloreneSpiele")
-        println("Punkte Insgesamt:   $verloreneSpiele")
+        println("Gewonnene Spiele:   {Farben.green}$gewonneneSpiele${Farben.reset}")
+        println("Verlorene Spiele:   {Farben.red}$verloreneSpiele${Farben.reset}")
+        println("Unentschieden:      {Farben.yellow}$verloreneSpiele${Farben.reset}")
+        println("Punkte Insgesamt:   {Farben.green}$verloreneSpiele${Farben.reset}")
 
         // hier könnte ich noch alles mögliche Implementieren, verweis auf Spielsucht Webseite, etc... (Logiken, Funktionen)
         println("\nDanke fürs Spielen.")

@@ -6,12 +6,12 @@ class Casino : Utils() {
 
     // ist eine abstrakte Funktion in der Utils Klasse, damit muss sie individuell Überschrieben werden, um sie aufzurufen
     override fun spielStarten() {
-        println("\nWelchen Modus möchtest du Spielen?")
-        println("[1] Hoch / Tief")
-        println("[2] Roulette")
-        println("[3] Poker")
-        println("[4] Black Jack")
-        println("[5] Exit")
+        println("\nWelches Spiel möchtest du Spielen?")
+        println("${Farben.green}[1] Hoch / Tief${Farben.reset}")
+        println("${Farben.yellow}[2] Roulette")
+        println("${Farben.yellow}[3] Poker")
+        println("${Farben.yellow}[4] Black Jack")
+        println("${Farben.green}[5] Exit${Farben.reset}")
 
         val auswahlModus = readln().toIntOrNull() ?: 0
         when (auswahlModus) {
@@ -82,7 +82,7 @@ class Casino : Utils() {
     override fun spielBeenden() {
         val gueltigeEingaben = listOf("Ja", "JA", "ja", "jA", "Nein", "NEIN", "nein", "NeIn", "NeiN", "neiN", "niEN")
         while (true) {                                                // das erzeugt eine Endlosschleife, solange der User keine gültige Eingabe macht, läuft sie immer weiter bis zum "break" Befehl
-            println("\nBeenden ohne zu Speichern? [Ja/Nein]")         // wenn richtige Eingabe durch "break" wird die Schleife verlassen
+            println("\nBeenden ohne zu Speichern? ${Farben.green}[Ja/Nein]${Farben.reset}")         // wenn richtige Eingabe durch "break" wird die Schleife verlassen
             val eingabe = readln()
 
             if (eingabe in gueltigeEingaben) {                        // ich überprüfe ob die Eingabe mit den gültigen Eingaben in der Liste übereinstimmen

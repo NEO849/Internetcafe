@@ -15,6 +15,7 @@ class Internetcafe {
     // evtl, "Ausgang", exit, sequenz...
     fun ausgang() {
         println("\nAuf Wiedersehen...")
+        println("... hier dann Exit Sequenz, etc...")
 
         // hier kann ich unkompliziert die Funktionen erweitern...
 

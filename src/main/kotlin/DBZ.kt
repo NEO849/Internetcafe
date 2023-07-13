@@ -7,9 +7,9 @@ open class DBZ : Utils() {
     // ist eine abstrakte Funktion in der Utils Klasse, damit muss sie individuell Überschrieben werden, um sie aufzurufen
     override fun spielStarten() {
         println("\nWelchen Modus möchtest du Spielen?")
-        println("[1] Story Mode")
-        println("[2] Arcade Mode")
-        println("[3] Exit")
+        println("${Farben.green}[1] Story Mode${Farben.reset}")
+        println("${Farben.green}[2] Arcade Mode${Farben.reset}")
+        println("${Farben.green}[3] Exit${Farben.reset}")
 
         val auswahlModus = readln().toIntOrNull() ?: 0
         when (auswahlModus) {
@@ -77,8 +77,8 @@ open class DBZ : Utils() {
     // ich wollte das mal anders lösen und ohne ".toLowerCase", alle gültigen Eingaben sind in einer Liste gespeichert. Vorsicht ohne "break" Endlosschleife
     override fun spielBeenden() {
         val gueltigeEingaben = listOf("Ja", "JA", "ja", "jA", "Nein", "NEIN", "nein", "NeIn", "NeiN", "neiN", "niEN")
-        while (true) {                                                // das erzeugt eine Endlosschleife, solange der User keine gültige Eingabe macht, läuft sie immer weiter bis zum "break" Befehl
-            println("\nBeenden ohne zu Speichern? [Ja/Nein]")         // wenn richtige Eingabe durch "break" wird die Schleife verlassen
+        while (true) {                                                                               // das erzeugt eine Endlosschleife, solange der User keine gültige Eingabe macht, läuft sie immer weiter bis zum "break" Befehl
+            println("\nBeenden ohne zu Speichern? ${Farben.yellow}[Ja/Nein]${Farben.reset}")         // wenn richtige Eingabe durch "break" wird die Schleife verlassen
             val eingabe = readln()
 
             if (eingabe in gueltigeEingaben) {                        // ich überprüfe ob die Eingabe mit den gültigen Eingaben in der Liste übereinstimmen
