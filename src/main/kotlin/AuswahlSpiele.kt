@@ -4,11 +4,11 @@ class AuswahlSpiele {
     // IV. hier ohne spezifischen Rückgabewert, da die "when" Kontrollstruktur die gewünschten Aktionen durchführt, ich finde so den Code "runder"
     fun auswahlSpiele() {
         println("\nWähle ein Spiel. (Zahl eingeben und Bestätigen)")
-        println("${Farben.green}[1] Dragon Ball Z${Farben.reset}")
-        println("${Farben.cyan}[2] Hangman${Farben.reset}")
-        println("${Farben.green}[3] Casino${Farben.reset}")
-        println("${Farben.cyan}[4] Restaurant${Farben.reset}")
-        println("${Farben.green}[5] Exit${Farben.reset}")
+        println("${Farben.cyan}[1] Dragon Ball Z${Farben.reset}")
+        println("${Farben.yellow}[2] Hangman${Farben.reset}")
+        println("${Farben.cyan}[3] Casino${Farben.reset}")
+        println("${Farben.yellow}[4] Restaurant${Farben.reset}")
+        println("${Farben.purple}[5] Exit${Farben.reset}")
 
         // versuche die Eingabe in eine Ganzzahl umzuwandeln, wenn dies klappt, wird die Zahl der variable "auswahlSpiele" zugewiesen, ansonsten wird sie "null", also durch 0 ersetzt und somit keine gültige Eingabe
         val auswahlSpiele = readln().toIntOrNull() ?: 0

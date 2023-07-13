@@ -10,11 +10,11 @@ class Casino : Utils() {
     // ist eine abstrakte Funktion in der Utils Klasse, damit muss sie individuell Überschrieben werden, um sie aufzurufen
     override fun spielStarten() {
         println("\nWelches Spiel möchtest du Spielen?")
-        println("${Farben.green}[1] Hoch / Tief${Farben.reset}")
-        println("${Farben.cyan}[2] Roulette")
-        println("${Farben.cyan}[3] Poker")
-        println("${Farben.cyan}[4] Black Jack")
-        println("${Farben.green}[5] Exit${Farben.reset}")
+        println("${Farben.cyan}[1] Hoch / Tief${Farben.reset}")
+        println("${Farben.yellow}[2] Roulette")
+        println("${Farben.yellow}[3] Poker")
+        println("${Farben.yellow}[4] Black Jack")
+        println("${Farben.purple}[5] Exit${Farben.reset}")
 
         val auswahlModus = readln().toIntOrNull() ?: 0
         when (auswahlModus) {

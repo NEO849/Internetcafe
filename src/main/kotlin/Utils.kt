@@ -19,10 +19,10 @@ abstract class Utils {
         var index :Int
         do {
             println("Menu")
-            println("${Farben.green}[1] Spiel Starten${Farben.reset}")
-            println("${Farben.cyan}[2] Spiel Speichern${Farben.reset}")
-            println("${Farben.cyan}[3] Spiel Fortsetzen${Farben.reset}")
-            println("${Farben.green}[4] Spiel Beenden${Farben.reset}")
+            println("${Farben.cyan}[1] Spiel Starten${Farben.reset}")
+            println("${Farben.yellow}[2] Spiel Speichern${Farben.reset}")
+            println("${Farben.yellow}[3] Spiel Fortsetzen${Farben.reset}")
+            println("${Farben.cyan}[4] Spiel Beenden${Farben.reset}")
             index = readln().toIntOrNull() ?: 0
 
             when (index) {

@@ -69,12 +69,13 @@ class CasinoHochTief {
     private var deckKomplett: MutableList<String> = mutableListOf()
 
     // eine Funktion um ein komplettes Deck zu Initialisierung, so kann ich es wie in meiner Hosentasche überall mitnehmen... ;-)
-    fun initMeinDeck () {
-        deckKomplett = (allePik.keys.toMutableList() + alleHerz.keys.toMutableList() + alleKaro.keys.toMutableList() + alleKreuz.keys.toMutableList()).toMutableList()
+    fun initMeinDeck() {
+        deckKomplett =
+            (allePik.keys.toMutableList() + alleHerz.keys.toMutableList() + alleKaro.keys.toMutableList() + alleKreuz.keys.toMutableList()).toMutableList()
     }
 
     // hilfsvariablen für Spielstatistik
-    private var gespielteSpiele: Int = 0
+    private var gespielteSpiele: Int = 1  // so wird die erste Runde mit 1 ausgegeben nicht mit 0
     private var gewonneneSpiele: Int = 0
     private var verloreneSpiele: Int = 0
     private var unentschiedenSpiele: Int = 0
@@ -103,8 +104,8 @@ class CasinoHochTief {
         println("\nSpielstatistik")
         println("Gewonnene Spiele:   ${Farben.green}$gewonneneSpiele${Farben.reset}")
         println("Verlorene Spiele:   ${Farben.red}$verloreneSpiele${Farben.reset}")
-        println("Unentschieden:      ${Farben.yellow}$verloreneSpiele${Farben.reset}")
-        println("Punkte Insgesamt:   ${Farben.green}$verloreneSpiele${Farben.reset}")
+        println("Unentschieden:      ${Farben.yellow}$unentschiedenSpiele{Farben.reset}")
+        println("Punkte Insgesamt:   ${Farben.green}$punkte{Farben.reset}")
 
         // hier könnte ich noch alles mögliche Implementieren, verweis auf Spielsucht Webseite, etc... (Logiken, Funktionen)
         println("\nDanke fürs Spielen.")
@@ -114,7 +115,7 @@ class CasinoHochTief {
 
     // Funktionen zum Ausführen der Spiellogik
     private fun logikHochTief() {
-        println("${Farben.purpleBackground}\nRunde  $gespielteSpiele${Farben.reset}")
+        println("\n${Farben.whiteBackground}${Farben.black}Runde  $gespielteSpiele${Farben.reset}")
         gespielteSpiele++
 
         // Karte ziehen
@@ -149,7 +150,8 @@ class CasinoHochTief {
                 println("Unglaublich, Unentschieden, du gewinnst den 3-fachen Einsatz....")
             }
         }
-        println("$ergebnis")
+        println(ergebnis)
+        gespielteSpiele++
     }
 
     // Funktion zum Ziehen eine Random Karte aus dem Kompletten kartendeck
@@ -173,8 +175,16 @@ class CasinoHochTief {
 
     // Funktion zum entscheiden über Fortsetzen des Spiels
     fun weiterSpielen(): Boolean {
-        println("\nWeiter spielen? (${Farben.green}ja${Farben.reset}/${Farben.purple}nein${Farben.reset})")
-        val antwort = readLine()?.lowercase()
-        return antwort == "ja"
+        while (true) {
+            println("\nWeiter spielen? (${Farben.green}ja${Farben.reset}/${Farben.purple}nein${Farben.reset})")
+            val antwort = readLine()?.lowercase()
+            if (antwort == "ja") {
+                return true
+            } else if (antwort == "nein") {
+                return false
+            } else {
+                println("\nUngültige Eingabe! Bitte `Ja´ oder ´Nein´ eingeben.")
+            }
+        }
     }
 }
