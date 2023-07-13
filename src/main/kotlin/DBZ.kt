@@ -14,11 +14,11 @@ open class DBZ : Utils() {
         val auswahlModus = readln().toIntOrNull() ?: 0
         when (auswahlModus) {
             1 -> {
-                startStoryModus()
+                menuImSpiel()
             }
 
             2 -> {
-                startArcadeModus()
+                menuImSpiel()
             }
 
             3 -> {
@@ -27,15 +27,14 @@ open class DBZ : Utils() {
 
             else -> {
                 println("\nUngültige Eingabe! Ganzzahl eingeben.")
-                spielStarten()
+                menuImSpiel()
             }
         }
     }
 
     private fun startStoryModus() {
         println("\nStory Modus wird geladen...")
-        println()
-        countdown(3)
+//        countdown(3)
 
         // Instanziierung der startStoryModus Funktion aus der DbzStoryModus Klasse
         val storyModus = DbzStoryModus(name = "", lP = 0,false)
@@ -48,8 +47,7 @@ open class DBZ : Utils() {
 
     private fun startArcadeModus() {
         println("\nArcade Mode wird geladen...")
-        println()
-        countdown(3)
+//        countdown(3)
 
         // Instanziierung der startArcadeModus Funktion aus der DbzStoryModus Klasse
         val arcadeModus = DbzArcadeModus("Spieler", 0,false)
@@ -64,7 +62,7 @@ open class DBZ : Utils() {
         println("\nSpiel wird gespeichert. Coming Soon...")
         // countdown(3)
         // hier irgendwann Logik, wenn Spiel gespeichert ist, wird funktion "spielFortsetzen" aufgerufen
-        spielStarten()
+        auswahlSpiele
     }
 
     override fun spielFortsetzen() {

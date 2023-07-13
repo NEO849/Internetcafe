@@ -17,9 +17,9 @@ class AuswahlSpiele {
             1 -> {
                 // Instanziierung die Klasse DBZ und Aufruf vom "menuImSpiel", die Aus der Utils Klasse überschrieben worden sind, mit punkt-Notation nach print-Statement und countdown
                 val dBZMenu = DBZ()
-                println("\nDragon Ball Z wird geladen...\n")
+                println("\nDragon Ball Z wird geladen...")
                 // Utils.countdown(3)
-                dBZMenu.menuImSpiel()                           // über DBZ rufe ich die fun menuImSpiel aus der Utils Klasse auf
+                dBZMenu.spielStarten()                           // über DBZ rufe ich die fun menuImSpiel aus der Utils Klasse auf
             }
 
             2 -> {

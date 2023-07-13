@@ -96,7 +96,9 @@ class CasinoHochTief {
             logikHochTief()  // startet Hoch Tief
 
             if (!weiterSpielen()) {
-                break
+                // ich instanziiere die fun spiestarten in Casino Klasse
+                val casino = Casino()
+                casino.spielStarten()
             }
         }
 
@@ -181,7 +183,7 @@ class CasinoHochTief {
     fun weiterSpielen(): Boolean {
         while (true) {
             println("\nWeiter spielen? (${Utils.green}ja${Utils.reset}/${Utils.purple}nein${Utils.reset})")
-            val antwort = readLine()?.lowercase()
+            val antwort = readln().lowercase()
             if (antwort == "ja") {
                 return true
             } else if (antwort == "nein") {
