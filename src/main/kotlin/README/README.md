@@ -1,5 +1,6 @@
 ![Pacman](/Users/neo/Downloads/pacman-149704_1280.webp)
 
+
 # <span style="color: cyan;">Internetcafe</span>
 ### Mein erstes größeres Projekt:
 
@@ -20,8 +21,8 @@ Um das Programm auszuführen, können Sie die `main()`-Funktion verwenden. Führ
 ## Spiele:
 - Casino
 - DBZ       
-  --> Storymodus
-  --> Arcademodus
+  1. Storymodus
+  2. Arcademodus
 
 
 Ich hoffe das man die Mühe, die Zeit und die Nerven die ich investiert habe, ein wenig erkennt... 🤓
@@ -45,7 +46,39 @@ try / catch
 Bis jetzt sind mit keine Exceptions aufgefallen... 😬
 
 
+
+fun main() {        
+
+    while (true) {                                     // so gings und geht es...
+        val text = try {                               // var coden = true   
+            if (coden) {                               // var glücklich = true
+                "Solange ich code, the sun is... 😎"
+            } else {
+                glücklich = false
+                throw Exception("Unglücklicher Programmierer")
+            }
+        } catch (e: Exception) {
+            "Fehler: ${e.message}"
+        }
+        println(text)
+        if (!glücklich) {
+            coden = true
+            glücklich = true
+        }
+    }
+}
+
+
 In diesem Sinne, Dankeschön für die neue schöne Welt, die Ihr mir gezeigt habt!
 
-### Viel Spaß mit dem Internetcafe!
+## Viel Spaß mit dem Internetcafe!
+
+p.S falls dir mein Projekt gefällt und du mich mit einer Tasse Kaffe unterstützen möchtest, bitte, meine leere mutableLisrOf... 🥳
+BTC: bc1q0sx4mxtn969mss4cqnt7zcy2prrtjyy34xgr08
+
+
+Vielen Dank an alle die mir diese Chance ermöglicht haben...
+
+![SyntayAcademy](/Users/neo/Downloads/SyntaxAcademy.jpeg)
+
 
