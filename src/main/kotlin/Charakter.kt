@@ -6,7 +6,7 @@ import kotlin.random.Random
 open class Charakter(
     var name: String,
     var lP: Int,
-    private var istBesiegt: Boolean = false
+    private var istBesiegt: Boolean = false  // diesen Parameter habe ich in meinen Logiken überhaupt nicht genutzt...
 ) {
 
     // 2er Konstruktor
