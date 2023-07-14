@@ -6,7 +6,7 @@ import kotlin.random.Random
 open class Charakter(
     var name: String,
     var lP: Int,
-    private var istBesiegt: Boolean = false  // diesen Parameter habe ich in meinen Logiken überhaupt nicht genutzt...
+    private var istBesiegt: Boolean = false  // diesen Parameter habe ich nicht geändert, erstellter Charakter soll ja am Anfang immer am Leben sein...
 ) {
 
     // 2er Konstruktor
