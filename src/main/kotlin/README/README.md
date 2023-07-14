@@ -45,6 +45,8 @@ try / catch
 ... kommt nicht vor ...
 Bis jetzt sind mit keine Exceptions aufgefallen... 😬
 
+### Klassendiagramm, intuitiv:
+![Klassendiagramm](/Users/neo/Downloads/InternetcafeKlassenDiagramm.png)
 
 
 fun main() {        

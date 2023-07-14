@@ -127,7 +127,7 @@ class DbzArcadeModus(name: String, lP: Int, istBesiegt: Boolean = false) : Chara
         println("[2]  Angriff Tief")
         println("[3]  Spezialfähigkeit")
         println("[4]  Transformation")
-        println("[5]  Heilen")
+        println("[5]  Lebenspunke Erhöhen")                      // ändere es zu Lebenspunkte erhöhen und schon stimmt die Logik wieder... ;-)
 
         //
         var aktion: Int? = null
@@ -144,12 +144,9 @@ class DbzArcadeModus(name: String, lP: Int, istBesiegt: Boolean = false) : Chara
         //
         when (aktion) {
             1 -> {
-                val schaden = Random.nextInt(
-                    500,
-                    1000
-                )                 // zufälliger Schaden, um Spielfluß spannender, unberechenbarer machen
+                val schaden = Random.nextInt(500, 1000)                 // zufälliger Schaden, um Spielfluß spannender, unberechenbarer machen
                 val angriffsArtHoch =
-                    angriffHoch                                  // mit Auswahl 1 verwendet Spieler hohen Angriff
+                    angriffHoch                                                     // mit Auswahl 1 verwendet Spieler hohen Angriff
                 println(spieler.angreifen(schaden, angriffsArtHoch))
                 computer.schadenErleiden(schaden)
                 computer.lP -= schaden

@@ -16,7 +16,7 @@ class DbzStoryModus(name: String, lP: Int, istBesiegt: Boolean = false) : Charak
 
     // ich erstelle mit individuellen Parameter die Charaktere, wegen der Präsentation Gegner lP ziemlich gering, um Ende zu demonstrieren
     init {
-        spieler = Charakter("Son Goku", 60000, "Schlag", "Block")
+        spieler = Charakter("Son Goku", 80000, "Schlag", "Block")
         soldat1 = Charakter("Soldat1", 10000, "Schlag", "Block")
         soldat2 = Charakter("Soldat2", 10000, "Schlag", "Block")
         soldat3 = Charakter("Soldat3", 10000, "Schlag", "Block")
