@@ -34,8 +34,8 @@ class DbzArcadeModus(name: String, lP: Int, istBesiegt: Boolean = false) : Chara
             val charakterTransformation2 = transformation2Liste[i]
             val charakterSpezialFaehigkeit = spezialFaehigkeitListe[i]
 
-            val charakter = Charakter(name, lP)                             // ich erstelle ein neues Objekt der Klasse Charakter und weise es variable zu
-            arcadeCharakter.add(charakter)                                  // erstellte Charakter wird zur liste hinzugefügt
+            val charakterKlasse = Charakter(name, lP)                             // ich erstelle ein neues Objekt der Klasse Charakter und weise es variable zu
+            arcadeCharakter.add(charakterKlasse)                                  // erstellte Charakter wird zur liste hinzugefügt
         }
         return arcadeCharakter                                              // und gibt die Liste samt erstellter Charakter zurück
     }

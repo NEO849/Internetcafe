@@ -4,36 +4,36 @@ class AuswahlSpiele {
     // IV. hier ohne spezifischen Rückgabewert, da die "when" Kontrollstruktur die gewünschten Aktionen durchführt, ich finde so den Code "runder"
     fun auswahlSpiele() {
         println("\nWähle ein Spiel. (Zahl eingeben und Bestätigen)")
-        println("${Utils.cyan}[1] Dragon Ball Z${Utils.reset}")
-        println("${Utils.yellow}[2] Hangman${Utils.reset}")
-        println("${Utils.cyan}[3] Casino${Utils.reset}")
+        println("${Utils.cyan}[1] Casino${Utils.reset}")
+        println("${Utils.cyan}[2] Dragon Ball Z${Utils.reset}")
+        println("${Utils.yellow}[3] Hangman${Utils.reset}")
         println("${Utils.yellow}[4] Restaurant${Utils.reset}")
         println("${Utils.purple}[5] Exit${Utils.reset}")
 
         // versuche die Eingabe in eine Ganzzahl umzuwandeln, wenn dies klappt, wird die Zahl der variable "auswahlSpiele" zugewiesen, ansonsten wird sie "null", also durch 0 ersetzt und somit keine gültige Eingabe
-        val auswahlSpiele = readln().toIntOrNull() ?: 0
+        val auswahlSpieler = readln().toIntOrNull() ?: 0
 
-        when (auswahlSpiele) {
+        when (auswahlSpieler) {
             1 -> {
-                // Instanziierung die Klasse DBZ und Aufruf vom "menuImSpiel", die Aus der Utils Klasse überschrieben worden sind, mit punkt-Notation nach print-Statement und countdown
-                val dBZMenu = DBZ()
-                println("\nDragon Ball Z wird geladen...")
+                // Instanziierung die Klasse Casino und Aufruf vom "menuImSpiel", die Aus der Utils Klasse überschrieben worden sind, mit punkt-Notation nach print-Statement und countdown
+                val casinoKlasse = Casino()
+                println("Casino wird in kürze geladen...\n")
                 // Utils.countdown(3)
-                dBZMenu.spielStarten()                           // über DBZ rufe ich die fun menuImSpiel aus der Utils Klasse auf
+                casinoKlasse.spielStarten()
             }
 
             2 -> {
-                println("\nComing Soon... \"Hangman\"\n")
+                // Instanziierung die Klasse DBZ und Aufruf vom "menuImSpiel", die Aus der Utils Klasse überschrieben worden sind, mit punkt-Notation nach print-Statement und countdown
+                val dbzKlasse = DBZ()
+                println("\nDragon Ball Z wird geladen...")
                 // Utils.countdown(3)
-                auswahlSpiele()
+                dbzKlasse.spielStarten()                           // über DBZ rufe ich die fun menuImSpiel aus der Utils Klasse auf
             }
 
             3 -> {
-                // Instanziierung die Klasse Casino und Aufruf vom "menuImSpiel", die Aus der Utils Klasse überschrieben worden sind, mit punkt-Notation nach print-Statement und countdown
-                val casinoMenu = Casino()
-                println("Casino wird in kürze geladen...\n")
+                println("\nComing Soon... \"Hangman\"\n")
                 // Utils.countdown(3)
-                casinoMenu.spielStarten()
+                auswahlSpiele()
             }
 
             4 -> {

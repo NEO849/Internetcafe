@@ -2,10 +2,12 @@
 class Anmeldung {
 
     // III. Instanziierung der auswahlSpiele Funktion, aus der AuswahlSpiele Klasse
-    private val auswahlSpiele = AuswahlSpiele()
+    private val auswahlSpieleKlasse = AuswahlSpiele()
 
     fun anmelden() {
         println("\nBereits Kunde? [${Utils.cyan}Ja${Utils.reset}/${Utils.yellow}Nein]${Utils.reset}")
+
+        // ist es sinnvoll die readln ohne Hilfsvariable (in-line) zu nutzen?
         when (readln().lowercase()) {
             "ja" -> einloggen()
             "nein" -> profilErstellen()
@@ -21,7 +23,7 @@ class Anmeldung {
         println("In Progress, coming Soon...")
         // Utils.countdown(3)
         // logik
-        auswahlSpiele.auswahlSpiele()
+        auswahlSpieleKlasse.auswahlSpiele()
     }
 
     private fun profilErstellen() {
@@ -29,6 +31,6 @@ class Anmeldung {
         println("In Progress, coming Soon...")
         // Utils.countdown(3)
         // logik
-        auswahlSpiele.auswahlSpiele()
+        auswahlSpieleKlasse.auswahlSpiele()
     }
 }

@@ -1,4 +1,4 @@
-// hier 3 Methodenaufrufe
+// Basisklasse (Werkzeugkiste)
 
 // mit dem Key abstract können methoden nicht direkt Instanziiert werden, sondern zuerst überschrieben werden,
 // der code wird leichter zu Warten und Änderungen an der gemeinsamen Basis werden auf alle abgeleiteten Spiele übertragen,

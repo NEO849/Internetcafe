@@ -69,7 +69,7 @@ class CasinoHochTief {
     private var deckKomplett: MutableList<String> = mutableListOf()
 
     // eine Funktion um ein komplettes Deck zu Initialisierung, so kann ich es wie in meiner Hosentasche überall mitnehmen... ;-)
-    fun initMeinDeck() {
+    fun erstelltKartenDeck() {
         deckKomplett =
             (allePik.keys.toMutableList() + alleHerz.keys.toMutableList() + alleKaro.keys.toMutableList() + alleKreuz.keys.toMutableList()).toMutableList()
     }
@@ -86,7 +86,7 @@ class CasinoHochTief {
     fun startHochTief() {
 
         // ich rufe die Funktion initialisiereMeinDeck auf
-        initMeinDeck()
+        erstelltKartenDeck()
 
         println("\nHoch/Tief beginnt in kürze...")
 //        Utils.countdown(3)
@@ -97,9 +97,8 @@ class CasinoHochTief {
 
             if (!weiterSpielen()) {
                 // ich instanziiere die fun spiestarten in Casino Klasse
-                //  break
-                val casino = Casino()
-                casino.spielStarten()
+                val casinoKlasse = Casino()
+                casinoKlasse.spielStarten()
             }
         }
     }
@@ -154,11 +153,6 @@ class CasinoHochTief {
         } else {
             println("Punkte Insgesamt:   ${Utils.green}$punkte${Utils.reset}")
         }
-
-        // hier könnte ich noch alles mögliche Implementieren, verweis auf Spielsucht Webseite, etc... (Logiken, Funktionen)
-        println("\nDanke fürs Spielen.")
-        println("Bei Problemen mit dem Spielen, wenden sie sich bitte an:")
-        println("Bundeszentrale für gesundheitliche Aufklärung\n" + "Maarweg 149-161\n" + "50825 Köln")
     }
 
     // Funktion zum Ziehen eine Random Karte aus dem Kompletten kartendeck
@@ -188,7 +182,13 @@ class CasinoHochTief {
             if (antwort == "ja") {
                 return true
             } else if (antwort == "nein") {
-                return false
+
+                // hier könnte ich noch alles mögliche Implementieren, verweis auf Spielsucht Webseite, etc... (Logiken, Funktionen)
+                println("\nDanke fürs Spielen.")
+                println("Bei Problemen mit dem Spielen, wenden sie sich bitte an:")
+                println("Bundeszentrale für gesundheitliche Aufklärung\n" + "Maarweg 149-161\n" + "50825 Köln.   ${Utils.countdownPrint(3)}")
+
+                return false                                                         // hiermit "Beende" ich die Endlosschleife
             } else {
                 println("\nUngültige Eingabe! Bitte `Ja´ oder ´Nein´ eingeben.")
             }

@@ -1,6 +1,7 @@
 import kotlin.random.Random
 
-// Das ist eine open Basis Klasse, in der ich einen Defaultkonstruktor definiert habe und noch mehrere Konstruktoren damit kann ich in den Klassen DbzStoryModus und DbzArcadeModus
+// Das ist eine open Basis Klasse,
+// in der ich einen Defaultkonstruktor definiert habe und noch mehrere Konstruktoren damit kann ich in den Klassen DbzStoryModus und DbzArcadeModus
 // einfach, Charaktere mit unterschiedlichen Eigenschaften und Parameter erstellen
 
 open class Charakter(

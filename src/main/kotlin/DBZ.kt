@@ -1,9 +1,6 @@
 // erbt von der abstract "Utils" Basisklasse, ich überschreibe die abstrakten funktionen individuell aufs RPG Spiel abgestimmt
 class DBZ : Utils() {
 
-    // V. Instanziierung der auswahlSpiele Funktion, aus der AuswahlSpiele Klasse, wenn Funktion "Beenden" fertig Implementiert ist, nach Beenden zurück ins AuswahlSpiele Menu
-    private val auswahlSpiele = AuswahlSpiele()
-
     // ist eine abstrakte Funktion in der Utils Klasse, damit muss sie individuell Überschrieben werden, um sie aufzurufen
     override fun spielStarten() {
         println("\nWelchen Modus möchtest du Spielen?")
@@ -44,23 +41,24 @@ class DBZ : Utils() {
             println("$yellow[2] Spiel Speichern$reset")
             println("$yellow[3] Spiel Fortsetzen$reset")
             println("$cyan[4] Spiel Beenden$reset")
+
+            // hier ein Beispiel, bei kleinen Sachen, würde ich es so programmieren, bei größeren so wie unten
             index = readln().toIntOrNull() ?: 0
-
-
-            // hier ein Beispiel, bei kleinen Sachen würde ich es so programmieren, bei größeren so wie unten
             when (index) {
                 1 -> {
                     if (modus == 1) {
-                        val dbzStoryModus = DbzStoryModus("", 0, false)
-                        dbzStoryModus.startStoryModus()
+                        val dbzStoryModusKlasse = DbzStoryModus("", 0, false)
+                        dbzStoryModusKlasse.startStoryModus()
                     } else if (modus == 2) {
-                        val dbzArcadeModus = DbzArcadeModus("", 0, false)
-                        dbzArcadeModus.startArcadeModus()
+                        val dbzArcadeModusKlasse = DbzArcadeModus("", 0, false)
+                        dbzArcadeModusKlasse.startArcadeModus()
                     }
                 }
 
                 2 -> spielSpeichern()
+
                 3 -> spielFortsetzen()
+
                 4 -> spielBeenden()
                 else -> {
                     println("Ungültige Eingabe, bitte eine Zahl zwischen 1 und 4 eingeben!")
@@ -97,7 +95,10 @@ class DBZ : Utils() {
                 ) {                                                   // wenn die Eingabe "ja" unabhängig von Groß/Klein, dann wird die Funktion "auswahlSpiele" aufgerufen,
                     println("\nSpiel wird Beendet.\n")
 //                    countdown(3)
-                    auswahlSpiele.auswahlSpiele()
+
+                    // Instanziierung der auswahlSpiele Funktion, aus der AuswahlSpiele Klasse, wenn Funktion "Beenden" fertig Implementiert ist, nach Beenden zurück ins AuswahlSpiele Menu
+                    val auswahlSpieleKlasse = AuswahlSpiele()
+                    auswahlSpieleKlasse.auswahlSpiele()
                 } else {                                             // andernfalls ist die Eingabe also nicht ja, sondern ein anderes gültiges Wort wie "nein", dann wird die Funktion "spieleSpeichern" aufgerufen
                     spielSpeichern()
                 }

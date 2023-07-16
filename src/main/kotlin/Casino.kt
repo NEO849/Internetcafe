@@ -1,9 +1,6 @@
 // erbt von der abstract "Utils" Basisklasse, ich überschreibe die abstrakten funktionen individuell aufs Casino Spiel abgestimmt
 class Casino : Utils() {
 
-    // V. Instanziierung der auswahlSpiele Funktion, aus der AuswahlSpiele Klasse, wenn Funktion "Beenden" fertig Implementiert ist, nach Beenden zurück ins AuswahlSpiele Menu
-    private val auswahlSpiele = AuswahlSpiele()
-
     // ist eine abstrakte Funktion in der Utils Klasse, damit muss sie individuell Überschrieben werden, um sie aufzurufen
     override fun spielStarten() {
         println("\nWelches Spiel möchtest du Spielen?")
@@ -11,7 +8,7 @@ class Casino : Utils() {
         println("${Utils.yellow}[2] Roulette")
         println("${Utils.yellow}[3] Poker")
         println("${Utils.yellow}[4] Black Jack")
-        println("${Utils.purple}[5] Exit${Utils.reset}")
+        println("${Utils.purple}[5] Beenden${Utils.reset}")
 
         val auswahlModus = readln().toIntOrNull() ?: 0
         when (auswahlModus) {
@@ -94,6 +91,10 @@ class Casino : Utils() {
 
     // ich wollte das mal anders lösen und ohne ".toLowerCase", alle gültigen Eingaben sind in einer Liste gespeichert. Vorsicht ohne "break" Endlosschleife
     override fun spielBeenden() {
+
+        // Instanziierung der auswahlSpiele Funktion, aus der AuswahlSpiele Klasse, wenn Funktion "Beenden" fertig Implementiert ist, nach Beenden zurück ins AuswahlSpiele Menu
+        val auswahlSpieleKlasse = AuswahlSpiele()
+
         val gueltigeEingaben = listOf("Ja", "JA", "ja", "jA", "Nein", "NEIN", "nein", "NeIn", "NeiN", "neiN", "niEN")
         while (true) {                                                // das erzeugt eine Endlosschleife, solange der User keine gültige Eingabe macht, läuft sie immer weiter bis zum "break" Befehl
             println("\nBeenden ohne zu Speichern? ${Utils.green}[Ja/Nein]${Utils.reset}")         // wenn richtige Eingabe durch "break" wird die Schleife verlassen
@@ -104,7 +105,7 @@ class Casino : Utils() {
                 ) {                                                   // wenn die Eingabe "ja" unabhängig von Groß/Klein, dann wird die Funktion "auswahlSpiele" aufgerufen,
                     println("\nSpiel wird Beendet.\n")
                     countdown(3)
-                    auswahlSpiele.auswahlSpiele()
+                    auswahlSpieleKlasse.auswahlSpiele()
                 } else {                                             // andernfalls ist die Eingabe also nicht ja, sondern ein anderes gültiges Wort wie "nein", dann wird die Funktion "spieleSpeichern" aufgerufen
                     spielSpeichern()
                 }
